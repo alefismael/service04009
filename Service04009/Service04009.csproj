@@ -9,8 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\alefi\.nuget\packages\officeimo.word\0.15.0\contentFiles\any\net8.0\OfficeIMO.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <PackageReference Include="DocX" Version="3.0.0" />
+    <PackageReference Include="OfficeIMO.Word" Version="0.15.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
   </ItemGroup>
 
