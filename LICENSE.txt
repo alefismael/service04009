@@ -30,7 +30,7 @@ This software utilizes the following third-party libraries:
 2. Dapper
    - License: Apache License 2.0
 
-3. OfficeIMO
+3. OfficeIMO.Word
    - License: MIT
    - Copyright (c) [2022] [Evotec]
 
