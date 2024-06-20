@@ -24,11 +24,9 @@ SOFTWARE.
 
 This software utilizes the following third-party libraries:
 
-1. System.Data.SQLite.Core
-   - License: Public Domain
-
-2. Dapper
-   - License: Apache License 2.0
+1. Microsoft.EntityFrameworkCore.Sqlite
+   - License: MIT
+   - Copyright (c) .NET Foundation and Contributors
 
 3. OfficeIMO.Word
    - License: MIT
