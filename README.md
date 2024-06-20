@@ -25,6 +25,5 @@ comandantes.
 mesmos para salvar um backup em outros locais.
 ### Dependências para desenvolvimento do software
 - .NET 8 JDK
-- System.Data.SQLite.Core
-- Dapper
+- Microsoft.EntityFrameworkCore.Sqlite
 - OfficeIMO.Word
