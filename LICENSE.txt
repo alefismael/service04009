@@ -1,6 +1,6 @@
 Non-Commercial Open Source License (NC-1.0)
 
-Copyright (c) 2024 Álef
+Copyright (c) 2024 Service04009
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Service04009"), to deal
