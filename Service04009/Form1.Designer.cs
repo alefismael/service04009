@@ -28,49 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
             menuStrip1 = new MenuStrip();
             atiradoresToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             excluirToolStripMenuItem = new ToolStripMenuItem();
-            escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
-            serviçoToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
+            escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             gerarToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem1 = new ToolStripMenuItem();
             editarToolStripMenuItem = new ToolStripMenuItem();
             gerardocWordToolStripMenuItem = new ToolStripMenuItem();
+            serviçoToolStripMenuItem = new ToolStripMenuItem();
             adicionarToolStripMenuItem = new ToolStripMenuItem();
             consultarToolStripMenuItem = new ToolStripMenuItem();
             editarToolStripMenuItem1 = new ToolStripMenuItem();
             removerToolStripMenuItem1 = new ToolStripMenuItem();
+            dataGridView1 = new DataGridView();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1160, 692);
-            label1.Name = "label1";
-            label1.Size = new Size(108, 19);
-            label1.TabIndex = 0;
-            label1.Text = "by Atr 01 Álef";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(0, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(111, 19);
-            label2.TabIndex = 1;
-            label2.Text = "Service04009";
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.DarkGreen;
             menuStrip1.Items.AddRange(new ToolStripItem[] { atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
@@ -89,20 +70,26 @@
             // exibirToolStripMenuItem
             // 
             exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
-            exibirToolStripMenuItem.Size = new Size(124, 22);
+            exibirToolStripMenuItem.Size = new Size(180, 22);
             exibirToolStripMenuItem.Text = "Cadastrar";
             // 
             // cadastrarToolStripMenuItem
             // 
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Exibir";
             // 
             // excluirToolStripMenuItem
             // 
             excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            excluirToolStripMenuItem.Size = new Size(124, 22);
+            excluirToolStripMenuItem.Size = new Size(180, 22);
             excluirToolStripMenuItem.Text = "Atualizar";
+            // 
+            // removerToolStripMenuItem
+            // 
+            removerToolStripMenuItem.Name = "removerToolStripMenuItem";
+            removerToolStripMenuItem.Size = new Size(180, 22);
+            removerToolStripMenuItem.Text = "Remover";
             // 
             // escalaDeServiçoToolStripMenuItem
             // 
@@ -111,6 +98,30 @@
             escalaDeServiçoToolStripMenuItem.Size = new Size(108, 20);
             escalaDeServiçoToolStripMenuItem.Text = "Escala de Serviço";
             // 
+            // gerarToolStripMenuItem
+            // 
+            gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
+            gerarToolStripMenuItem.Size = new Size(160, 22);
+            gerarToolStripMenuItem.Text = "Criar";
+            // 
+            // exibirToolStripMenuItem1
+            // 
+            exibirToolStripMenuItem1.Name = "exibirToolStripMenuItem1";
+            exibirToolStripMenuItem1.Size = new Size(160, 22);
+            exibirToolStripMenuItem1.Text = "Exibir";
+            // 
+            // editarToolStripMenuItem
+            // 
+            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            editarToolStripMenuItem.Size = new Size(160, 22);
+            editarToolStripMenuItem.Text = "Editar";
+            // 
+            // gerardocWordToolStripMenuItem
+            // 
+            gerardocWordToolStripMenuItem.Name = "gerardocWordToolStripMenuItem";
+            gerardocWordToolStripMenuItem.Size = new Size(160, 22);
+            gerardocWordToolStripMenuItem.Text = "Gerar .doc Word";
+            // 
             // serviçoToolStripMenuItem
             // 
             serviçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, consultarToolStripMenuItem, editarToolStripMenuItem1, removerToolStripMenuItem1 });
@@ -118,59 +129,37 @@
             serviçoToolStripMenuItem.Size = new Size(57, 20);
             serviçoToolStripMenuItem.Text = "Serviço";
             // 
-            // removerToolStripMenuItem
-            // 
-            removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            removerToolStripMenuItem.Size = new Size(124, 22);
-            removerToolStripMenuItem.Text = "Remover";
-            // 
-            // gerarToolStripMenuItem
-            // 
-            gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
-            gerarToolStripMenuItem.Size = new Size(180, 22);
-            gerarToolStripMenuItem.Text = "Criar";
-            // 
-            // exibirToolStripMenuItem1
-            // 
-            exibirToolStripMenuItem1.Name = "exibirToolStripMenuItem1";
-            exibirToolStripMenuItem1.Size = new Size(180, 22);
-            exibirToolStripMenuItem1.Text = "Exibir";
-            // 
-            // editarToolStripMenuItem
-            // 
-            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(180, 22);
-            editarToolStripMenuItem.Text = "Editar";
-            // 
-            // gerardocWordToolStripMenuItem
-            // 
-            gerardocWordToolStripMenuItem.Name = "gerardocWordToolStripMenuItem";
-            gerardocWordToolStripMenuItem.Size = new Size(180, 22);
-            gerardocWordToolStripMenuItem.Text = "Gerar .doc Word";
-            // 
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(180, 22);
+            adicionarToolStripMenuItem.Size = new Size(125, 22);
             adicionarToolStripMenuItem.Text = "Adicionar";
             // 
             // consultarToolStripMenuItem
             // 
             consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            consultarToolStripMenuItem.Size = new Size(180, 22);
+            consultarToolStripMenuItem.Size = new Size(125, 22);
             consultarToolStripMenuItem.Text = "Consultar";
             // 
             // editarToolStripMenuItem1
             // 
             editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            editarToolStripMenuItem1.Size = new Size(180, 22);
+            editarToolStripMenuItem1.Size = new Size(125, 22);
             editarToolStripMenuItem1.Text = "Editar";
             // 
             // removerToolStripMenuItem1
             // 
             removerToolStripMenuItem1.Name = "removerToolStripMenuItem1";
-            removerToolStripMenuItem1.Size = new Size(180, 22);
+            removerToolStripMenuItem1.Size = new Size(125, 22);
             removerToolStripMenuItem1.Text = "Remover";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(186, 182);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(778, 320);
+            dataGridView1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -178,22 +167,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1280, 720);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Service04009";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Label label2;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem atiradoresToolStripMenuItem;
         private ToolStripMenuItem exibirToolStripMenuItem;
@@ -210,5 +196,6 @@
         private ToolStripMenuItem consultarToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem1;
         private ToolStripMenuItem removerToolStripMenuItem1;
+        private DataGridView dataGridView1;
     }
 }
