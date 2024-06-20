@@ -28,7 +28,7 @@ This software utilizes the following third-party libraries:
    - License: MIT
    - Copyright (c) .NET Foundation and Contributors
 
-3. OfficeIMO.Word
+2. OfficeIMO.Word
    - License: MIT
    - Copyright (c) [2022] [Evotec]
 
