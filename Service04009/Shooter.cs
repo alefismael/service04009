@@ -18,20 +18,20 @@ namespace Service04009
         // se pegou o serviço mas por outro pessoa ter feito coisa errada pegar o serviço dele aí -1
 
         // Disponibilidade do atirador para serviços
-        private bool sunMorning { get; set; } = true;
-        private bool sunNight { get; set; } = true;
-        private bool monMorning { get; set; } = true;
-        private bool monNight { get; set; } = true;
-        private bool tueMorning { get; set; } = true;
-        private bool tueNight { get; set; } = true;
-        private bool wedMorning { get; set; } = true;
-        private bool wedNight { get; set; } = true;
-        private bool thuMorning { get; set; } = true;
-        private bool thuNight { get; set; } = true;
-        private bool friMorning { get; set; } = true;
-        private bool friNight { get; set; } = true;
-        private bool satMorning { get; set; } = true;
-        private bool satNight { get; set; } = true;
+        public bool sunMorning { get; private set; } = true;
+        public bool sunNight { get; private set; } = true;
+        public bool monMorning { get; private set; } = true;
+        public bool monNight { get; private set; } = true;
+        public bool tueMorning { get; private set; } = true;
+        public bool tueNight { get; private set; } = true;
+        public bool wedMorning { get; private set; } = true;
+        public bool wedNight { get; private set; } = true;
+        public bool thuMorning { get; private set; } = true;
+        public bool thuNight { get; private set; } = true;
+        public bool friMorning { get; private set; } = true;
+        public bool friNight { get; private set; } = true;
+        public bool satMorning { get; private set; } = true;
+        public bool satNight { get; private set; } = true;
 
         // Construtor com parâmetros básicos
         public Shooter(int numAtr, string warName, bool isCfc)

@@ -6,10 +6,23 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>jogo-de-tiro.ico</ApplicationIcon>
+    <PackageIcon>jogo-de-tiro.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="C:\Users\alefi\.nuget\packages\officeimo.word\0.15.0\contentFiles\any\net8.0\OfficeIMO.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="jogo-de-tiro.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\jogo-de-tiro.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
