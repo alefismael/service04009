@@ -1,6 +1,8 @@
-﻿namespace Service04009
+﻿using System.Windows.Forms;
+
+namespace Service04009
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +30,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             atiradoresToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem = new ToolStripMenuItem();
             todosToolStripMenuItem = new ToolStripMenuItem();
+            btApenasCfc = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -53,141 +60,146 @@
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.BackColor = Color.DarkGreen;
-            menuStrip1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.Items.AddRange(new ToolStripItem[] { atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.System;
-            menuStrip1.Size = new Size(1264, 38);
-            menuStrip1.TabIndex = 2;
-            menuStrip1.Text = "menuStrip1";
             // 
             // atiradoresToolStripMenuItem
             // 
+            resources.ApplyResources(atiradoresToolStripMenuItem, "atiradoresToolStripMenuItem");
             atiradoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, exibirToolStripMenuItem, atualizarToolStripMenuItem, removerToolStripMenuItem });
             atiradoresToolStripMenuItem.Name = "atiradoresToolStripMenuItem";
-            atiradoresToolStripMenuItem.Size = new Size(120, 34);
-            atiradoresToolStripMenuItem.Text = "Atiradores";
             // 
             // cadastrarToolStripMenuItem
             // 
+            resources.ApplyResources(cadastrarToolStripMenuItem, "cadastrarToolStripMenuItem");
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(174, 34);
-            cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
             // exibirToolStripMenuItem
             // 
-            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem });
+            resources.ApplyResources(exibirToolStripMenuItem, "exibirToolStripMenuItem");
+            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc });
             exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
-            exibirToolStripMenuItem.Size = new Size(174, 34);
-            exibirToolStripMenuItem.Text = "Exibir";
             // 
             // todosToolStripMenuItem
             // 
+            resources.ApplyResources(todosToolStripMenuItem, "todosToolStripMenuItem");
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Size = new Size(140, 34);
-            todosToolStripMenuItem.Text = "Todos";
             todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
+            // 
+            // btApenasCfc
+            // 
+            resources.ApplyResources(btApenasCfc, "btApenasCfc");
+            btApenasCfc.Name = "btApenasCfc";
+            btApenasCfc.Click += apenasCfcToolStripMenuItem_Click;
             // 
             // atualizarToolStripMenuItem
             // 
+            resources.ApplyResources(atualizarToolStripMenuItem, "atualizarToolStripMenuItem");
             atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
-            atualizarToolStripMenuItem.Size = new Size(174, 34);
-            atualizarToolStripMenuItem.Text = "Atualizar";
             // 
             // removerToolStripMenuItem
             // 
+            resources.ApplyResources(removerToolStripMenuItem, "removerToolStripMenuItem");
             removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            removerToolStripMenuItem.Size = new Size(174, 34);
-            removerToolStripMenuItem.Text = "Remover";
             removerToolStripMenuItem.Click += removerToolStripMenuItem_Click;
             // 
             // escalaDeServiçoToolStripMenuItem
             // 
+            resources.ApplyResources(escalaDeServiçoToolStripMenuItem, "escalaDeServiçoToolStripMenuItem");
             escalaDeServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerarToolStripMenuItem, exibirToolStripMenuItem1, editarToolStripMenuItem, gerardocWordToolStripMenuItem });
             escalaDeServiçoToolStripMenuItem.Name = "escalaDeServiçoToolStripMenuItem";
-            escalaDeServiçoToolStripMenuItem.Size = new Size(183, 34);
-            escalaDeServiçoToolStripMenuItem.Text = "Escala de Serviço";
             // 
             // gerarToolStripMenuItem
             // 
+            resources.ApplyResources(gerarToolStripMenuItem, "gerarToolStripMenuItem");
             gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
-            gerarToolStripMenuItem.Size = new Size(237, 34);
-            gerarToolStripMenuItem.Text = "Criar";
             // 
             // exibirToolStripMenuItem1
             // 
+            resources.ApplyResources(exibirToolStripMenuItem1, "exibirToolStripMenuItem1");
             exibirToolStripMenuItem1.Name = "exibirToolStripMenuItem1";
-            exibirToolStripMenuItem1.Size = new Size(237, 34);
-            exibirToolStripMenuItem1.Text = "Exibir";
             // 
             // editarToolStripMenuItem
             // 
+            resources.ApplyResources(editarToolStripMenuItem, "editarToolStripMenuItem");
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(237, 34);
-            editarToolStripMenuItem.Text = "Editar";
             // 
             // gerardocWordToolStripMenuItem
             // 
+            resources.ApplyResources(gerardocWordToolStripMenuItem, "gerardocWordToolStripMenuItem");
             gerardocWordToolStripMenuItem.Name = "gerardocWordToolStripMenuItem";
-            gerardocWordToolStripMenuItem.Size = new Size(237, 34);
-            gerardocWordToolStripMenuItem.Text = "Gerar .doc Word";
             // 
             // serviçoToolStripMenuItem
             // 
+            resources.ApplyResources(serviçoToolStripMenuItem, "serviçoToolStripMenuItem");
             serviçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, consultarToolStripMenuItem, editarToolStripMenuItem1, removerToolStripMenuItem1 });
             serviçoToolStripMenuItem.Name = "serviçoToolStripMenuItem";
-            serviçoToolStripMenuItem.Size = new Size(91, 34);
-            serviçoToolStripMenuItem.Text = "Serviço";
             // 
             // adicionarToolStripMenuItem
             // 
+            resources.ApplyResources(adicionarToolStripMenuItem, "adicionarToolStripMenuItem");
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(174, 34);
-            adicionarToolStripMenuItem.Text = "Adicionar";
             // 
             // consultarToolStripMenuItem
             // 
+            resources.ApplyResources(consultarToolStripMenuItem, "consultarToolStripMenuItem");
             consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            consultarToolStripMenuItem.Size = new Size(174, 34);
-            consultarToolStripMenuItem.Text = "Consultar";
             // 
             // editarToolStripMenuItem1
             // 
+            resources.ApplyResources(editarToolStripMenuItem1, "editarToolStripMenuItem1");
             editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            editarToolStripMenuItem1.Size = new Size(174, 34);
-            editarToolStripMenuItem1.Text = "Editar";
             // 
             // removerToolStripMenuItem1
             // 
+            resources.ApplyResources(removerToolStripMenuItem1, "removerToolStripMenuItem1");
             removerToolStripMenuItem1.Name = "removerToolStripMenuItem1";
-            removerToolStripMenuItem1.Size = new Size(174, 34);
-            removerToolStripMenuItem1.Text = "Remover";
             // 
             // dataGridView1
             // 
+            resources.ApplyResources(dataGridView1, "dataGridView1");
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.BackgroundColor = Color.Green;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Lime;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = Color.DarkGreen;
-            dataGridView1.Location = new Point(50, 70);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1164, 575);
-            dataGridView1.TabIndex = 3;
-            dataGridView1.Visible = false;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             // 
-            // Form1
+            // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
-            ClientSize = new Size(1264, 681);
             Controls.Add(dataGridView1);
             Controls.Add(menuStrip1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
-            Text = "Service04009";
+            Name = "MainForm";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -215,5 +227,6 @@
         private ToolStripMenuItem todosToolStripMenuItem;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private ToolStripMenuItem btApenasCfc;
     }
 }

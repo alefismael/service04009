@@ -8,11 +8,15 @@ namespace Service04009
 {
     internal class ServiceScale
     {
+        public int id;
+        public DateOnly firtDay;
+        public DateOnly lastDay;
         private List<Service> Services { get; }
 
         //A classe é criada passando o dia do primeiro serviço
         public ServiceScale(DateOnly firstDay)
         {
+            this.firtDay = firstDay;
             Services = new List<Service>();
 
             // Cria 20 serviços com base no primeiro dia da escala
@@ -20,6 +24,7 @@ namespace Service04009
             {
                 Services.Add(new Service(firstDay.AddDays(i)));
             }
+            lastDay = firtDay;
         }
 
         // Método para definir a escala de serviço

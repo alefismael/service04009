@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Windows.Forms.AxHost;
 
 namespace Service04009
 {
     internal class Shooter : IComparable<Shooter>
     {
+        [Key]
         public int numAtr { get; private set; } // Número do atirador
         public string warName { get; private set; } // Nome de guerra do atirador
         public bool isCfc { get; private set; } = false; // Booleano se o atirador faz CFC (true or false)
@@ -41,7 +46,7 @@ namespace Service04009
             this.isCfc = isCfc;
         }
 
-        // Construtor com todos os parâmetros básicos necessários (já que por padrão o atirador pode todo dia)
+        // Construtor com os parâmetros básicos necessários mais o número de serviços tiradores (numOfService e numServiceExtra)
         public Shooter(int numAtr, string warName, bool isCfc, int numOfService, int numServiceExtra)
         {
             this.numAtr = numAtr;
