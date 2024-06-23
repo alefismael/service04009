@@ -31,16 +31,13 @@ namespace Service04009
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             atiradoresToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem = new ToolStripMenuItem();
             todosToolStripMenuItem = new ToolStripMenuItem();
             btApenasCfc = new ToolStripMenuItem();
+            pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -53,11 +50,8 @@ namespace Service04009
             consultarToolStripMenuItem = new ToolStripMenuItem();
             editarToolStripMenuItem1 = new ToolStripMenuItem();
             removerToolStripMenuItem1 = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
             panel = new Panel();
-            pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -66,47 +60,58 @@ namespace Service04009
             menuStrip1.BackColor = Color.DarkGreen;
             menuStrip1.Items.AddRange(new ToolStripItem[] { atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.RenderMode = ToolStripRenderMode.System;
+            menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             // 
             // atiradoresToolStripMenuItem
             // 
             resources.ApplyResources(atiradoresToolStripMenuItem, "atiradoresToolStripMenuItem");
+            atiradoresToolStripMenuItem.BackColor = Color.DarkGreen;
             atiradoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, exibirToolStripMenuItem, atualizarToolStripMenuItem, removerToolStripMenuItem });
             atiradoresToolStripMenuItem.Name = "atiradoresToolStripMenuItem";
             // 
             // cadastrarToolStripMenuItem
             // 
             resources.ApplyResources(cadastrarToolStripMenuItem, "cadastrarToolStripMenuItem");
+            cadastrarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             // 
             // exibirToolStripMenuItem
             // 
             resources.ApplyResources(exibirToolStripMenuItem, "exibirToolStripMenuItem");
+            exibirToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc, pesquisaPersonalizadaToolStripMenuItem });
             exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
             // 
             // todosToolStripMenuItem
             // 
             resources.ApplyResources(todosToolStripMenuItem, "todosToolStripMenuItem");
+            todosToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // btApenasCfc
             // 
             resources.ApplyResources(btApenasCfc, "btApenasCfc");
+            btApenasCfc.BackColor = Color.FromArgb(192, 255, 192);
             btApenasCfc.Name = "btApenasCfc";
-            btApenasCfc.Click += apenasCfcToolStripMenuItem_Click;
+            // 
+            // pesquisaPersonalizadaToolStripMenuItem
+            // 
+            resources.ApplyResources(pesquisaPersonalizadaToolStripMenuItem, "pesquisaPersonalizadaToolStripMenuItem");
+            pesquisaPersonalizadaToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
+            pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
             // 
             // atualizarToolStripMenuItem
             // 
             resources.ApplyResources(atualizarToolStripMenuItem, "atualizarToolStripMenuItem");
+            atualizarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
             // 
             // removerToolStripMenuItem
             // 
             resources.ApplyResources(removerToolStripMenuItem, "removerToolStripMenuItem");
+            removerToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            removerToolStripMenuItem.Click += removerToolStripMenuItem_Click;
             // 
             // escalaDeServiçoToolStripMenuItem
             // 
@@ -160,57 +165,17 @@ namespace Service04009
             resources.ApplyResources(removerToolStripMenuItem1, "removerToolStripMenuItem1");
             removerToolStripMenuItem1.Name = "removerToolStripMenuItem1";
             // 
-            // dataGridView1
-            // 
-            resources.ApplyResources(dataGridView1, "dataGridView1");
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.Green;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.Lime;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.DarkGreen;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            // 
             // panel
             // 
             resources.ApplyResources(panel, "panel");
+            panel.BackColor = Color.Lime;
             panel.Name = "panel";
-            // 
-            // pesquisaPersonalizadaToolStripMenuItem
-            // 
-            resources.ApplyResources(pesquisaPersonalizadaToolStripMenuItem, "pesquisaPersonalizadaToolStripMenuItem");
-            pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
-            pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
-            Controls.Add(dataGridView1);
             Controls.Add(panel);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -219,7 +184,6 @@ namespace Service04009
             Name = "MainForm";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,8 +206,6 @@ namespace Service04009
         private ToolStripMenuItem editarToolStripMenuItem1;
         private ToolStripMenuItem removerToolStripMenuItem1;
         private ToolStripMenuItem todosToolStripMenuItem;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
         private ToolStripMenuItem btApenasCfc;
         private Panel panel;
         private ToolStripMenuItem pesquisaPersonalizadaToolStripMenuItem;

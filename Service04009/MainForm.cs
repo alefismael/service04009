@@ -16,46 +16,6 @@ namespace Service04009
             InitializeComponent();
         }
 
-        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            using (var db = new ServiceContext())
-            {
-                dataGridView1.Visible = true;
-                var shootersList = db.Shooters.ToList();
-                List<ShooterDT> shotersDt = new List<ShooterDT>();
-                foreach (var shooter in shootersList)
-                {
-                    shotersDt.Add(new ShooterDT(shooter));
-                }
-                dataGridView1.DataSource = shotersDt;
-            }
-        }
-
-        private void apenasCfcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (var db = new ServiceContext())
-            {
-                dataGridView1.Visible = true;
-                var atr = db.Shooters.ToList();
-                List<ShooterDT> cfc = new List<ShooterDT>();
-                foreach (var at in atr)
-                {
-                    if (at.isCfc)
-                    {
-                        cfc.Add(new ShooterDT(at));
-                    }
-                }
-
-                dataGridView1.DataSource = cfc;
-            }
-        }
-
-        private void removerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Visible = false;
-        }
-
         private void pesquisaPersonalizadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formActive = new FormAtiradorConsult();
