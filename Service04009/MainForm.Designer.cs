@@ -54,6 +54,8 @@ namespace Service04009
             editarToolStripMenuItem1 = new ToolStripMenuItem();
             removerToolStripMenuItem1 = new ToolStripMenuItem();
             dataGridView1 = new DataGridView();
+            panel = new Panel();
+            pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -80,7 +82,7 @@ namespace Service04009
             // exibirToolStripMenuItem
             // 
             resources.ApplyResources(exibirToolStripMenuItem, "exibirToolStripMenuItem");
-            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc });
+            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc, pesquisaPersonalizadaToolStripMenuItem });
             exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
             // 
             // todosToolStripMenuItem
@@ -163,6 +165,7 @@ namespace Service04009
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.Green;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.Lime;
@@ -191,14 +194,28 @@ namespace Service04009
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             // 
+            // panel
+            // 
+            resources.ApplyResources(panel, "panel");
+            panel.Name = "panel";
+            // 
+            // pesquisaPersonalizadaToolStripMenuItem
+            // 
+            resources.ApplyResources(pesquisaPersonalizadaToolStripMenuItem, "pesquisaPersonalizadaToolStripMenuItem");
+            pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
+            pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             Controls.Add(dataGridView1);
+            Controls.Add(panel);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "MainForm";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -228,5 +245,7 @@ namespace Service04009
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
         private ToolStripMenuItem btApenasCfc;
+        private Panel panel;
+        private ToolStripMenuItem pesquisaPersonalizadaToolStripMenuItem;
     }
 }

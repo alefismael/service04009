@@ -118,24 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 15.75pt</value>
+  </data>
+  <data name="cadastrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
   <data name="todosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 34</value>
+    <value>344, 28</value>
+  </data>
+  <data name="btApenasCfc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 28</value>
   </data>
   <data name="btApenasCfc.Text" xml:space="preserve">
     <value>Apenas Cfc</value>
   </data>
+  <data name="pesquisaPersonalizadaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 28</value>
+  </data>
+  <data name="pesquisaPersonalizadaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pesquisa Personalizada</value>
+  </data>
+  <data name="exibirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="atualizarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="removerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="atiradoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 28</value>
+  </data>
+  <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 28</value>
+  </data>
+  <data name="exibirToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 28</value>
+  </data>
+  <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 28</value>
+  </data>
+  <data name="gerardocWordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 28</value>
+  </data>
+  <data name="escalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 28</value>
+  </data>
+  <data name="adicionarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="consultarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="editarToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="removerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="serviçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 28</value>
+  </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1264, 38</value>
+    <value>1264, 32</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dataGridView1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 51</value>
+    <value>936, 223</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1204, 620</value>
+    <value>301, 228</value>
+  </data>
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 51</value>
+  </data>
+  <data name="panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>895, 400</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
@@ -1227,5 +1290,8 @@
         7L10kXfnZYu834Ctly/yVrRc5C1sudi79IrF3rngbfAUpDAOMhgIGQRaLfFe0yrZ8/dWSzxntFriatx6
         kU9B8IFHudbArVyf5oAA6m7V/R6P/wfx68/uFCkxSwAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
 </root>
