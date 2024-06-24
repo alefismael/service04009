@@ -38,6 +38,7 @@ namespace Service04009
             todosToolStripMenuItem = new ToolStripMenuItem();
             btApenasCfc = new ToolStripMenuItem();
             pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
+            apenasQuemNãoÉCFCToolStripMenuItem = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -79,7 +80,7 @@ namespace Service04009
             // 
             resources.ApplyResources(exibirToolStripMenuItem, "exibirToolStripMenuItem");
             exibirToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
-            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc, pesquisaPersonalizadaToolStripMenuItem });
+            exibirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, btApenasCfc, apenasQuemNãoÉCFCToolStripMenuItem, pesquisaPersonalizadaToolStripMenuItem });
             exibirToolStripMenuItem.Name = "exibirToolStripMenuItem";
             // 
             // todosToolStripMenuItem
@@ -87,12 +88,14 @@ namespace Service04009
             resources.ApplyResources(todosToolStripMenuItem, "todosToolStripMenuItem");
             todosToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
+            todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // btApenasCfc
             // 
             resources.ApplyResources(btApenasCfc, "btApenasCfc");
             btApenasCfc.BackColor = Color.FromArgb(192, 255, 192);
             btApenasCfc.Name = "btApenasCfc";
+            btApenasCfc.Click += btApenasCfc_Click;
             // 
             // pesquisaPersonalizadaToolStripMenuItem
             // 
@@ -100,6 +103,13 @@ namespace Service04009
             pesquisaPersonalizadaToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
             pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
+            // 
+            // apenasQuemNãoÉCFCToolStripMenuItem
+            // 
+            resources.ApplyResources(apenasQuemNãoÉCFCToolStripMenuItem, "apenasQuemNãoÉCFCToolStripMenuItem");
+            apenasQuemNãoÉCFCToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            apenasQuemNãoÉCFCToolStripMenuItem.Name = "apenasQuemNãoÉCFCToolStripMenuItem";
+            apenasQuemNãoÉCFCToolStripMenuItem.Click += apenasQuemNãoÉCFCToolStripMenuItem_Click;
             // 
             // atualizarToolStripMenuItem
             // 
@@ -209,5 +219,6 @@ namespace Service04009
         private ToolStripMenuItem btApenasCfc;
         private Panel panel;
         private ToolStripMenuItem pesquisaPersonalizadaToolStripMenuItem;
+        private ToolStripMenuItem apenasQuemNãoÉCFCToolStripMenuItem;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Service04009.Forms
+﻿namespace Service04009.FormsAtirador
 {
     partial class FormAtiradorConsult
     {
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
-            textBox1 = new TextBox();
+            warNameBox = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            numAtrBox = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            textBox3 = new TextBox();
+            numServiceBox = new TextBox();
             table = new DataGridView();
             label5 = new Label();
             checkIsNotCfc = new CheckBox();
@@ -58,12 +58,16 @@
             label1.Text = "Consulta de Atiradores";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // warNameBox
             // 
-            textBox1.Location = new Point(26, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(157, 23);
-            textBox1.TabIndex = 2;
+            warNameBox.Location = new Point(26, 114);
+            warNameBox.MaxLength = 20;
+            warNameBox.Name = "warNameBox";
+            warNameBox.PlaceholderText = "Digite aqui";
+            warNameBox.Size = new Size(157, 23);
+            warNameBox.TabIndex = 2;
+            warNameBox.WordWrap = false;
+            warNameBox.KeyPress += warNameBox_KeyPress;
             // 
             // label2
             // 
@@ -74,12 +78,15 @@
             label2.TabIndex = 3;
             label2.Text = "Nome de Guerra";
             // 
-            // textBox2
+            // numAtrBox
             // 
-            textBox2.Location = new Point(26, 177);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(63, 23);
-            textBox2.TabIndex = 4;
+            numAtrBox.Location = new Point(26, 177);
+            numAtrBox.MaxLength = 4;
+            numAtrBox.Name = "numAtrBox";
+            numAtrBox.PlaceholderText = "Digite aqui";
+            numAtrBox.Size = new Size(63, 23);
+            numAtrBox.TabIndex = 4;
+            numAtrBox.KeyPress += numAtrBox_KeyPress;
             // 
             // label3
             // 
@@ -99,12 +106,15 @@
             label4.TabIndex = 6;
             label4.Text = "Número de serviços tirados";
             // 
-            // textBox3
+            // numServiceBox
             // 
-            textBox3.Location = new Point(20, 235);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 7;
+            numServiceBox.Location = new Point(26, 235);
+            numServiceBox.MaxLength = 4;
+            numServiceBox.Name = "numServiceBox";
+            numServiceBox.PlaceholderText = "Digite aqui";
+            numServiceBox.Size = new Size(100, 23);
+            numServiceBox.TabIndex = 7;
+            numServiceBox.KeyPress += numServiceBox_KeyPress;
             // 
             // table
             // 
@@ -112,38 +122,38 @@
             table.AllowUserToDeleteRows = false;
             table.AllowUserToResizeColumns = false;
             table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             table.Anchor = AnchorStyles.None;
             table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             table.BackgroundColor = Color.Green;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = Color.Lime;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Lime;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            table.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            table.DefaultCellStyle = dataGridViewCellStyle3;
             table.EnableHeadersVisualStyles = false;
             table.GridColor = Color.DarkGreen;
             table.Location = new Point(255, 103);
             table.MultiSelect = false;
             table.Name = "table";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             table.RowHeadersVisible = false;
             table.Size = new Size(930, 422);
             table.TabIndex = 8;
@@ -209,12 +219,12 @@
             Controls.Add(checkIsNotCfc);
             Controls.Add(label5);
             Controls.Add(table);
-            Controls.Add(textBox3);
+            Controls.Add(numServiceBox);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(numAtrBox);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(warNameBox);
             Controls.Add(label1);
             Name = "FormAtiradorConsult";
             Text = "FormAtiradorConsult";
@@ -226,12 +236,12 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox warNameBox;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox numAtrBox;
         private Label label3;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox numServiceBox;
         private DataGridView table;
         private Label label5;
         private CheckBox checkIsNotCfc;

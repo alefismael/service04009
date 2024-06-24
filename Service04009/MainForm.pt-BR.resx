@@ -131,7 +131,10 @@
     <value>344, 28</value>
   </data>
   <data name="btApenasCfc.Text" xml:space="preserve">
-    <value>Apenas Cfc</value>
+    <value>Apenas CFC</value>
+  </data>
+  <data name="apenasQuemNãoÉCFCToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apenas quem não é CFC</value>
   </data>
   <data name="pesquisaPersonalizadaToolStripMenuItem.Text" xml:space="preserve">
     <value>Pesquisa Personalizada</value>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Service04009.Forms
+namespace Service04009.FormsAtirador
 {
     public partial class FormAtiradorConsult : Form
     {
@@ -19,23 +21,91 @@ namespace Service04009.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             using (var db = new ServiceContext())
             {
-                table.Visible = true;
-                if (checkIsCfc.Checked && checkIsNotCfc.Checked)
+                string warName = warNameBox.Text.Trim();
+                int? numAtr = string.IsNullOrEmpty(numAtrBox.Text) ? (int?)null : int.Parse(numAtrBox.Text);
+                int? numService = string.IsNullOrEmpty(numServiceBox.Text) ? (int?)null : int.Parse(numServiceBox.Text);
+                bool isCfcChecked = checkIsCfc.Checked;
+                bool isNotCfcChecked = checkIsNotCfc.Checked;
+
+                var query = db.Shooters.AsQueryable();
+
+                if (!string.IsNullOrEmpty(warName))
                 {
-                    table.DataSource = db.Shooters.Select(s => new ShooterDT(s)).ToList();
+                    query = query.Where(s => s.warName == warName);
                 }
-                else if(checkIsCfc.Checked && !checkIsNotCfc.Checked)
+
+                if (numAtr.HasValue)
                 {
-                    List<Shooter> cfcs = db.Shooters.Where(s => s.isCfc).ToList();
-                    List<ShooterDT> cfcDt = new List<ShooterDT>();
-                    foreach (var cfc in cfcs) {
-                        cfcDt.Add(new ShooterDT(cfc));
+                    query = query.Where(s => s.numAtr == numAtr.Value);
+                }
+
+                if (numService.HasValue)
+                {
+                    query = query.Where(s => s.numOfService - s.numServiceExtra == numService.Value);
+                }
+
+                if (!isCfcChecked && isNotCfcChecked)
+                {
+                    query = query.Where(s => !s.isCfc); // Supondo que existe uma propriedade `isCfc` para filtrar atiradores não CFC
+                }
+                else if (isCfcChecked && !isNotCfcChecked)
+                {
+                    query = query.Where(s => s.isCfc); // Supondo que existe uma propriedade `isCfc` para filtrar atiradores CFC
+                }
+
+                var listQuery = query.ToList();
+
+                if (listQuery.Count == 0)
+                {
+                    MessageBox.Show("Sem atiradores encontrados na pesquisa.");
+                    table.Visible = false;
+                }
+                else
+                {
+                    table.Visible = true;
+                    List<ShooterDT> shooterDTs = new List<ShooterDT>();
+                    foreach (var shot in listQuery)
+                    {
+                        shooterDTs.Add(new ShooterDT(shot));
                     }
-                    table.DataSource = cfcDt;
+                    table.DataSource = shooterDTs;
                 }
+
+                
+            }
+
+        }
+
+        private void warNameBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Conjunto de caracteres adicionais permitidos
+            char[] allowedSpecialChars = { (char)8, ' ', '.' };
+
+            // Verificar se é uma letra ou caractere permitido
+            if (char.IsLetter(e.KeyChar) || allowedSpecialChars.Contains(e.KeyChar))
+            {
+                return;
+            }
+
+            // Caso contrário, cancelar o evento de tecla
+            e.Handled = true;
+        }
+
+        private void numAtrBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numServiceBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
             }
         }
     }
