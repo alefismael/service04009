@@ -65,7 +65,7 @@
             warNameBox.MaxLength = 20;
             warNameBox.Name = "warNameBox";
             warNameBox.PlaceholderText = "Digite aqui";
-            warNameBox.Size = new Size(184, 23);
+            warNameBox.Size = new Size(191, 23);
             warNameBox.TabIndex = 2;
             warNameBox.WordWrap = false;
             warNameBox.KeyPress += warNameBox_KeyPress;
@@ -73,17 +73,18 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Green;
+            label2.BackColor = Color.DarkGreen;
+            label2.Font = new Font("Consolas", 12F, FontStyle.Bold);
             label2.Location = new Point(26, 93);
             label2.Name = "label2";
-            label2.Padding = new Padding(45, 0, 45, 0);
-            label2.Size = new Size(184, 15);
+            label2.Padding = new Padding(28, 0, 28, 0);
+            label2.Size = new Size(191, 19);
             label2.TabIndex = 3;
             label2.Text = "Nome de Guerra";
             // 
             // numAtrBox
             // 
-            numAtrBox.Location = new Point(26, 177);
+            numAtrBox.Location = new Point(26, 193);
             numAtrBox.MaxLength = 4;
             numAtrBox.Name = "numAtrBox";
             numAtrBox.PlaceholderText = "Digite aqui";
@@ -94,26 +95,28 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.Green;
-            label3.Location = new Point(26, 159);
+            label3.BackColor = Color.DarkGreen;
+            label3.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label3.Location = new Point(26, 171);
             label3.Name = "label3";
-            label3.Size = new Size(112, 15);
+            label3.Size = new Size(171, 19);
             label3.TabIndex = 5;
             label3.Text = "Número do atirador";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.Green;
-            label4.Location = new Point(26, 217);
+            label4.BackColor = Color.DarkGreen;
+            label4.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label4.Location = new Point(26, 242);
             label4.Name = "label4";
-            label4.Size = new Size(151, 15);
+            label4.Size = new Size(243, 19);
             label4.TabIndex = 6;
             label4.Text = "Número de serviços tirados";
             // 
             // numServiceBox
             // 
-            numServiceBox.Location = new Point(25, 235);
+            numServiceBox.Location = new Point(26, 264);
             numServiceBox.MaxLength = 4;
             numServiceBox.Name = "numServiceBox";
             numServiceBox.PlaceholderText = "Digite aqui";
@@ -131,7 +134,7 @@
             table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             table.Anchor = AnchorStyles.None;
             table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            table.BackgroundColor = Color.Green;
+            table.BackgroundColor = Color.DarkSlateGray;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.Lime;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -141,7 +144,7 @@
             table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             table.EnableHeadersVisualStyles = false;
             table.GridColor = Color.DarkGreen;
-            table.Location = new Point(240, 93);
+            table.Location = new Point(299, 93);
             table.MultiSelect = false;
             table.Name = "table";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -152,18 +155,19 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             table.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             table.RowHeadersVisible = false;
-            table.Size = new Size(930, 422);
+            table.Size = new Size(925, 448);
             table.TabIndex = 8;
             table.Visible = false;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.Green;
-            label5.Location = new Point(26, 287);
+            label5.BackColor = Color.DarkGreen;
+            label5.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label5.Location = new Point(26, 327);
             label5.Name = "label5";
             label5.Padding = new Padding(25, 0, 25, 0);
-            label5.Size = new Size(99, 15);
+            label5.Size = new Size(122, 19);
             label5.TabIndex = 10;
             label5.Text = "Faz CFC";
             // 
@@ -175,7 +179,7 @@
             checkIsNotCfc.FlatAppearance.BorderColor = Color.Black;
             checkIsNotCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
             checkIsNotCfc.FlatStyle = FlatStyle.Flat;
-            checkIsNotCfc.Location = new Point(26, 305);
+            checkIsNotCfc.Location = new Point(26, 349);
             checkIsNotCfc.Name = "checkIsNotCfc";
             checkIsNotCfc.Size = new Size(43, 25);
             checkIsNotCfc.TabIndex = 11;
@@ -190,7 +194,7 @@
             checkIsCfc.FlatAppearance.BorderColor = Color.Black;
             checkIsCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
             checkIsCfc.FlatStyle = FlatStyle.Flat;
-            checkIsCfc.Location = new Point(89, 305);
+            checkIsCfc.Location = new Point(111, 349);
             checkIsCfc.Name = "checkIsCfc";
             checkIsCfc.Size = new Size(37, 25);
             checkIsCfc.TabIndex = 12;
@@ -199,7 +203,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(36, 469);
+            button1.Location = new Point(36, 502);
             button1.Name = "button1";
             button1.Size = new Size(90, 39);
             button1.TabIndex = 13;
@@ -212,6 +216,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
+            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(button1);
             Controls.Add(checkIsCfc);

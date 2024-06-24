@@ -37,8 +37,8 @@ namespace Service04009
             exibirToolStripMenuItem = new ToolStripMenuItem();
             todosToolStripMenuItem = new ToolStripMenuItem();
             btApenasCfc = new ToolStripMenuItem();
-            pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             apenasQuemNãoÉCFCToolStripMenuItem = new ToolStripMenuItem();
+            pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -97,19 +97,19 @@ namespace Service04009
             btApenasCfc.Name = "btApenasCfc";
             btApenasCfc.Click += btApenasCfc_Click;
             // 
-            // pesquisaPersonalizadaToolStripMenuItem
-            // 
-            resources.ApplyResources(pesquisaPersonalizadaToolStripMenuItem, "pesquisaPersonalizadaToolStripMenuItem");
-            pesquisaPersonalizadaToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
-            pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
-            pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
-            // 
             // apenasQuemNãoÉCFCToolStripMenuItem
             // 
             resources.ApplyResources(apenasQuemNãoÉCFCToolStripMenuItem, "apenasQuemNãoÉCFCToolStripMenuItem");
             apenasQuemNãoÉCFCToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             apenasQuemNãoÉCFCToolStripMenuItem.Name = "apenasQuemNãoÉCFCToolStripMenuItem";
             apenasQuemNãoÉCFCToolStripMenuItem.Click += apenasQuemNãoÉCFCToolStripMenuItem_Click;
+            // 
+            // pesquisaPersonalizadaToolStripMenuItem
+            // 
+            resources.ApplyResources(pesquisaPersonalizadaToolStripMenuItem, "pesquisaPersonalizadaToolStripMenuItem");
+            pesquisaPersonalizadaToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            pesquisaPersonalizadaToolStripMenuItem.Name = "pesquisaPersonalizadaToolStripMenuItem";
+            pesquisaPersonalizadaToolStripMenuItem.Click += pesquisaPersonalizadaToolStripMenuItem_Click;
             // 
             // atualizarToolStripMenuItem
             // 
@@ -179,6 +179,7 @@ namespace Service04009
             // 
             resources.ApplyResources(panel, "panel");
             panel.BackColor = Color.Lime;
+            panel.BackgroundImage = Properties.Resources.img_fundo_service_04009;
             panel.Name = "panel";
             // 
             // MainForm

@@ -47,7 +47,7 @@
             table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             table.Anchor = AnchorStyles.None;
             table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            table.BackgroundColor = Color.Green;
+            table.BackgroundColor = Color.DarkSlateGray;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.Lime;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -97,6 +97,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
+            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(label2);
             Controls.Add(table);
