@@ -12,7 +12,7 @@ serviço de maneira organizada.
 licenças de terceiros.
 - O software Service04009 pode ser utizado, copiado, distribuído e alterado
 gratuitamente, mas não pode ser comercializado, está sob a licença: “Non-Commercial
-Open Source License (NC-1.0) Copyright (c) 2024 Álef”.
+Open Source License (NC-1.0) Copyright (c) 2024 Service04009”.
 ### Funcionalidades do software
 - Cadastrar atiradores com suas respectivas datas disponíveis para tirar serviço.
 - Cadastrar e consultar escalas de serviço.
