@@ -33,7 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             table = new DataGridView();
-            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             table.DefaultCellStyle = dataGridViewCellStyle3;
             table.EnableHeadersVisualStyles = false;
             table.GridColor = Color.DarkGreen;
-            table.Location = new Point(30, 99);
+            table.Location = new Point(34, 136);
             table.MultiSelect = false;
             table.Name = "table";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -76,25 +76,29 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             table.RowHeadersVisible = false;
-            table.Size = new Size(699, 302);
+            table.Size = new Size(1155, 437);
             table.TabIndex = 9;
             // 
-            // label1
+            // label2
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(289, 50);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 15);
-            label1.TabIndex = 10;
-            label1.Text = "Atiradores que fazem CFC";
+            label2.AutoSize = true;
+            label2.BackColor = Color.DarkGreen;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(371, 47);
+            label2.Name = "label2";
+            label2.Size = new Size(451, 39);
+            label2.TabIndex = 11;
+            label2.Text = "Atiradores que fazem CFC";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormConsultApenasCfc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            ClientSize = new Size(1248, 610);
+            Controls.Add(label2);
             Controls.Add(table);
             Name = "FormConsultApenasCfc";
             Text = "FormConsultApenasCfc";
@@ -106,6 +110,6 @@
         #endregion
 
         private DataGridView table;
-        private Label label1;
+        private Label label2;
     }
 }

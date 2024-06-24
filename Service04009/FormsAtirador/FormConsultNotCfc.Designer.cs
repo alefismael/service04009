@@ -32,19 +32,10 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            label1 = new Label();
             table = new DataGridView();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(292, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(167, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Atiradores que não fazem CFC";
             // 
             // table
             // 
@@ -74,7 +65,7 @@
             table.DefaultCellStyle = dataGridViewCellStyle3;
             table.EnableHeadersVisualStyles = false;
             table.GridColor = Color.DarkGreen;
-            table.Location = new Point(35, 83);
+            table.Location = new Point(115, 111);
             table.MultiSelect = false;
             table.Name = "table";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -85,17 +76,30 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             table.RowHeadersVisible = false;
-            table.Size = new Size(721, 309);
+            table.Size = new Size(1035, 465);
             table.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.DarkGreen;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(350, 38);
+            label2.Name = "label2";
+            label2.Size = new Size(523, 39);
+            label2.TabIndex = 12;
+            label2.Text = "Atiradores que não fazem CFC";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormConsultNotCfc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1248, 610);
+            Controls.Add(label2);
             Controls.Add(table);
-            Controls.Add(label1);
             Name = "FormConsultNotCfc";
             Text = "FormConsultNotCfc";
             ((System.ComponentModel.ISupportInitialize)table).EndInit();
@@ -104,8 +108,7 @@
         }
 
         #endregion
-
-        private Label label1;
         private DataGridView table;
+        private Label label2;
     }
 }

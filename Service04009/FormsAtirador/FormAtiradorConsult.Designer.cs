@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             warNameBox = new TextBox();
             label2 = new Label();
@@ -50,10 +49,12 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.DarkGreen;
+            label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(220, 24);
+            label1.Location = new Point(403, 23);
             label1.Name = "label1";
-            label1.Size = new Size(413, 37);
+            label1.Size = new Size(415, 39);
             label1.TabIndex = 0;
             label1.Text = "Consulta de Atiradores";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -64,7 +65,7 @@
             warNameBox.MaxLength = 20;
             warNameBox.Name = "warNameBox";
             warNameBox.PlaceholderText = "Digite aqui";
-            warNameBox.Size = new Size(157, 23);
+            warNameBox.Size = new Size(184, 23);
             warNameBox.TabIndex = 2;
             warNameBox.WordWrap = false;
             warNameBox.KeyPress += warNameBox_KeyPress;
@@ -72,9 +73,11 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Green;
             label2.Location = new Point(26, 93);
             label2.Name = "label2";
-            label2.Size = new Size(94, 15);
+            label2.Padding = new Padding(45, 0, 45, 0);
+            label2.Size = new Size(184, 15);
             label2.TabIndex = 3;
             label2.Text = "Nome de Guerra";
             // 
@@ -84,13 +87,14 @@
             numAtrBox.MaxLength = 4;
             numAtrBox.Name = "numAtrBox";
             numAtrBox.PlaceholderText = "Digite aqui";
-            numAtrBox.Size = new Size(63, 23);
+            numAtrBox.Size = new Size(112, 23);
             numAtrBox.TabIndex = 4;
             numAtrBox.KeyPress += numAtrBox_KeyPress;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Green;
             label3.Location = new Point(26, 159);
             label3.Name = "label3";
             label3.Size = new Size(112, 15);
@@ -100,6 +104,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Green;
             label4.Location = new Point(26, 217);
             label4.Name = "label4";
             label4.Size = new Size(151, 15);
@@ -108,11 +113,11 @@
             // 
             // numServiceBox
             // 
-            numServiceBox.Location = new Point(26, 235);
+            numServiceBox.Location = new Point(25, 235);
             numServiceBox.MaxLength = 4;
             numServiceBox.Name = "numServiceBox";
             numServiceBox.PlaceholderText = "Digite aqui";
-            numServiceBox.Size = new Size(100, 23);
+            numServiceBox.Size = new Size(152, 23);
             numServiceBox.TabIndex = 7;
             numServiceBox.KeyPress += numServiceBox_KeyPress;
             // 
@@ -134,26 +139,18 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            table.DefaultCellStyle = dataGridViewCellStyle3;
             table.EnableHeadersVisualStyles = false;
             table.GridColor = Color.DarkGreen;
-            table.Location = new Point(255, 103);
+            table.Location = new Point(240, 93);
             table.MultiSelect = false;
             table.Name = "table";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             table.RowHeadersVisible = false;
             table.Size = new Size(930, 422);
             table.TabIndex = 8;
@@ -162,9 +159,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(60, 287);
+            label5.BackColor = Color.Green;
+            label5.Location = new Point(26, 287);
             label5.Name = "label5";
-            label5.Size = new Size(49, 15);
+            label5.Padding = new Padding(25, 0, 25, 0);
+            label5.Size = new Size(99, 15);
             label5.TabIndex = 10;
             label5.Text = "Faz CFC";
             // 
@@ -176,7 +175,7 @@
             checkIsNotCfc.FlatAppearance.BorderColor = Color.Black;
             checkIsNotCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
             checkIsNotCfc.FlatStyle = FlatStyle.Flat;
-            checkIsNotCfc.Location = new Point(30, 314);
+            checkIsNotCfc.Location = new Point(26, 305);
             checkIsNotCfc.Name = "checkIsNotCfc";
             checkIsNotCfc.Size = new Size(43, 25);
             checkIsNotCfc.TabIndex = 11;
@@ -191,7 +190,7 @@
             checkIsCfc.FlatAppearance.BorderColor = Color.Black;
             checkIsCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
             checkIsCfc.FlatStyle = FlatStyle.Flat;
-            checkIsCfc.Location = new Point(101, 314);
+            checkIsCfc.Location = new Point(89, 305);
             checkIsCfc.Name = "checkIsCfc";
             checkIsCfc.Size = new Size(37, 25);
             checkIsCfc.TabIndex = 12;
@@ -200,7 +199,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(30, 470);
+            button1.Location = new Point(36, 469);
             button1.Name = "button1";
             button1.Size = new Size(90, 39);
             button1.TabIndex = 13;
