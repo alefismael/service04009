@@ -14,6 +14,10 @@ namespace Service04009
         {
             bool createdNew;
             mutex = new Mutex(true, MutexName, out createdNew);
+            using (var db = new ServiceContext())
+            {
+                db.Database.EnsureCreated();
+            }
 
             if (!createdNew)
             {

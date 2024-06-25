@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             btCadastrar = new Button();
             checkIsCfc = new CheckBox();
@@ -39,7 +43,6 @@
             numAtrBox = new TextBox();
             label2 = new Label();
             warNameBox = new TextBox();
-            label6 = new Label();
             label8 = new Label();
             label7 = new Label();
             label9 = new Label();
@@ -50,19 +53,23 @@
             label14 = new Label();
             label15 = new Label();
             sunMorning = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox10 = new CheckBox();
-            checkBox11 = new CheckBox();
-            checkBox12 = new CheckBox();
-            checkBox13 = new CheckBox();
-            checkBox14 = new CheckBox();
+            friMorning = new CheckBox();
+            thuMorning = new CheckBox();
+            thuNight = new CheckBox();
+            wedNight = new CheckBox();
+            wedMorning = new CheckBox();
+            tueMorning = new CheckBox();
+            tueNight = new CheckBox();
+            monNight = new CheckBox();
+            monMorning = new CheckBox();
+            sunNight = new CheckBox();
+            satMorning = new CheckBox();
+            satNight = new CheckBox();
+            friNight = new CheckBox();
+            table = new DataGridView();
+            label6 = new Label();
+            label16 = new Label();
+            ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -70,22 +77,27 @@
             label1.AutoSize = true;
             label1.BackColor = Color.DarkGreen;
             label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(425, 36);
+            label1.Font = new Font("Consolas", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(415, 9);
             label1.Name = "label1";
-            label1.Size = new Size(343, 39);
+            label1.Size = new Size(362, 43);
             label1.TabIndex = 1;
             label1.Text = "Cadastrar Atirador";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btCadastrar
             // 
-            btCadastrar.Location = new Point(25, 519);
+            btCadastrar.AutoSize = true;
+            btCadastrar.BackColor = Color.MediumSeaGreen;
+            btCadastrar.FlatStyle = FlatStyle.Flat;
+            btCadastrar.Font = new Font("Consolas", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCadastrar.Location = new Point(22, 541);
             btCadastrar.Name = "btCadastrar";
-            btCadastrar.Size = new Size(122, 42);
+            btCadastrar.Size = new Size(416, 57);
             btCadastrar.TabIndex = 23;
-            btCadastrar.Text = "Cadastrar";
-            btCadastrar.UseVisualStyleBackColor = true;
+            btCadastrar.Text = "Clique aqui para cadastrar";
+            btCadastrar.UseVisualStyleBackColor = false;
+            btCadastrar.Click += btCadastrar_Click;
             // 
             // checkIsCfc
             // 
@@ -136,7 +148,7 @@
             numServiceBox.Location = new Point(25, 238);
             numServiceBox.MaxLength = 4;
             numServiceBox.Name = "numServiceBox";
-            numServiceBox.PlaceholderText = "Digite aqui";
+            numServiceBox.PlaceholderText = "Digite aqui (opcional)";
             numServiceBox.Size = new Size(152, 23);
             numServiceBox.TabIndex = 19;
             numServiceBox.KeyPress += numServiceBox_KeyPress;
@@ -196,24 +208,12 @@
             warNameBox.WordWrap = false;
             warNameBox.KeyPress += warNameBox_KeyPress;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.DarkGreen;
-            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label6.Location = new Point(25, 345);
-            label6.Name = "label6";
-            label6.Padding = new Padding(25, 0, 25, 0);
-            label6.Size = new Size(194, 19);
-            label6.TabIndex = 24;
-            label6.Text = "Disponibilidade";
-            // 
             // label8
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.FromArgb(192, 255, 192);
             label8.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label8.Location = new Point(25, 435);
+            label8.Location = new Point(21, 505);
             label8.Name = "label8";
             label8.Padding = new Padding(25, 0, 25, 0);
             label8.Size = new Size(140, 19);
@@ -225,7 +225,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.FromArgb(192, 255, 192);
             label7.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label7.Location = new Point(25, 405);
+            label7.Location = new Point(23, 469);
             label7.Name = "label7";
             label7.Padding = new Padding(25, 0, 5, 0);
             label7.Size = new Size(138, 19);
@@ -237,7 +237,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.FromArgb(192, 255, 192);
             label9.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label9.Location = new Point(588, 377);
+            label9.Location = new Point(577, 435);
             label9.Name = "label9";
             label9.Padding = new Padding(25, 0, 25, 0);
             label9.Size = new Size(113, 19);
@@ -249,7 +249,7 @@
             label10.AutoSize = true;
             label10.BackColor = Color.FromArgb(192, 255, 192);
             label10.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label10.Location = new Point(725, 377);
+            label10.Location = new Point(713, 435);
             label10.Name = "label10";
             label10.Padding = new Padding(25, 0, 25, 0);
             label10.Size = new Size(113, 19);
@@ -261,7 +261,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.FromArgb(192, 255, 192);
             label11.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label11.Location = new Point(444, 377);
+            label11.Location = new Point(444, 435);
             label11.Name = "label11";
             label11.Padding = new Padding(25, 0, 25, 0);
             label11.Size = new Size(104, 19);
@@ -273,7 +273,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.FromArgb(192, 255, 192);
             label12.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label12.Location = new Point(185, 377);
+            label12.Location = new Point(182, 435);
             label12.Name = "label12";
             label12.Padding = new Padding(25, 0, 25, 0);
             label12.Size = new Size(122, 19);
@@ -285,7 +285,7 @@
             label13.AutoSize = true;
             label13.BackColor = Color.FromArgb(192, 255, 192);
             label13.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label13.Location = new Point(310, 377);
+            label13.Location = new Point(310, 435);
             label13.Name = "label13";
             label13.Padding = new Padding(25, 0, 25, 0);
             label13.Size = new Size(122, 19);
@@ -297,7 +297,7 @@
             label14.AutoSize = true;
             label14.BackColor = Color.FromArgb(192, 255, 192);
             label14.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label14.Location = new Point(1014, 377);
+            label14.Location = new Point(988, 435);
             label14.Name = "label14";
             label14.Padding = new Padding(25, 0, 25, 0);
             label14.Size = new Size(113, 19);
@@ -309,7 +309,7 @@
             label15.AutoSize = true;
             label15.BackColor = Color.FromArgb(192, 255, 192);
             label15.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label15.Location = new Point(880, 377);
+            label15.Location = new Point(848, 435);
             label15.Name = "label15";
             label15.Padding = new Padding(25, 0, 25, 0);
             label15.Size = new Size(104, 19);
@@ -323,207 +323,306 @@
             sunMorning.CheckState = CheckState.Checked;
             sunMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
             sunMorning.FlatStyle = FlatStyle.Flat;
-            sunMorning.Location = new Point(185, 405);
+            sunMorning.Font = new Font("Segoe UI", 9F);
+            sunMorning.Location = new Point(182, 468);
             sunMorning.Name = "sunMorning";
             sunMorning.Size = new Size(104, 23);
             sunMorning.TabIndex = 34;
             sunMorning.Text = "Disponível";
+            sunMorning.TextAlign = ContentAlignment.MiddleCenter;
             sunMorning.UseVisualStyleBackColor = true;
             sunMorning.CheckedChanged += sunMorning_CheckedChanged;
             // 
-            // checkBox2
+            // friMorning
             // 
-            checkBox2.Appearance = Appearance.Button;
-            checkBox2.Checked = true;
-            checkBox2.CheckState = CheckState.Checked;
-            checkBox2.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox2.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox2.FlatStyle = FlatStyle.Flat;
-            checkBox2.Location = new Point(880, 405);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(104, 23);
-            checkBox2.TabIndex = 35;
-            checkBox2.Text = "Disponível";
-            checkBox2.UseVisualStyleBackColor = true;
+            friMorning.Appearance = Appearance.Button;
+            friMorning.Checked = true;
+            friMorning.CheckState = CheckState.Checked;
+            friMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            friMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            friMorning.FlatStyle = FlatStyle.Flat;
+            friMorning.Location = new Point(848, 468);
+            friMorning.Name = "friMorning";
+            friMorning.Size = new Size(104, 23);
+            friMorning.TabIndex = 35;
+            friMorning.Text = "Disponível";
+            friMorning.TextAlign = ContentAlignment.MiddleCenter;
+            friMorning.UseVisualStyleBackColor = true;
+            friMorning.CheckedChanged += friMorning_CheckedChanged;
             // 
-            // checkBox3
+            // thuMorning
             // 
-            checkBox3.Appearance = Appearance.Button;
-            checkBox3.Checked = true;
-            checkBox3.CheckState = CheckState.Checked;
-            checkBox3.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox3.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox3.FlatStyle = FlatStyle.Flat;
-            checkBox3.Location = new Point(725, 405);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(104, 23);
-            checkBox3.TabIndex = 36;
-            checkBox3.Text = "Disponível";
-            checkBox3.UseVisualStyleBackColor = true;
+            thuMorning.Appearance = Appearance.Button;
+            thuMorning.Checked = true;
+            thuMorning.CheckState = CheckState.Checked;
+            thuMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            thuMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            thuMorning.FlatStyle = FlatStyle.Flat;
+            thuMorning.Location = new Point(713, 468);
+            thuMorning.Name = "thuMorning";
+            thuMorning.Size = new Size(104, 23);
+            thuMorning.TabIndex = 36;
+            thuMorning.Text = "Disponível";
+            thuMorning.TextAlign = ContentAlignment.MiddleCenter;
+            thuMorning.UseVisualStyleBackColor = true;
+            thuMorning.CheckedChanged += thuMorning_CheckedChanged;
             // 
-            // checkBox4
+            // thuNight
             // 
-            checkBox4.Appearance = Appearance.Button;
-            checkBox4.Checked = true;
-            checkBox4.CheckState = CheckState.Checked;
-            checkBox4.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox4.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox4.FlatStyle = FlatStyle.Flat;
-            checkBox4.Location = new Point(725, 430);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(104, 23);
-            checkBox4.TabIndex = 37;
-            checkBox4.Text = "Disponível";
-            checkBox4.UseVisualStyleBackColor = true;
+            thuNight.Appearance = Appearance.Button;
+            thuNight.CheckAlign = ContentAlignment.MiddleCenter;
+            thuNight.Checked = true;
+            thuNight.CheckState = CheckState.Checked;
+            thuNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            thuNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            thuNight.FlatStyle = FlatStyle.Flat;
+            thuNight.Location = new Point(713, 498);
+            thuNight.Name = "thuNight";
+            thuNight.Size = new Size(104, 23);
+            thuNight.TabIndex = 37;
+            thuNight.Text = "Disponível";
+            thuNight.TextAlign = ContentAlignment.MiddleCenter;
+            thuNight.UseVisualStyleBackColor = true;
+            thuNight.CheckedChanged += thuNight_CheckedChanged;
             // 
-            // checkBox5
+            // wedNight
             // 
-            checkBox5.Appearance = Appearance.Button;
-            checkBox5.Checked = true;
-            checkBox5.CheckState = CheckState.Checked;
-            checkBox5.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox5.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox5.FlatStyle = FlatStyle.Flat;
-            checkBox5.Location = new Point(588, 430);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(104, 23);
-            checkBox5.TabIndex = 38;
-            checkBox5.Text = "Disponível";
-            checkBox5.UseVisualStyleBackColor = true;
+            wedNight.Appearance = Appearance.Button;
+            wedNight.CheckAlign = ContentAlignment.MiddleCenter;
+            wedNight.Checked = true;
+            wedNight.CheckState = CheckState.Checked;
+            wedNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            wedNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            wedNight.FlatStyle = FlatStyle.Flat;
+            wedNight.Location = new Point(577, 498);
+            wedNight.Name = "wedNight";
+            wedNight.Size = new Size(104, 23);
+            wedNight.TabIndex = 38;
+            wedNight.Text = "Disponível";
+            wedNight.TextAlign = ContentAlignment.MiddleCenter;
+            wedNight.UseVisualStyleBackColor = true;
+            wedNight.CheckedChanged += wedNight_CheckedChanged;
             // 
-            // checkBox6
+            // wedMorning
             // 
-            checkBox6.Appearance = Appearance.Button;
-            checkBox6.Checked = true;
-            checkBox6.CheckState = CheckState.Checked;
-            checkBox6.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox6.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox6.FlatStyle = FlatStyle.Flat;
-            checkBox6.Location = new Point(588, 405);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(104, 23);
-            checkBox6.TabIndex = 39;
-            checkBox6.Text = "Disponível";
-            checkBox6.UseVisualStyleBackColor = true;
+            wedMorning.Appearance = Appearance.Button;
+            wedMorning.CheckAlign = ContentAlignment.MiddleCenter;
+            wedMorning.Checked = true;
+            wedMorning.CheckState = CheckState.Checked;
+            wedMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            wedMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            wedMorning.FlatStyle = FlatStyle.Flat;
+            wedMorning.Location = new Point(577, 469);
+            wedMorning.Name = "wedMorning";
+            wedMorning.Size = new Size(104, 23);
+            wedMorning.TabIndex = 39;
+            wedMorning.Text = "Disponível";
+            wedMorning.TextAlign = ContentAlignment.MiddleCenter;
+            wedMorning.UseVisualStyleBackColor = true;
+            wedMorning.CheckedChanged += wedMorning_CheckedChanged;
             // 
-            // checkBox7
+            // tueMorning
             // 
-            checkBox7.Appearance = Appearance.Button;
-            checkBox7.Checked = true;
-            checkBox7.CheckState = CheckState.Checked;
-            checkBox7.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox7.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox7.FlatStyle = FlatStyle.Flat;
-            checkBox7.Location = new Point(444, 405);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(104, 23);
-            checkBox7.TabIndex = 40;
-            checkBox7.Text = "Disponível";
-            checkBox7.UseVisualStyleBackColor = true;
+            tueMorning.Appearance = Appearance.Button;
+            tueMorning.CheckAlign = ContentAlignment.MiddleCenter;
+            tueMorning.Checked = true;
+            tueMorning.CheckState = CheckState.Checked;
+            tueMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            tueMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            tueMorning.FlatStyle = FlatStyle.Flat;
+            tueMorning.Location = new Point(444, 468);
+            tueMorning.Name = "tueMorning";
+            tueMorning.Size = new Size(104, 23);
+            tueMorning.TabIndex = 40;
+            tueMorning.Text = "Disponível";
+            tueMorning.TextAlign = ContentAlignment.MiddleCenter;
+            tueMorning.UseVisualStyleBackColor = true;
+            tueMorning.CheckedChanged += tueMorning_CheckedChanged;
             // 
-            // checkBox8
+            // tueNight
             // 
-            checkBox8.Appearance = Appearance.Button;
-            checkBox8.Checked = true;
-            checkBox8.CheckState = CheckState.Checked;
-            checkBox8.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox8.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox8.FlatStyle = FlatStyle.Flat;
-            checkBox8.Location = new Point(444, 431);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(104, 23);
-            checkBox8.TabIndex = 41;
-            checkBox8.Text = "Disponível";
-            checkBox8.UseVisualStyleBackColor = true;
+            tueNight.Appearance = Appearance.Button;
+            tueNight.CheckAlign = ContentAlignment.MiddleCenter;
+            tueNight.Checked = true;
+            tueNight.CheckState = CheckState.Checked;
+            tueNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            tueNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            tueNight.FlatStyle = FlatStyle.Flat;
+            tueNight.Location = new Point(444, 501);
+            tueNight.Name = "tueNight";
+            tueNight.Size = new Size(104, 23);
+            tueNight.TabIndex = 41;
+            tueNight.Text = "Disponível";
+            tueNight.TextAlign = ContentAlignment.MiddleCenter;
+            tueNight.UseVisualStyleBackColor = true;
+            tueNight.CheckedChanged += tueNight_CheckedChanged;
             // 
-            // checkBox9
+            // monNight
             // 
-            checkBox9.Appearance = Appearance.Button;
-            checkBox9.Checked = true;
-            checkBox9.CheckState = CheckState.Checked;
-            checkBox9.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox9.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox9.FlatStyle = FlatStyle.Flat;
-            checkBox9.Location = new Point(310, 431);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(104, 23);
-            checkBox9.TabIndex = 42;
-            checkBox9.Text = "Disponível";
-            checkBox9.UseVisualStyleBackColor = true;
+            monNight.Appearance = Appearance.Button;
+            monNight.Checked = true;
+            monNight.CheckState = CheckState.Checked;
+            monNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            monNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            monNight.FlatStyle = FlatStyle.Flat;
+            monNight.Location = new Point(310, 501);
+            monNight.Name = "monNight";
+            monNight.Size = new Size(104, 23);
+            monNight.TabIndex = 42;
+            monNight.Text = "Disponível";
+            monNight.TextAlign = ContentAlignment.MiddleCenter;
+            monNight.UseVisualStyleBackColor = true;
+            monNight.CheckedChanged += monNight_CheckedChanged;
             // 
-            // checkBox10
+            // monMorning
             // 
-            checkBox10.Appearance = Appearance.Button;
-            checkBox10.Checked = true;
-            checkBox10.CheckState = CheckState.Checked;
-            checkBox10.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox10.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox10.FlatStyle = FlatStyle.Flat;
-            checkBox10.Location = new Point(310, 405);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(104, 23);
-            checkBox10.TabIndex = 43;
-            checkBox10.Text = "Disponível";
-            checkBox10.UseVisualStyleBackColor = true;
+            monMorning.Appearance = Appearance.Button;
+            monMorning.Checked = true;
+            monMorning.CheckState = CheckState.Checked;
+            monMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            monMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            monMorning.FlatStyle = FlatStyle.Flat;
+            monMorning.Location = new Point(310, 468);
+            monMorning.Name = "monMorning";
+            monMorning.Size = new Size(104, 23);
+            monMorning.TabIndex = 43;
+            monMorning.Text = "Disponível";
+            monMorning.TextAlign = ContentAlignment.MiddleCenter;
+            monMorning.UseVisualStyleBackColor = true;
+            monMorning.CheckedChanged += monMorning_CheckedChanged;
             // 
-            // checkBox11
+            // sunNight
             // 
-            checkBox11.Appearance = Appearance.Button;
-            checkBox11.Checked = true;
-            checkBox11.CheckState = CheckState.Checked;
-            checkBox11.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox11.FlatStyle = FlatStyle.Flat;
-            checkBox11.Location = new Point(185, 430);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Size = new Size(104, 23);
-            checkBox11.TabIndex = 44;
-            checkBox11.Text = "Disponível";
-            checkBox11.UseVisualStyleBackColor = true;
+            sunNight.Appearance = Appearance.Button;
+            sunNight.Checked = true;
+            sunNight.CheckState = CheckState.Checked;
+            sunNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            sunNight.FlatStyle = FlatStyle.Flat;
+            sunNight.Location = new Point(182, 501);
+            sunNight.Name = "sunNight";
+            sunNight.Size = new Size(104, 23);
+            sunNight.TabIndex = 44;
+            sunNight.Text = "Disponível";
+            sunNight.TextAlign = ContentAlignment.MiddleCenter;
+            sunNight.UseVisualStyleBackColor = true;
+            sunNight.CheckedChanged += sunNight_CheckedChanged;
             // 
-            // checkBox12
+            // satMorning
             // 
-            checkBox12.Appearance = Appearance.Button;
-            checkBox12.Checked = true;
-            checkBox12.CheckState = CheckState.Checked;
-            checkBox12.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox12.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox12.FlatStyle = FlatStyle.Flat;
-            checkBox12.Location = new Point(1014, 405);
-            checkBox12.Name = "checkBox12";
-            checkBox12.Size = new Size(104, 23);
-            checkBox12.TabIndex = 45;
-            checkBox12.Text = "Disponível";
-            checkBox12.UseVisualStyleBackColor = true;
+            satMorning.Appearance = Appearance.Button;
+            satMorning.Checked = true;
+            satMorning.CheckState = CheckState.Checked;
+            satMorning.FlatAppearance.BorderColor = Color.DarkGreen;
+            satMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            satMorning.FlatStyle = FlatStyle.Flat;
+            satMorning.Location = new Point(988, 469);
+            satMorning.Name = "satMorning";
+            satMorning.Size = new Size(104, 23);
+            satMorning.TabIndex = 45;
+            satMorning.Text = "Disponível";
+            satMorning.TextAlign = ContentAlignment.MiddleCenter;
+            satMorning.UseVisualStyleBackColor = true;
+            satMorning.CheckedChanged += satMorning_CheckedChanged;
             // 
-            // checkBox13
+            // satNight
             // 
-            checkBox13.Appearance = Appearance.Button;
-            checkBox13.Checked = true;
-            checkBox13.CheckState = CheckState.Checked;
-            checkBox13.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox13.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox13.FlatStyle = FlatStyle.Flat;
-            checkBox13.Location = new Point(1014, 430);
-            checkBox13.Name = "checkBox13";
-            checkBox13.Size = new Size(104, 23);
-            checkBox13.TabIndex = 46;
-            checkBox13.Text = "Disponível";
-            checkBox13.UseVisualStyleBackColor = true;
+            satNight.Appearance = Appearance.Button;
+            satNight.Checked = true;
+            satNight.CheckState = CheckState.Checked;
+            satNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            satNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            satNight.FlatStyle = FlatStyle.Flat;
+            satNight.Location = new Point(988, 498);
+            satNight.Name = "satNight";
+            satNight.Size = new Size(104, 23);
+            satNight.TabIndex = 46;
+            satNight.Text = "Disponível";
+            satNight.TextAlign = ContentAlignment.MiddleCenter;
+            satNight.UseVisualStyleBackColor = true;
+            satNight.CheckedChanged += satNight_CheckedChanged;
             // 
-            // checkBox14
+            // friNight
             // 
-            checkBox14.Appearance = Appearance.Button;
-            checkBox14.Checked = true;
-            checkBox14.CheckState = CheckState.Checked;
-            checkBox14.FlatAppearance.BorderColor = Color.DarkGreen;
-            checkBox14.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            checkBox14.FlatStyle = FlatStyle.Flat;
-            checkBox14.Location = new Point(880, 430);
-            checkBox14.Name = "checkBox14";
-            checkBox14.Size = new Size(104, 23);
-            checkBox14.TabIndex = 47;
-            checkBox14.Text = "Disponível";
-            checkBox14.UseVisualStyleBackColor = true;
+            friNight.Appearance = Appearance.Button;
+            friNight.Checked = true;
+            friNight.CheckState = CheckState.Checked;
+            friNight.FlatAppearance.BorderColor = Color.DarkGreen;
+            friNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
+            friNight.FlatStyle = FlatStyle.Flat;
+            friNight.Location = new Point(848, 498);
+            friNight.Name = "friNight";
+            friNight.Size = new Size(104, 23);
+            friNight.TabIndex = 47;
+            friNight.Text = "Disponível";
+            friNight.TextAlign = ContentAlignment.MiddleCenter;
+            friNight.UseVisualStyleBackColor = true;
+            friNight.CheckedChanged += friNight_CheckedChanged;
+            // 
+            // table
+            // 
+            table.AllowUserToAddRows = false;
+            table.AllowUserToDeleteRows = false;
+            table.AllowUserToResizeColumns = false;
+            table.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            table.Anchor = AnchorStyles.None;
+            table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            table.BackgroundColor = Color.DarkSlateGray;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Lime;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            table.DefaultCellStyle = dataGridViewCellStyle3;
+            table.EnableHeadersVisualStyles = false;
+            table.GridColor = Color.DarkGreen;
+            table.Location = new Point(320, 135);
+            table.MultiSelect = false;
+            table.Name = "table";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            table.RowHeadersVisible = false;
+            table.Size = new Size(781, 263);
+            table.TabIndex = 48;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.DarkGreen;
+            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label6.Location = new Point(22, 405);
+            label6.Name = "label6";
+            label6.Padding = new Padding(25, 0, 25, 0);
+            label6.Size = new Size(194, 19);
+            label6.TabIndex = 24;
+            label6.Text = "Disponibilidade";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.DarkGreen;
+            label16.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(705, 97);
+            label16.Name = "label16";
+            label16.Padding = new Padding(25, 0, 25, 0);
+            label16.Size = new Size(396, 24);
+            label16.TabIndex = 49;
+            label16.Text = "Todos atiradores cadastrados";
             // 
             // FormAddAtirador
             // 
@@ -531,19 +630,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
-            Controls.Add(checkBox14);
-            Controls.Add(checkBox13);
-            Controls.Add(checkBox12);
-            Controls.Add(checkBox11);
-            Controls.Add(checkBox10);
-            Controls.Add(checkBox9);
-            Controls.Add(checkBox8);
-            Controls.Add(checkBox7);
-            Controls.Add(checkBox6);
-            Controls.Add(checkBox5);
-            Controls.Add(checkBox4);
-            Controls.Add(checkBox3);
-            Controls.Add(checkBox2);
+            Controls.Add(label16);
+            Controls.Add(table);
+            Controls.Add(friNight);
+            Controls.Add(satNight);
+            Controls.Add(satMorning);
+            Controls.Add(sunNight);
+            Controls.Add(monMorning);
+            Controls.Add(monNight);
+            Controls.Add(tueNight);
+            Controls.Add(tueMorning);
+            Controls.Add(wedMorning);
+            Controls.Add(wedNight);
+            Controls.Add(thuNight);
+            Controls.Add(thuMorning);
+            Controls.Add(friMorning);
             Controls.Add(sunMorning);
             Controls.Add(label15);
             Controls.Add(label14);
@@ -568,6 +669,7 @@
             Controls.Add(label1);
             Name = "FormAddAtirador";
             Text = "FormAddAtirador";
+            ((System.ComponentModel.ISupportInitialize)table).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -585,7 +687,6 @@
         private TextBox numAtrBox;
         private Label label2;
         private TextBox warNameBox;
-        private Label label6;
         private Label label8;
         private Label label7;
         private Label label9;
@@ -596,18 +697,21 @@
         private Label label14;
         private Label label15;
         private CheckBox sunMorning;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
-        private CheckBox checkBox11;
-        private CheckBox checkBox12;
-        private CheckBox checkBox13;
-        private CheckBox checkBox14;
+        private CheckBox friMorning;
+        private CheckBox thuMorning;
+        private CheckBox thuNight;
+        private CheckBox wedNight;
+        private CheckBox wedMorning;
+        private CheckBox tueMorning;
+        private CheckBox tueNight;
+        private CheckBox monNight;
+        private CheckBox monMorning;
+        private CheckBox sunNight;
+        private CheckBox satMorning;
+        private CheckBox satNight;
+        private CheckBox friNight;
+        private DataGridView table;
+        private Label label6;
+        private Label label16;
     }
 }

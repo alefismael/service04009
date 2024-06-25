@@ -58,8 +58,8 @@ internal class Shooter : IComparable<Shooter>
         this.numServiceExtra = numServiceExtra;
     }
 
-    // Construtor com parâmetros de disponibilidade
-    public Shooter(int numAtr, string warName, bool isCfc, int numOfService, int numServiceExtra, bool sunMorning, bool sunNight, bool monMorning, bool monNight,
+    // Construtor com parâmetros de disponibilidade, apenas numService, sem numServiceExtra
+    public Shooter(int numAtr, string warName, bool isCfc, int numOfService, bool sunMorning, bool sunNight, bool monMorning, bool monNight,
                     bool tueMorning, bool tueNight, bool wedMorning, bool wedNight,
                     bool thuMorning, bool thuNight, bool friMorning, bool friNight,
                     bool satMorning, bool satNight)
@@ -68,7 +68,7 @@ internal class Shooter : IComparable<Shooter>
         this.warName = warName;
         this.isCfc = isCfc;
         this.numOfService = numOfService;
-        this.numServiceExtra = numServiceExtra;
+        this.numServiceExtra = 0;
         this.sunMorning = sunMorning;
         this.sunNight = sunNight;
         this.monMorning = monMorning;
