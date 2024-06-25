@@ -5,26 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service04009;
-
-internal class ServiceContext : DbContext
+namespace Service04009
 {
-    public DbSet<Shooter> Shooters { get; set; }
-    public DbSet<Service> Services { get; set; }
-    public DbSet<ServiceScale> ServiceScales { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    => options.UseSqlite($"Data Source=shooter.db");
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    internal class ServiceContext : DbContext
     {
-        modelBuilder.Entity<Shooter>().HasMany(s => s.CommanderServices).WithOne(s => s.CommanderOfTheGuard).HasForeignKey(s => s.CommanderOfTheGuardId);
+        public DbSet<Shooter> Shooters { get; set; }
 
-        modelBuilder.Entity<Service>().HasMany(s => s.Sentinels).WithMany(s => s.SentinelServices).UsingEntity("ServiceSentinelRelational"); ;
-
-        modelBuilder.Entity<Service>().HasMany(s => s.Permanences).WithMany(s => s.PermanenceServices).UsingEntity("ServicePermanenceRelational"); ;
-
-        modelBuilder.Entity<ServiceScale>().HasMany(s => s.Services).WithOne(s => s.ServiceScale).HasForeignKey(s => s.ServiceScaleId);
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlite($"Data Source=shooter.db");
     }
 }
-
