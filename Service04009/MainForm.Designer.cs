@@ -75,6 +75,7 @@ namespace Service04009
             resources.ApplyResources(cadastrarToolStripMenuItem, "cadastrarToolStripMenuItem");
             cadastrarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
             // exibirToolStripMenuItem
             // 

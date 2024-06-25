@@ -56,6 +56,10 @@ namespace Service04009.FormsAtirador
                 }
 
                 var listQuery = query.ToList();
+                if (!isCfcChecked && !isNotCfcChecked)
+                {
+                    listQuery.Clear();
+                }
 
                 if (listQuery.Count == 0)
                 {
@@ -73,7 +77,7 @@ namespace Service04009.FormsAtirador
                     table.DataSource = shooterDTs;
                 }
 
-                
+
             }
 
         }
