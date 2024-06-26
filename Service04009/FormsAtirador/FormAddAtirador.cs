@@ -71,17 +71,63 @@ namespace Service04009.FormsAtirador
 
         private void btCadastrar_Click(object sender, EventArgs e)
         {
-            if (warNameBox.Text != "" && numAtrBox.Text != "" && (checkIsCfc.Checked || checkIsNotCfc.Checked) && numServiceBox.Text != "")
+            using (var db = new ServiceContext())
             {
-                Shooter shooter;
-                bool cfc = false;
-                if (checkIsCfc.Checked)
+                int numAtr = 0;
+                if (numAtrBox.Text != "")
                 {
-                    cfc = true;
+                    numAtr = int.Parse(numAtrBox.Text);
                 }
-                shooter = new Shooter(int.Parse(numAtrBox.Text), warNameBox.Text, cfc, int.Parse(numServiceBox.Text), sunMorning.Checked, sunNight.Checked, monMorning.Checked, monNight.Checked, tueMorning.Checked, tueNight.Checked, wedMorning.Checked, wedNight.Checked, thuMorning.Checked, thuNight.Checked, friMorning.Checked, friNight.Checked, satMorning.Checked, satNight.Checked);
-                using (var db = new ServiceContext())
+                int numService = 0;
+                if (numServiceBox.Text != "")
                 {
+                    numService = int.Parse(numServiceBox.Text);
+                }
+
+                if (numAtr == 0)
+                {
+                    MessageBox.Show("Por favor, passe apenas um número maior que 0 para o atirador ser poder cadastrado");
+                }
+                else if (warNameBox.Text.Trim() == "")
+                {
+                    MessageBox.Show("Por favor, informe um nome para o atirador");
+                }
+                else if (!checkIsCfc.Checked && !checkIsNotCfc.Checked)
+                {
+                    MessageBox.Show("Por favor, informe se o atirador a ser adicionado é CFC ou não");
+                }
+                else if (db.Shooters.Where(s => s.warName == warNameBox.Text).ToList().Count > 0)
+                {
+                    MessageBox.Show("Por favor, informe um nome para o atirador que ainda não foi cadastrado no sistema.");
+                }
+                else if (db.Shooters.Where(s => s.numAtr == numAtr).ToList().Count > 0)
+                {
+                    MessageBox.Show("Por favor, informe um número para o atirador que ainda não foi cadastrado no sistema.");
+                }
+                else if (warNameBox.Text != "" && numAtrBox.Text != "" && (checkIsCfc.Checked || checkIsNotCfc.Checked) && numServiceBox.Text != "")
+                {
+                    Shooter shooter;
+                    bool cfc = false;
+                    if (checkIsCfc.Checked)
+                    {
+                        cfc = true;
+                    }
+                    shooter = new Shooter(int.Parse(numAtrBox.Text), warNameBox.Text.Trim(), cfc, int.Parse(numServiceBox.Text), sunMorning.Checked, sunNight.Checked, monMorning.Checked, monNight.Checked, tueMorning.Checked, tueNight.Checked, wedMorning.Checked, wedNight.Checked, thuMorning.Checked, thuNight.Checked, friMorning.Checked, friNight.Checked, satMorning.Checked, satNight.Checked);
+                    db.Shooters.Add(shooter);
+                    db.SaveChanges();
+                    List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
+                    table.DataSource = shooterDt;
+                }
+                else if (warNameBox.Text != "" && numAtrBox.Text != "" && (checkIsCfc.Checked || checkIsNotCfc.Checked) && numServiceBox.Text == "")
+                {
+                    Shooter shooter;
+                    bool cfc = false;
+                    if (checkIsCfc.Checked)
+                    {
+                        cfc = true;
+                    }
+                    shooter = new Shooter(int.Parse(numAtrBox.Text), warNameBox.Text.Trim(), cfc, 0, sunMorning.Checked, sunNight.Checked, monMorning.Checked, monNight.Checked, tueMorning.Checked, tueNight.Checked, wedMorning.Checked, wedNight.Checked, thuMorning.Checked, thuNight.Checked, friMorning.Checked, friNight.Checked, satMorning.Checked, satNight.Checked);
+
                     db.Shooters.Add(shooter);
                     db.SaveChanges();
                     List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
