@@ -17,7 +17,7 @@ namespace Service04009.FormsAtirador
             InitializeComponent();
             using (var db = new ServiceContext())
             {
-                List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
+                List<ShooterDT> shooterDt = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
                 table.DataSource = shooterDt;
             }
         }
@@ -115,7 +115,7 @@ namespace Service04009.FormsAtirador
                     shooter = new Shooter(int.Parse(numAtrBox.Text), warNameBox.Text.Trim(), cfc, int.Parse(numServiceBox.Text), sunMorning.Checked, sunNight.Checked, monMorning.Checked, monNight.Checked, tueMorning.Checked, tueNight.Checked, wedMorning.Checked, wedNight.Checked, thuMorning.Checked, thuNight.Checked, friMorning.Checked, friNight.Checked, satMorning.Checked, satNight.Checked);
                     db.Shooters.Add(shooter);
                     db.SaveChanges();
-                    List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
+                    List<ShooterDT> shooterDt = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
                     table.DataSource = shooterDt;
                 }
                 else if (warNameBox.Text != "" && numAtrBox.Text != "" && (checkIsCfc.Checked || checkIsNotCfc.Checked) && numServiceBox.Text == "")
@@ -130,7 +130,7 @@ namespace Service04009.FormsAtirador
 
                     db.Shooters.Add(shooter);
                     db.SaveChanges();
-                    List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
+                    List<ShooterDT> shooterDt = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
                     table.DataSource = shooterDt;
 
                 }

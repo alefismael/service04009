@@ -18,12 +18,7 @@ namespace Service04009.FormsAtirador
             InitializeComponent();
             using (var db = new ServiceContext())
             {
-                List<ShooterDT> listDT = new List<ShooterDT>();
-                foreach (var shooter in db.Shooters.ToList())
-                {
-                    listDT.Add(new ShooterDT(shooter));
-                }
-                table.DataSource = listDT;
+                table.DataSource = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
             }
         }
     }

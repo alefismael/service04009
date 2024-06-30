@@ -69,12 +69,7 @@ namespace Service04009.FormsAtirador
                 else
                 {
                     table.Visible = true;
-                    List<ShooterDT> shooterDTs = new List<ShooterDT>();
-                    foreach (var shot in listQuery)
-                    {
-                        shooterDTs.Add(new ShooterDT(shot));
-                    }
-                    table.DataSource = shooterDTs;
+                    table.DataSource = listQuery.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
                 }
 
 
