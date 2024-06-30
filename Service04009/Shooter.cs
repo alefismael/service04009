@@ -21,20 +21,20 @@ internal class Shooter : IComparable<Shooter>
     public int numServiceExtra { get; private set; } = 0; // Serviços extras tirados
 
     // Disponibilidade do atirador para serviços
-    public bool sunMorning { get; private set; } = true;
-    public bool sunNight { get; private set; } = true;
-    public bool monMorning { get; private set; } = true;
-    public bool monNight { get; private set; } = true;
-    public bool tueMorning { get; private set; } = true;
-    public bool tueNight { get; private set; } = true;
-    public bool wedMorning { get; private set; } = true;
-    public bool wedNight { get; private set; } = true;
-    public bool thuMorning { get; private set; } = true;
-    public bool thuNight { get; private set; } = true;
-    public bool friMorning { get; private set; } = true;
-    public bool friNight { get; private set; } = true;
-    public bool satMorning { get; private set; } = true;
-    public bool satNight { get; private set; } = true;
+    public bool sunMorning { get; set; } = true;
+    public bool sunNight { get; set; } = true;
+    public bool monMorning { get; set; } = true;
+    public bool monNight { get; set; } = true;
+    public bool tueMorning { get; set; } = true;
+    public bool tueNight { get; set; } = true;
+    public bool wedMorning { get; set; } = true;
+    public bool wedNight { get; set; } = true;
+    public bool thuMorning { get; set; } = true;
+    public bool thuNight { get; set; } = true;
+    public bool friMorning { get; set; } = true;
+    public bool friNight { get; set; } = true;
+    public bool satMorning { get; set; } = true;
+    public bool satNight { get; set; } = true;
 
     public List<Service> CommanderServices { get; set; } = new List<Service>();
     public List<Service> PermanenceServices { get; set; } = new List<Service>();
@@ -133,6 +133,7 @@ internal class Shooter : IComparable<Shooter>
         if (numOfService > 0)
         {
             this.numOfService = numOfService;
+            numServiceExtra = 0;
             return true;
         }
         return false;

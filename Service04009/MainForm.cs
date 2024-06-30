@@ -90,5 +90,35 @@ namespace Service04009
             panel.Controls.Add(formActive);
             formActive.Show();
         }
+
+        private void buscandoPorIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formActive != null)
+            {
+                formActive.Close();
+                formActive = null;
+            }
+            formActive = new FormUpdateByNumber();
+            formActive.TopLevel = false;
+            formActive.FormBorderStyle = FormBorderStyle.None;
+            formActive.Dock = DockStyle.Fill;
+            panel.Controls.Add(formActive);
+            formActive.Show();
+        }
+
+        private void buscandoPorNomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formActive != null)
+            {
+                formActive.Close();
+                formActive = null;
+            }
+            formActive = new FormUpdateByName();
+            formActive.TopLevel = false;
+            formActive.FormBorderStyle = FormBorderStyle.None;
+            formActive.Dock = DockStyle.Fill;
+            panel.Controls.Add(formActive);
+            formActive.Show();
+        }
     }
 }

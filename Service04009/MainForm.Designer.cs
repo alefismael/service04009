@@ -40,6 +40,8 @@ namespace Service04009
             apenasQuemNãoÉCFCToolStripMenuItem = new ToolStripMenuItem();
             pesquisaPersonalizadaToolStripMenuItem = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
+            buscandoPorIDToolStripMenuItem = new ToolStripMenuItem();
+            buscandoPorNomeToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             gerarToolStripMenuItem = new ToolStripMenuItem();
@@ -116,7 +118,22 @@ namespace Service04009
             // 
             resources.ApplyResources(atualizarToolStripMenuItem, "atualizarToolStripMenuItem");
             atualizarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            atualizarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { buscandoPorIDToolStripMenuItem, buscandoPorNomeToolStripMenuItem });
             atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
+            // 
+            // buscandoPorIDToolStripMenuItem
+            // 
+            resources.ApplyResources(buscandoPorIDToolStripMenuItem, "buscandoPorIDToolStripMenuItem");
+            buscandoPorIDToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            buscandoPorIDToolStripMenuItem.Name = "buscandoPorIDToolStripMenuItem";
+            buscandoPorIDToolStripMenuItem.Click += buscandoPorIDToolStripMenuItem_Click;
+            // 
+            // buscandoPorNomeToolStripMenuItem
+            // 
+            resources.ApplyResources(buscandoPorNomeToolStripMenuItem, "buscandoPorNomeToolStripMenuItem");
+            buscandoPorNomeToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            buscandoPorNomeToolStripMenuItem.Name = "buscandoPorNomeToolStripMenuItem";
+            buscandoPorNomeToolStripMenuItem.Click += buscandoPorNomeToolStripMenuItem_Click;
             // 
             // removerToolStripMenuItem
             // 
@@ -222,5 +239,7 @@ namespace Service04009
         private Panel panel;
         private ToolStripMenuItem pesquisaPersonalizadaToolStripMenuItem;
         private ToolStripMenuItem apenasQuemNãoÉCFCToolStripMenuItem;
+        private ToolStripMenuItem buscandoPorIDToolStripMenuItem;
+        private ToolStripMenuItem buscandoPorNomeToolStripMenuItem;
     }
 }

@@ -605,7 +605,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.DarkGreen;
             label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label6.Location = new Point(22, 405);
+            label6.Location = new Point(21, 397);
             label6.Name = "label6";
             label6.Padding = new Padding(25, 0, 25, 0);
             label6.Size = new Size(194, 19);

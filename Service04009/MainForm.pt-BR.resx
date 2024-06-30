@@ -142,6 +142,18 @@
   <data name="exibirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 28</value>
   </data>
+  <data name="buscandoPorIDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 28</value>
+  </data>
+  <data name="buscandoPorIDToolStripMenuItem.Text" xml:space="preserve">
+    <value>Buscando por número</value>
+  </data>
+  <data name="buscandoPorNomeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 28</value>
+  </data>
+  <data name="buscandoPorNomeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Buscando por nome</value>
+  </data>
   <data name="atualizarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 28</value>
   </data>

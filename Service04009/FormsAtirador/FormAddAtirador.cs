@@ -132,6 +132,7 @@ namespace Service04009.FormsAtirador
                     db.SaveChanges();
                     List<ShooterDT> shooterDt = db.Shooters.Select(shoot => new ShooterDT(shoot)).ToList();
                     table.DataSource = shooterDt;
+
                 }
             }
         }
