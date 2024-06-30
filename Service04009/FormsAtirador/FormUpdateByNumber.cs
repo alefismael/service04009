@@ -250,156 +250,163 @@ namespace Service04009.FormsAtirador
         {
             using (var db = new ServiceContext())
             {
-                var shooterQuery = db.Shooters.Where(s => s.numAtr == int.Parse(numAtrBox.Text)).ToList();
-                if (shooterQuery.Count == 0)
+                if (numAtrBox.Text.Trim() == "")
                 {
                     MessageBox.Show("Sem atirador encontrado");
-                    shooter = null;
-                    infoLabel.Text = "Sem atirador informado para atualizar os dados";
-                    infoLabel.BackColor = Color.Red;
-
-                    btCadastrar.Visible = false;
-                    warNameBox.Visible = false;
-                    numAtrUpBox.Visible = false;
-                    numServiceBox.Visible = false;
-                    isCfcLabel.Visible = false;
-                    warNameLabel.Visible = false;
-                    numAtrLabel.Visible = false;
-                    numServiceLabel.Visible = false;
-                    isCfcLabel.Visible = false;
-                    checkIsNotCfc.Visible = false;
-                    checkIsCfc.Visible = false;
-
-                    disponibleLabel.Visible = false;
-                    permaLabel.Visible = false;
-                    sentiLabel.Visible = false;
-                    sunLabel.Visible = false;
-                    sunMorning.Visible = false;
-                    sunNight.Visible = false;
-                    monLabel.Visible = false;
-                    monMorning.Visible = false;
-                    monNight.Visible = false;
-                    tueLabel.Visible = false;
-                    tueMorning.Visible = false;
-                    tueNight.Visible = false;
-
-                    wedLabel.Visible = false;
-                    wedMorning.Visible = false;
-                    wedNight.Visible = false;
-                    thuLabel.Visible = false;
-                    thuMorning.Visible = false;
-                    thuNight.Visible = false;
-
-                    friLabel.Visible = false;
-                    friMorning.Visible = false;
-                    friNight.Visible = false;
-                    satLabel.Visible = false;
-                    satMorning.Visible = false;
-                    satNight.Visible = false;
-
-                    table.DataSource = null;
                 }
                 else
                 {
-                    shooter = shooterQuery.FirstOrDefault();
-                    if (shooter != null)
+                    var shooterQuery = db.Shooters.Where(s => s.numAtr == int.Parse(numAtrBox.Text)).ToList();
+                    if (shooterQuery.Count == 0)
                     {
-                        table.DataSource = new List<ShooterDT> { new ShooterDT(shooter) };
+                        MessageBox.Show("Sem atirador encontrado");
+                        shooter = null;
+                        infoLabel.Text = "Sem atirador informado para atualizar os dados";
+                        infoLabel.BackColor = Color.Red;
+
+                        btCadastrar.Visible = false;
+                        warNameBox.Visible = false;
+                        numAtrUpBox.Visible = false;
+                        numServiceBox.Visible = false;
+                        isCfcLabel.Visible = false;
+                        warNameLabel.Visible = false;
+                        numAtrLabel.Visible = false;
+                        numServiceLabel.Visible = false;
+                        isCfcLabel.Visible = false;
+                        checkIsNotCfc.Visible = false;
+                        checkIsCfc.Visible = false;
+
+                        disponibleLabel.Visible = false;
+                        permaLabel.Visible = false;
+                        sentiLabel.Visible = false;
+                        sunLabel.Visible = false;
+                        sunMorning.Visible = false;
+                        sunNight.Visible = false;
+                        monLabel.Visible = false;
+                        monMorning.Visible = false;
+                        monNight.Visible = false;
+                        tueLabel.Visible = false;
+                        tueMorning.Visible = false;
+                        tueNight.Visible = false;
+
+                        wedLabel.Visible = false;
+                        wedMorning.Visible = false;
+                        wedNight.Visible = false;
+                        thuLabel.Visible = false;
+                        thuMorning.Visible = false;
+                        thuNight.Visible = false;
+
+                        friLabel.Visible = false;
+                        friMorning.Visible = false;
+                        friNight.Visible = false;
+                        satLabel.Visible = false;
+                        satMorning.Visible = false;
+                        satNight.Visible = false;
+
+                        table.DataSource = null;
                     }
-                    infoLabel.Text = "Esse é o atirador que você atualizará os dados.";
-
-                    infoLabel.BackColor = Color.Lime;
-                    btCadastrar.Visible = true;
-                    warNameBox.Visible = true;
-                    numAtrUpBox.Visible = true;
-                    numServiceBox.Visible = true;
-                    isCfcLabel.Visible = true;
-                    warNameLabel.Visible = true;
-                    numAtrLabel.Visible = true;
-                    numServiceLabel.Visible = true;
-                    isCfcLabel.Visible = true;
-                    checkIsNotCfc.Visible = true;
-                    checkIsCfc.Visible = true;
-
-                    disponibleLabel.Visible = true;
-                    permaLabel.Visible = true;
-                    sentiLabel.Visible = true;
-                    sunLabel.Visible = true;
-                    sunMorning.Visible = true;
-                    sunNight.Visible = true;
-                    monLabel.Visible = true;
-                    monMorning.Visible = true;
-                    monNight.Visible = true;
-                    tueLabel.Visible = true;
-                    tueMorning.Visible = true;
-                    tueNight.Visible = true;
-
-                    wedLabel.Visible = true;
-                    wedMorning.Visible = true;
-                    wedNight.Visible = true;
-                    thuLabel.Visible = true;
-                    thuMorning.Visible = true;
-                    thuNight.Visible = true;
-
-                    friLabel.Visible = true;
-                    friMorning.Visible = true;
-                    friNight.Visible = true;
-                    satLabel.Visible = true;
-                    satMorning.Visible = true;
-                    satNight.Visible = true;
-
-                    warNameBox.Visible = true;
-                    numAtrUpBox.Visible = true;
-                    numServiceBox.Visible = true;
-                    checkIsNotCfc.Visible = true;
-                    checkIsCfc.Visible = true;
-
-                    if (shooter != null)
+                    else
                     {
-                        warNameBox.Text = shooter.warName;
-                        numAtrUpBox.Text = shooter.numAtr.ToString();
-                        numServiceBox.Text = shooter.CountService().ToString();
-                        if (shooter.isCfc)
+                        shooter = shooterQuery.FirstOrDefault();
+                        if (shooter != null)
                         {
-                            checkIsCfc.Checked = true;
-                            checkIsNotCfc.Checked = false;
+                            table.DataSource = new List<ShooterDT> { new ShooterDT(shooter) };
                         }
-                        else
+                        infoLabel.Text = "Esse é o atirador que você atualizará os dados.";
+
+                        infoLabel.BackColor = Color.Lime;
+                        btCadastrar.Visible = true;
+                        warNameBox.Visible = true;
+                        numAtrUpBox.Visible = true;
+                        numServiceBox.Visible = true;
+                        isCfcLabel.Visible = true;
+                        warNameLabel.Visible = true;
+                        numAtrLabel.Visible = true;
+                        numServiceLabel.Visible = true;
+                        isCfcLabel.Visible = true;
+                        checkIsNotCfc.Visible = true;
+                        checkIsCfc.Visible = true;
+
+                        disponibleLabel.Visible = true;
+                        permaLabel.Visible = true;
+                        sentiLabel.Visible = true;
+                        sunLabel.Visible = true;
+                        sunMorning.Visible = true;
+                        sunNight.Visible = true;
+                        monLabel.Visible = true;
+                        monMorning.Visible = true;
+                        monNight.Visible = true;
+                        tueLabel.Visible = true;
+                        tueMorning.Visible = true;
+                        tueNight.Visible = true;
+
+                        wedLabel.Visible = true;
+                        wedMorning.Visible = true;
+                        wedNight.Visible = true;
+                        thuLabel.Visible = true;
+                        thuMorning.Visible = true;
+                        thuNight.Visible = true;
+
+                        friLabel.Visible = true;
+                        friMorning.Visible = true;
+                        friNight.Visible = true;
+                        satLabel.Visible = true;
+                        satMorning.Visible = true;
+                        satNight.Visible = true;
+
+                        warNameBox.Visible = true;
+                        numAtrUpBox.Visible = true;
+                        numServiceBox.Visible = true;
+                        checkIsNotCfc.Visible = true;
+                        checkIsCfc.Visible = true;
+
+                        if (shooter != null)
                         {
-                            checkIsCfc.Checked = false;
-                            checkIsNotCfc.Checked = true;
+                            warNameBox.Text = shooter.warName;
+                            numAtrUpBox.Text = shooter.numAtr.ToString();
+                            numServiceBox.Text = shooter.CountService().ToString();
+                            if (shooter.isCfc)
+                            {
+                                checkIsCfc.Checked = true;
+                                checkIsNotCfc.Checked = false;
+                            }
+                            else
+                            {
+                                checkIsCfc.Checked = false;
+                                checkIsNotCfc.Checked = true;
+                            }
+
+                            sunMorning.Checked = shooter.sunMorning;
+                            sunMorning.Text = sunMorning.Checked ? "Disponivel" : "Indispónível";
+                            sunNight.Checked = shooter.sunNight;
+                            sunNight.Text = sunNight.Checked ? "Disponivel" : "Indispónível";
+                            monMorning.Checked = shooter.monMorning;
+                            monMorning.Text = monMorning.Checked ? "Disponivel" : "Indispónível";
+                            monNight.Checked = shooter.monNight;
+                            monNight.Text = monNight.Checked ? "Disponivel" : "Indispónível";
+                            tueMorning.Checked = shooter.tueMorning;
+                            tueMorning.Text = tueMorning.Checked ? "Disponivel" : "Indispónível";
+                            tueNight.Checked = shooter.tueNight;
+                            tueNight.Text = tueNight.Checked ? "Disponivel" : "Indispónível";
+
+                            wedMorning.Checked = shooter.wedMorning;
+                            wedMorning.Text = wedMorning.Checked ? "Disponivel" : "Indispónível";
+                            wedNight.Checked = shooter.wedNight;
+                            wedNight.Text = wedNight.Checked ? "Disponivel" : "Indispónível";
+                            thuMorning.Checked = shooter.thuMorning;
+                            thuMorning.Text = thuMorning.Checked ? "Disponivel" : "Indispónível";
+                            thuNight.Checked = shooter.thuNight;
+                            thuNight.Text = thuNight.Checked ? "Disponivel" : "Indispónível";
+
+                            friMorning.Checked = shooter.friMorning;
+                            friMorning.Text = friMorning.Checked ? "Disponivel" : "Indispónível";
+                            friNight.Checked = shooter.friNight;
+                            friNight.Text = friNight.Checked ? "Disponivel" : "Indispónível";
+                            satMorning.Checked = shooter.satMorning;
+                            satMorning.Text = satMorning.Checked ? "Disponivel" : "Indispónível";
+                            satNight.Checked = shooter.satNight;
+                            satNight.Text = satNight.Checked ? "Disponivel" : "Indispónível";
                         }
-
-                        sunMorning.Checked = shooter.sunMorning;
-                        sunMorning.Text = sunMorning.Checked ? "Disponivel" : "Indispónível";
-                        sunNight.Checked = shooter.sunNight;
-                        sunNight.Text = sunNight.Checked ? "Disponivel" : "Indispónível";
-                        monMorning.Checked = shooter.monMorning;
-                        monMorning.Text = monMorning.Checked ? "Disponivel" : "Indispónível";
-                        monNight.Checked = shooter.monNight;
-                        monNight.Text = monNight.Checked ? "Disponivel" : "Indispónível";
-                        tueMorning.Checked = shooter.tueMorning;
-                        tueMorning.Text = tueMorning.Checked ? "Disponivel" : "Indispónível";
-                        tueNight.Checked = shooter.tueNight;
-                        tueNight.Text = tueNight.Checked ? "Disponivel" : "Indispónível";
-
-                        wedMorning.Checked = shooter.wedMorning;
-                        wedMorning.Text = wedMorning.Checked ? "Disponivel" : "Indispónível";
-                        wedNight.Checked = shooter.wedNight;
-                        wedNight.Text = wedNight.Checked ? "Disponivel" : "Indispónível";
-                        thuMorning.Checked = shooter.thuMorning;
-                        thuMorning.Text = thuMorning.Checked ? "Disponivel" : "Indispónível";
-                        thuNight.Checked = shooter.thuNight;
-                        thuNight.Text = thuNight.Checked ? "Disponivel" : "Indispónível";
-
-                        friMorning.Checked = shooter.friMorning;
-                        friMorning.Text = friMorning.Checked ? "Disponivel" : "Indispónível";
-                        friNight.Checked = shooter.friNight;
-                        friNight.Text = friNight.Checked ? "Disponivel" : "Indispónível";
-                        satMorning.Checked = shooter.satMorning;
-                        satMorning.Text = satMorning.Checked ? "Disponivel" : "Indispónível";
-                        satNight.Checked = shooter.satNight;
-                        satNight.Text = satNight.Checked ? "Disponivel" : "Indispónível";
                     }
                 }
             }

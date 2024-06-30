@@ -43,6 +43,8 @@ namespace Service04009
             buscandoPorIDToolStripMenuItem = new ToolStripMenuItem();
             buscandoPorNomeToolStripMenuItem = new ToolStripMenuItem();
             removerToolStripMenuItem = new ToolStripMenuItem();
+            buscandoPorNúmeroToolStripMenuItem = new ToolStripMenuItem();
+            buscandoPorNomeToolStripMenuItem1 = new ToolStripMenuItem();
             escalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             gerarToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem1 = new ToolStripMenuItem();
@@ -139,7 +141,22 @@ namespace Service04009
             // 
             resources.ApplyResources(removerToolStripMenuItem, "removerToolStripMenuItem");
             removerToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            removerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { buscandoPorNúmeroToolStripMenuItem, buscandoPorNomeToolStripMenuItem1 });
             removerToolStripMenuItem.Name = "removerToolStripMenuItem";
+            // 
+            // buscandoPorNúmeroToolStripMenuItem
+            // 
+            resources.ApplyResources(buscandoPorNúmeroToolStripMenuItem, "buscandoPorNúmeroToolStripMenuItem");
+            buscandoPorNúmeroToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            buscandoPorNúmeroToolStripMenuItem.Name = "buscandoPorNúmeroToolStripMenuItem";
+            buscandoPorNúmeroToolStripMenuItem.Click += buscandoPorNúmeroToolStripMenuItem_Click;
+            // 
+            // buscandoPorNomeToolStripMenuItem1
+            // 
+            resources.ApplyResources(buscandoPorNomeToolStripMenuItem1, "buscandoPorNomeToolStripMenuItem1");
+            buscandoPorNomeToolStripMenuItem1.BackColor = Color.FromArgb(192, 255, 192);
+            buscandoPorNomeToolStripMenuItem1.Name = "buscandoPorNomeToolStripMenuItem1";
+            buscandoPorNomeToolStripMenuItem1.Click += buscandoPorNomeToolStripMenuItem1_Click;
             // 
             // escalaDeServiçoToolStripMenuItem
             // 
@@ -241,5 +258,7 @@ namespace Service04009
         private ToolStripMenuItem apenasQuemNãoÉCFCToolStripMenuItem;
         private ToolStripMenuItem buscandoPorIDToolStripMenuItem;
         private ToolStripMenuItem buscandoPorNomeToolStripMenuItem;
+        private ToolStripMenuItem buscandoPorNúmeroToolStripMenuItem;
+        private ToolStripMenuItem buscandoPorNomeToolStripMenuItem1;
     }
 }

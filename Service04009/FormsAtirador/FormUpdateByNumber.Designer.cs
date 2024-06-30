@@ -157,7 +157,7 @@
             // numAtrBox
             // 
             numAtrBox.Location = new Point(31, 181);
-            numAtrBox.MaxLength = 20;
+            numAtrBox.MaxLength = 4;
             numAtrBox.Name = "numAtrBox";
             numAtrBox.PlaceholderText = "Digite aqui o número do atirador para atualizar dados";
             numAtrBox.Size = new Size(337, 23);

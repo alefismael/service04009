@@ -157,6 +157,12 @@
   <data name="atualizarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 28</value>
   </data>
+  <data name="buscandoPorNúmeroToolStripMenuItem.Text" xml:space="preserve">
+    <value>Buscando por número</value>
+  </data>
+  <data name="buscandoPorNomeToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Buscando por nome</value>
+  </data>
   <data name="removerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 28</value>
   </data>
