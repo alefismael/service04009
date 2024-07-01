@@ -1,32 +1,47 @@
 ﻿using Service04009;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Service04009;
 
 internal class ServiceScale
 {
-    public int id { get; private set; }
+    public int id { get; set; }
     public DateOnly firstDay { get; private set; }
     public DateOnly lastDay { get; private set; }
     public List<Service> Services { get; private set; }
 
     //A classe é criada passando o dia do primeiro serviço
-    public ServiceScale(DateOnly firstDay, int numServices)
+    public ServiceScale(DateOnly firstDay)
     {
         this.firstDay = firstDay;
         Services = new List<Service>();
+        for (int i = 0; i < 15; i++)
+        {
+            Services.Add(new Service(firstDay.AddDays(i)));
+            lastDay = firstDay.AddDays(i);
+        }
+    }
 
-        // Cria serviços com base no primeiro dia da escala e a quantidade passada
-        for (int i = 0; i < numServices; i++)
+    //A classe é criada passando o dia do primeiro serviço e fim
+    public ServiceScale(DateOnly firstDay, DateOnly lastDay)
+    {
+        Services = new List<Service>();
+        this.firstDay = firstDay;
+        this.lastDay = lastDay;
+        int numServices = lastDay.DayNumber - firstDay.DayNumber;
+
+        // Cria serviços com base no primeiro dia e último dia da escala
+        for (int i = 0; i <= numServices; i++)
         {
             Services.Add(new Service(firstDay.AddDays(i)));
         }
-        lastDay = firstDay;
     }
 
     // Método para definir a escala de serviço
@@ -449,6 +464,43 @@ internal class ServiceScale
             }
         }
         return true;
+    }
+
+    // Método static para saber quantos cfcs precisam para criar uma escala de serviço passando uma certa data de início e fim
+    public static int GetNecessaryCfcForScale(DateOnly startDate, DateOnly endDate)
+    {
+        int necessary = 0;
+        int diference = endDate.DayNumber - startDate.DayNumber;
+
+        for (int i = 0; i <= diference; i++)
+        {
+            necessary += 1;
+        }
+
+        return necessary;
+    }
+
+    // Método static para saber quantos atiradores não cfc precisam para criar uma escala de serviço passando uma certa data de início e fim
+    public static int GetNecessaryShootersNotSfcForScale(DateOnly startDate, DateOnly endDate)
+    {
+        int necessary = 0;
+        int diference = endDate.DayNumber - startDate.DayNumber;
+
+        for (int i = 0; i <= diference; i++)
+        {
+            necessary += 3;
+            if ((int)startDate.DayOfWeek == 0 || (int)startDate.DayOfWeek > 4)
+            {
+                necessary += 2;
+            }
+            else
+            {
+                necessary += 1;
+            }
+            startDate = startDate.AddDays(1);
+        }
+
+        return necessary;
     }
 
     // Método ToString para passar informações extras

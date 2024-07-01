@@ -2,6 +2,7 @@ using DocumentFormat.OpenXml.Math;
 using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Service04009.FormsAtirador;
+using Service04009.FormsScaleService;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -156,6 +157,21 @@ namespace Service04009
                 formActive = null;
             }
             formActive = new FormDeleteByName();
+            formActive.TopLevel = false;
+            formActive.FormBorderStyle = FormBorderStyle.None;
+            formActive.Dock = DockStyle.Fill;
+            panel.Controls.Add(formActive);
+            formActive.Show();
+        }
+
+        private void gerarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formActive != null)
+            {
+                formActive.Close();
+                formActive = null;
+            }
+            formActive = new FormCreateScaleService();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
             formActive.Dock = DockStyle.Fill;

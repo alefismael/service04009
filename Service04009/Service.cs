@@ -1,6 +1,7 @@
 ﻿using Service04009;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,13 @@ namespace Service04009;
 internal class Service
 {
     public int Id { get; set; }
-    public DateOnly Date { get; private set; }
-    public List<Shooter> Permanences { get; private set; }
-    public List<Shooter> Sentinels { get; private set; }
-    public int? CommanderOfTheGuardId { get; private set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
-    public Shooter? CommanderOfTheGuard { get; private set; }
-    public int? ServiceScaleId { get; private set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
-    public ServiceScale? ServiceScale { get; private set; }
+    public DateOnly Date { get; set; }
+    public List<Shooter> Permanences { get;  set; }
+    public List<Shooter> Sentinels { get;  set; }
+    public int? CommanderOfTheGuardId { get;  set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
+    public Shooter? CommanderOfTheGuard { get; set; }
+    public int? ServiceScaleId { get;  set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
+    public ServiceScale? ServiceScale { get;  set; }
 
     // Construtor padrão da classe recebendo apenas um DateOnly (data sem horas)
     public Service(DateOnly date)
@@ -81,6 +82,22 @@ internal class Service
         return false;
     }
 
+    // Método para adicionar atirador permanência na lista interna emergência (aceita cfc)
+    public bool AddPermanenceEmergency(Shooter shooter)
+    {
+        if ((Permanences.Count < 1) && Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
+        {
+            Permanences.Add(shooter);
+            return true;
+        }
+        else if (Date.DayOfWeek == DayOfWeek.Friday || Date.DayOfWeek == DayOfWeek.Saturday || Date.DayOfWeek == DayOfWeek.Sunday && (Permanences.Count < 2))
+        {
+            Permanences.Add(shooter);
+            return true;
+        }
+        return false;
+    }
+
     // Método para remover atirador permanência na lista interna
     public bool RemovePermanence(Shooter shooter)
     {
@@ -96,6 +113,17 @@ internal class Service
     public bool AddSentinel(Shooter shooter)
     {
         if ((Sentinels.Count < 3) && (!shooter.isCfc))
+        {
+            Sentinels.Add(shooter);
+            return true;
+        }
+        return false;
+    }
+
+    // Método para adicionar atirador sentinela na lista interna emergência (aceita cfc)
+    public bool AddSentinelEmergency(Shooter shooter)
+    {
+        if (Sentinels.Count < 3)
         {
             Sentinels.Add(shooter);
             return true;

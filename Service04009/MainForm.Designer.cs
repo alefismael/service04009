@@ -167,21 +167,26 @@ namespace Service04009
             // gerarToolStripMenuItem
             // 
             resources.ApplyResources(gerarToolStripMenuItem, "gerarToolStripMenuItem");
+            gerarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             gerarToolStripMenuItem.Name = "gerarToolStripMenuItem";
+            gerarToolStripMenuItem.Click += gerarToolStripMenuItem_Click;
             // 
             // exibirToolStripMenuItem1
             // 
             resources.ApplyResources(exibirToolStripMenuItem1, "exibirToolStripMenuItem1");
+            exibirToolStripMenuItem1.BackColor = Color.FromArgb(128, 255, 128);
             exibirToolStripMenuItem1.Name = "exibirToolStripMenuItem1";
             // 
             // editarToolStripMenuItem
             // 
             resources.ApplyResources(editarToolStripMenuItem, "editarToolStripMenuItem");
+            editarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             // 
             // gerardocWordToolStripMenuItem
             // 
             resources.ApplyResources(gerardocWordToolStripMenuItem, "gerardocWordToolStripMenuItem");
+            gerardocWordToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
             gerardocWordToolStripMenuItem.Name = "gerardocWordToolStripMenuItem";
             // 
             // serviçoToolStripMenuItem
