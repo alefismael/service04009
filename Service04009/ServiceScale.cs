@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,13 +16,13 @@ internal class ServiceScale
     public List<Service> Services { get; private set; }
 
     //A classe é criada passando o dia do primeiro serviço
-    public ServiceScale(DateOnly firstDay)
+    public ServiceScale(DateOnly firstDay, int numServices)
     {
         this.firstDay = firstDay;
         Services = new List<Service>();
 
-        // Cria 20 serviços com base no primeiro dia da escala
-        for (int i = 0; i < 15; i++)
+        // Cria serviços com base no primeiro dia da escala e a quantidade passada
+        for (int i = 0; i < numServices; i++)
         {
             Services.Add(new Service(firstDay.AddDays(i)));
         }
@@ -43,6 +44,7 @@ internal class ServiceScale
 
         while (!IsCompleteCommanders())
         {
+            // Vai serviço a serviço tentando atribuir a eles os atiradores disponíveis
             foreach (var service in Services)
             {
                 List<Shooter> commandersOK = new List<Shooter>();  // Lista para pegar os cfcs disponíveis para a data
@@ -68,7 +70,7 @@ internal class ServiceScale
                     List<Shooter> commanders = new List<Shooter>();
                     foreach (var cfcShooter in cfcShooters)
                     {
-                        if (!HasInScale(cfcShooter) && cfcShooter.CountService() == minServicesCfc && !service.HasCommanderOfTheGuard())
+                        if (!HasInScale(cfcShooter) && cfcShooter.CountService() == minServicesCfc && !service.HasCommanderOfTheGuard()) // Se não esrá na escala, tirou a menor quantidade de serviços até aqui e não têm comandante da guarda no serviço ainda então coloca ele na lista para sorteio do comandante da guarda desse dia
                         {
                             commanders.Add(cfcShooter);
                             break;
@@ -83,39 +85,42 @@ internal class ServiceScale
             minServicesCfc++;
         }
 
+        // Método para definir os sentinelas e permanências de todos serviços da escala
         while (!IsCompleteSentinels() || !IsCompletePermanences())
         {
-            int aux = 0;
+            int aux = 0;  // Esse aux serve para ajudar a determinar a quantidade do loop for
             foreach (var service in Services)
             {
-                List<Shooter> shootersOkPermanences = new List<Shooter>();
-                List<Shooter> shootersOkSentinels = new List<Shooter>();
+                List<Shooter> shootersOkPermanences = new List<Shooter>();  // Lista para adicionar quem pode ser permanência nesse dia para poder ser selecionado
+                List<Shooter> shootersOkSentinels = new List<Shooter>();// Lista para adicionar quem pode ser sentinela nesse dia para poder ser selecionado
                 foreach (var shooter in notCfcShooters)
                 {
 
-                    if (shooter.IsOk(service.Date, 0) && !HasInScale(shooter) && shooter.CountService() == minServices && !service.IsCompletePermanences())
+                    if (shooter.IsOk(service.Date, 0) && !HasInScale(shooter) && shooter.CountService() == minServices && !service.IsCompletePermanences())  //Se o atirador pode no dia como permanência, não está em um serviço da escala e tirou a menor quantidade de serviços e o serviço não está completo adiciona ele como uma possibilidade para o serviço de permanência
                     {
                         shootersOkPermanences.Add(shooter);
                     }
-                    if (shooter.IsOk(service.Date, 1) && !HasInScale(shooter) && shooter.CountService() == minServices && !service.IsCompleteSentinels())
+                    if (shooter.IsOk(service.Date, 1) && !HasInScale(shooter) && shooter.CountService() == minServices && !service.IsCompleteSentinels())//Se o atirador pode no dia como sentinela, não está em um serviço da escala e tirou a menor quantidade de serviços e o serviço não está completo adiciona ele como uma possibilidade para o serviço de sentinela
                     {
                         shootersOkSentinels.Add(shooter);
                     }
                 }
 
-                aux = service.GetPermancencesNecessaryAmount();
+                aux = service.GetPermancencesNecessaryAmount();  // Pega a quantidade de permanências que o serviço precisa, no caso 0, 1 ou 2
                 for (int i = 0; i < aux; i++)
                 {
+                    // Se têm atiradores disponíveis para o serviço de permanência
                     if (shootersOkPermanences.Count() != 0)
                     {
-                        var shot = GetRandomShooter(shootersOkPermanences);
-                        service.AddPermanence(shot);
-                        notCfcShooters.Remove(shot);
-                        shootersOkPermanences.Remove(shot);
-                        shootersOkSentinels.Remove(shot);
+                        var shot = GetRandomShooter(shootersOkPermanences); // Seleciona um aleatório
+                        service.AddPermanence(shot);  // Adiciona ele no serviço
+                        notCfcShooters.Remove(shot);  // Remove da lista de quem não é cfc para ele não ficar sendo chamado nas verificações como já foi escalado ( isso melhora a velocidade do algoritmo
+                        shootersOkPermanences.Remove(shot);  // Remove ele de possibilidade para esse serviço de permanência já que foi selecionado já para não repetir
+                        shootersOkSentinels.Remove(shot);  // Remove ele de possibilidade para esse serviço de sentinela já que foi selecionado já para não repetir
                     }
                 }
 
+                // Praticamente a mesma lógica de cima
                 aux = service.GetSentinelsNecessaryAmount();
                 for (int i = 0; i < aux; i++)
                 {
@@ -130,6 +135,7 @@ internal class ServiceScale
 
             }
 
+            // Se mesmo tentando da melhor maneira o serviço de permanência ou sentinela ainda não está completo
             if (!IsCompleteSentinels() || !IsCompletePermanences())
             {
                 foreach (var service in Services)
@@ -138,6 +144,8 @@ internal class ServiceScale
                     List<Shooter> shootersSentinels = new List<Shooter>();
                     foreach (var shooter in notCfcShooters)
                     {
+                        // Aqui pega quem ainda não está escalado que tirou poucos serviços, isso levando em conta se o serviço ainda precisa de atiradores sendo observado com IsComplete
+
                         if (!HasInScale(shooter) && shooter.CountService() == minServices && !service.IsCompletePermanences())
                         {
                             shootersPermanences.Add(shooter);
@@ -174,27 +182,28 @@ internal class ServiceScale
                     }
                 }
             }
-            minServices++;
+            minServices++;  // Aumenta a quantidade de serviços tirados para pegar mais atiradores se necessário para completar a escala
         }
 
         // Aqui depois que a escala estiver completa é verificado se têm atiradores que não podem estar em algum dia mas estão
         // Se houver é tentado realizar a troca dele com outro atirador se possível for
         foreach (var service in Services)
         {
-            Shooter? commander = service.ReturnCommanderNotOk();
-            List<Shooter> permanencesNotOK = service.ReturnPermancesNotOk();
-            List<Shooter> sentinelsNotOK = service.ReturnSentinelsNotOk();
+            Shooter? commander = service.ReturnCommanderNotOk();  // Pega o comandante da guarda de serviço se ele estiver escalado mesmo não podendo para tentar a troca
+            List<Shooter> permanencesNotOK = service.ReturnPermancesNotOk();// Pega os permanências da guarda de serviço se eles estiverem escalados mesmo não podendo para tentar a troca
+            List<Shooter> sentinelsNotOK = service.ReturnSentinelsNotOk();// Pega os sentinelas da guarda de serviço se eles estiverem escalados mesmo não podendo para tentar a troca
 
-            if (commander != null)
+            if (commander != null)  //Se têm o comandante que não está ok com o dia que pegou serviço
             {
-                bool ultimoRecurso = true;
+                bool ultimoRecurso = true;  // ultimoRecurso no if final se necessário caso não encontre alguém para troca de serviço
                 foreach (var serviceSwap in Services)
                 {
-                    if (commander.IsOk(serviceSwap.Date, 1))
+                    if (commander.IsOk(serviceSwap.Date, 1)) // Se o commander pode pegar serviço na data do outro serviço da escala
                     {
-                        var codSwap = serviceSwap.GetCommander();
-                        if (codSwap != null && codSwap.IsOk(service.Date, 1))
+                        var codSwap = serviceSwap.GetCommander();  // Pega o comandante da guarda do outro serviço
+                        if (codSwap != null && codSwap.IsOk(service.Date, 1))  // Se o comandante da guarda do outro serviço pode tirar o serviço no lugar do comandante que não pode
                         {
+                            // Faz a troca de serviço
                             if (service.SetCommanderOfTheGuard(codSwap))
                             {
                                 serviceSwap.SetCommanderOfTheGuard(commander);
@@ -204,13 +213,15 @@ internal class ServiceScale
                         }
                     }
                 }
-                if (ultimoRecurso)
+                if (ultimoRecurso)  // Se a troca não foi feita esse é o último recurso
                 {
+                    // Pega todos os atirados cfc um a um
                     foreach (var codSwap in cfcShooters)
                     {
+                        // Se não está na escala e realmente é cfc
                         if (codSwap.isCfc && !HasInScale(codSwap))
                         {
-                            if (codSwap.IsOk(service.Date, 1) && (codSwap.CountService() <= commander.CountService()))
+                            if (codSwap.IsOk(service.Date, 1) && (codSwap.CountService() <= commander.CountService()))  // Se este atirador tirou a mesma quantidade de serviços que o outro e pode na data faz a troca
                             {
                                 service.SetCommanderOfTheGuard(codSwap);
                                 break;
@@ -220,14 +231,15 @@ internal class ServiceScale
                 }
             }
 
-            // permanencia
+            // Troca para os permanências do serviço que não pode na data do serviço se existir
             foreach (var shooter in permanencesNotOK)
             {
-                bool ultimoRecurso = true;
-                bool aux = false;
+                bool ultimoRecurso = true;  // ultimoRecurso no if final se necessário caso não encontre alguém para troca de serviço
+                bool aux = false;  // aux para parar o foreach se o atirador já foi trocado para não precisar ficar passando de serviço em serviço usando o break dentro de um if(aux)
                 foreach (var serviceSwap in Services)
                 {
                     List<Shooter> permanencesSwap = serviceSwap.GetPermanences();
+                    // Tenta alguém que pode trocar de serviço para fazer a troca(mesma lógica praticamente da do commander
                     foreach (var permaSwap in permanencesSwap)
                     {
                         if (shooter.IsOk(serviceSwap.Date, 0) && permaSwap.IsOk(service.Date, 0))
@@ -249,6 +261,7 @@ internal class ServiceScale
                     else
                     {
                         List<Shooter> sentinelSwap = serviceSwap.GetSentinels();
+                        // Tenta alguém que pode trocar de serviço para fazer a troca(mesma lógica praticamente da do commander
                         foreach (var sentilSwap in sentinelSwap)
                         {
                             if (shooter.IsOk(serviceSwap.Date, 1) && sentilSwap.IsOk(service.Date, 0))
@@ -288,10 +301,10 @@ internal class ServiceScale
 
             }
 
-            // sentinel
+            // Troca para os sentinelas do serviço que não pode na data do serviço se existir
             foreach (var shooter in sentinelsNotOK)
             {
-                bool ultimoRecurso = true;
+                bool ultimoRecurso = true;  // ultimoRecurso no if final se necessário caso não encontre alguém para troca de serviço
                 bool aux = false;
                 foreach (var serviceSwap in Services)
                 {

@@ -13,9 +13,9 @@ internal class Service
     public DateOnly Date { get; private set; }
     public List<Shooter> Permanences { get; private set; }
     public List<Shooter> Sentinels { get; private set; }
-    public int? CommanderOfTheGuardId { get; private set; }
+    public int? CommanderOfTheGuardId { get; private set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
     public Shooter? CommanderOfTheGuard { get; private set; }
-    public int? ServiceScaleId { get; private set; }
+    public int? ServiceScaleId { get; private set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
     public ServiceScale? ServiceScale { get; private set; }
 
     // Construtor padrão da classe recebendo apenas um DateOnly (data sem horas)

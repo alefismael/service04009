@@ -3,6 +3,7 @@ namespace Service04009
     internal static class Program
     {
 
+        // Esse Mutex serve para não permitir que esse aplicativo seja aberto duas vezes
         private static Mutex? mutex = null;
         private const string MutexName = "YourUniqueAppNameMutex";
 
@@ -29,7 +30,7 @@ namespace Service04009
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new MainForm());  // Inicia o form Main
         }
     }
 }

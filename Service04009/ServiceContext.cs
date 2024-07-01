@@ -20,12 +20,12 @@ internal class ServiceContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Shooter>().HasMany(s => s.CommanderServices).WithOne(s => s.CommanderOfTheGuard).HasForeignKey(s => s.CommanderOfTheGuardId);
+        modelBuilder.Entity<Shooter>().HasMany(s => s.CommanderServices).WithOne(s => s.CommanderOfTheGuard).HasForeignKey(s => s.CommanderOfTheGuardId);  //Um comandante da guarda pode estar em vários serviços
 
-        modelBuilder.Entity<Service>().HasMany(s => s.Sentinels).WithMany(s => s.SentinelServices).UsingEntity("ServiceSentinelRelational"); ;
+        modelBuilder.Entity<Service>().HasMany(s => s.Sentinels).WithMany(s => s.SentinelServices).UsingEntity("ServiceSentinelRelational"); // Um atirador pode estar em vários serviços como sentinela e um serviço pode ter mais de um sentinela
 
-        modelBuilder.Entity<Service>().HasMany(s => s.Permanences).WithMany(s => s.PermanenceServices).UsingEntity("ServicePermanenceRelational"); ;
+        modelBuilder.Entity<Service>().HasMany(s => s.Permanences).WithMany(s => s.PermanenceServices).UsingEntity("ServicePermanenceRelational"); // Um atirador pode estar em vários serviços como permanência e um serviço pode ter mais de um permanência
 
-        modelBuilder.Entity<ServiceScale>().HasMany(s => s.Services).WithOne(s => s.ServiceScale).HasForeignKey(s => s.ServiceScaleId);
+        modelBuilder.Entity<ServiceScale>().HasMany(s => s.Services).WithOne(s => s.ServiceScale).HasForeignKey(s => s.ServiceScaleId);  // Um serviço pode estar em apenas 1 escala de serviço, e essa pode ter vários serviços
     }
 }
