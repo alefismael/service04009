@@ -56,14 +56,18 @@ namespace Service04009
             editarToolStripMenuItem1 = new ToolStripMenuItem();
             removerToolStripMenuItem1 = new ToolStripMenuItem();
             panel = new Panel();
+            inícioToolStripMenuItem = new ToolStripMenuItem();
+            serviceLabel = new Label();
+            creatorLabel = new Label();
             menuStrip1.SuspendLayout();
+            panel.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.BackColor = Color.DarkGreen;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inícioToolStripMenuItem, atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             // 
@@ -220,7 +224,29 @@ namespace Service04009
             resources.ApplyResources(panel, "panel");
             panel.BackColor = Color.Lime;
             panel.BackgroundImage = Properties.Resources.img_fundo_service_04009;
+            panel.Controls.Add(creatorLabel);
+            panel.Controls.Add(serviceLabel);
             panel.Name = "panel";
+            // 
+            // inícioToolStripMenuItem
+            // 
+            resources.ApplyResources(inícioToolStripMenuItem, "inícioToolStripMenuItem");
+            inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
+            inícioToolStripMenuItem.Click += inícioToolStripMenuItem_Click;
+            // 
+            // serviceLabel
+            // 
+            resources.ApplyResources(serviceLabel, "serviceLabel");
+            serviceLabel.BackColor = Color.DarkGreen;
+            serviceLabel.ForeColor = Color.Black;
+            serviceLabel.Name = "serviceLabel";
+            // 
+            // creatorLabel
+            // 
+            resources.ApplyResources(creatorLabel, "creatorLabel");
+            creatorLabel.BackColor = Color.DarkGreen;
+            creatorLabel.ForeColor = Color.Black;
+            creatorLabel.Name = "creatorLabel";
             // 
             // MainForm
             // 
@@ -235,6 +261,8 @@ namespace Service04009
             Name = "MainForm";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            panel.ResumeLayout(false);
+            panel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -265,5 +293,8 @@ namespace Service04009
         private ToolStripMenuItem buscandoPorNomeToolStripMenuItem;
         private ToolStripMenuItem buscandoPorNúmeroToolStripMenuItem;
         private ToolStripMenuItem buscandoPorNomeToolStripMenuItem1;
+        private ToolStripMenuItem inícioToolStripMenuItem;
+        private Label creatorLabel;
+        private Label serviceLabel;
     }
 }

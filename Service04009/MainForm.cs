@@ -28,6 +28,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormAtiradorConsult();
             formActive.TopLevel = false;  // Diz para o formActive não ser um formulário TopLevel (que não pode estar dentro de outro)
             formActive.FormBorderStyle = FormBorderStyle.None;  //  Tira as bordas do formulário
@@ -44,6 +46,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormConsultTodos();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -60,6 +64,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormConsultApenasCfc();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -76,6 +82,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormConsultNotCfc();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -92,6 +100,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormAddAtirador();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -108,6 +118,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormUpdateByNumber();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -124,6 +136,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormUpdateByName();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -140,6 +154,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormDeleteByNumber();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -156,6 +172,8 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormDeleteByName();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
@@ -171,12 +189,25 @@ namespace Service04009
                 formActive.Close();
                 formActive = null;
             }
+            serviceLabel.Visible = false;
+            creatorLabel.Visible = false;
             formActive = new FormCreateScaleService();
             formActive.TopLevel = false;
             formActive.FormBorderStyle = FormBorderStyle.None;
             formActive.Dock = DockStyle.Fill;
             panel.Controls.Add(formActive);
             formActive.Show();
+        }
+
+        private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formActive != null)
+            {
+                formActive.Close();
+                formActive = null;
+            }
+            serviceLabel.Visible = true;
+            creatorLabel.Visible = true;
         }
     }
 }
