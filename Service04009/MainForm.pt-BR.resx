@@ -121,9 +121,6 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 15.75pt</value>
   </data>
-  <data name="inícioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 28</value>
-  </data>
   <data name="inícioToolStripMenuItem.Text" xml:space="preserve">
     <value>Início</value>
   </data>
@@ -178,8 +175,23 @@
   <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 28</value>
   </data>
+  <data name="todasAsEscalasCriadasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 28</value>
+  </data>
+  <data name="todasAsEscalasCriadasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Todas as escalas criadas</value>
+  </data>
+  <data name="exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 28</value>
+  </data>
+  <data name="exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exibir escala por data de um serviço</value>
+  </data>
   <data name="exibirToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 28</value>
+  </data>
+  <data name="exibirToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Exibir escala</value>
   </data>
   <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 28</value>
@@ -218,14 +230,8 @@
   <data name="creatorLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 18pt, style=Bold, Italic</value>
   </data>
-  <data name="creatorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 612</value>
-  </data>
   <data name="creatorLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 28</value>
-  </data>
-  <data name="creatorLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="creatorLabel.Text" xml:space="preserve">
     <value>made by shooter 01 Álef (2024)</value>
@@ -236,17 +242,11 @@
   <data name="serviceLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 48pt, style=Bold, Italic</value>
   </data>
-  <data name="serviceLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 256</value>
-  </data>
   <data name="serviceLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>442, 74</value>
-  </data>
-  <data name="serviceLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>460, 74</value>
   </data>
   <data name="serviceLabel.Text" xml:space="preserve">
-    <value>Service04009</value>
+    <value>Service 04009</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">

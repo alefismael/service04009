@@ -32,6 +32,7 @@ namespace Service04009
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
+            inícioToolStripMenuItem = new ToolStripMenuItem();
             atiradoresToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             exibirToolStripMenuItem = new ToolStripMenuItem();
@@ -56,9 +57,10 @@ namespace Service04009
             editarToolStripMenuItem1 = new ToolStripMenuItem();
             removerToolStripMenuItem1 = new ToolStripMenuItem();
             panel = new Panel();
-            inícioToolStripMenuItem = new ToolStripMenuItem();
-            serviceLabel = new Label();
             creatorLabel = new Label();
+            serviceLabel = new Label();
+            todasAsEscalasCriadasToolStripMenuItem = new ToolStripMenuItem();
+            exibirEscalaPorDataDeUmServiçoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel.SuspendLayout();
             SuspendLayout();
@@ -70,6 +72,12 @@ namespace Service04009
             menuStrip1.Items.AddRange(new ToolStripItem[] { inícioToolStripMenuItem, atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
+            // 
+            // inícioToolStripMenuItem
+            // 
+            resources.ApplyResources(inícioToolStripMenuItem, "inícioToolStripMenuItem");
+            inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
+            inícioToolStripMenuItem.Click += inícioToolStripMenuItem_Click;
             // 
             // atiradoresToolStripMenuItem
             // 
@@ -179,6 +187,7 @@ namespace Service04009
             // 
             resources.ApplyResources(exibirToolStripMenuItem1, "exibirToolStripMenuItem1");
             exibirToolStripMenuItem1.BackColor = Color.FromArgb(128, 255, 128);
+            exibirToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { todasAsEscalasCriadasToolStripMenuItem, exibirEscalaPorDataDeUmServiçoToolStripMenuItem });
             exibirToolStripMenuItem1.Name = "exibirToolStripMenuItem1";
             // 
             // editarToolStripMenuItem
@@ -228,11 +237,12 @@ namespace Service04009
             panel.Controls.Add(serviceLabel);
             panel.Name = "panel";
             // 
-            // inícioToolStripMenuItem
+            // creatorLabel
             // 
-            resources.ApplyResources(inícioToolStripMenuItem, "inícioToolStripMenuItem");
-            inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
-            inícioToolStripMenuItem.Click += inícioToolStripMenuItem_Click;
+            resources.ApplyResources(creatorLabel, "creatorLabel");
+            creatorLabel.BackColor = Color.DarkGreen;
+            creatorLabel.ForeColor = Color.Black;
+            creatorLabel.Name = "creatorLabel";
             // 
             // serviceLabel
             // 
@@ -241,12 +251,18 @@ namespace Service04009
             serviceLabel.ForeColor = Color.Black;
             serviceLabel.Name = "serviceLabel";
             // 
-            // creatorLabel
+            // todasAsEscalasCriadasToolStripMenuItem
             // 
-            resources.ApplyResources(creatorLabel, "creatorLabel");
-            creatorLabel.BackColor = Color.DarkGreen;
-            creatorLabel.ForeColor = Color.Black;
-            creatorLabel.Name = "creatorLabel";
+            resources.ApplyResources(todasAsEscalasCriadasToolStripMenuItem, "todasAsEscalasCriadasToolStripMenuItem");
+            todasAsEscalasCriadasToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            todasAsEscalasCriadasToolStripMenuItem.Name = "todasAsEscalasCriadasToolStripMenuItem";
+            todasAsEscalasCriadasToolStripMenuItem.Click += todasAsEscalasCriadasToolStripMenuItem_Click;
+            // 
+            // exibirEscalaPorDataDeUmServiçoToolStripMenuItem
+            // 
+            resources.ApplyResources(exibirEscalaPorDataDeUmServiçoToolStripMenuItem, "exibirEscalaPorDataDeUmServiçoToolStripMenuItem");
+            exibirEscalaPorDataDeUmServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Name = "exibirEscalaPorDataDeUmServiçoToolStripMenuItem";
             // 
             // MainForm
             // 
@@ -296,5 +312,7 @@ namespace Service04009
         private ToolStripMenuItem inícioToolStripMenuItem;
         private Label creatorLabel;
         private Label serviceLabel;
+        private ToolStripMenuItem todasAsEscalasCriadasToolStripMenuItem;
+        private ToolStripMenuItem exibirEscalaPorDataDeUmServiçoToolStripMenuItem;
     }
 }
