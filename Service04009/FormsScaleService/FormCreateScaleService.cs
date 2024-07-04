@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Service04009.FormsScaleService
 {
@@ -74,11 +76,25 @@ namespace Service04009.FormsScaleService
                 int notCfcNecessary = ServiceScale.GetNecessaryShootersNotSfcForScale(dateFirst, dateEnd);
 
                 // Verificar ambiguidade na criação da escala
-                bool ambiguidade = services.Any(service =>
-                    Enumerable.Range(0, numServices)
-                        .Select(i => dateFirst.AddDays(i).DayNumber)
-                        .Contains(service.Date.DayNumber)
-                );
+                bool ambiguidade = false;
+                for (int i = 0; i <= numServices; i++)
+                {
+                    var serviceScale = db.ServiceScales
+                    .Include(sc => sc.Services)
+                        .ThenInclude(s => s.CommanderOfTheGuard)
+                    .Include(sc => sc.Services)
+                        .ThenInclude(s => s.Permanences)
+                    .Include(sc => sc.Services)
+                        .ThenInclude(s => s.Sentinels)
+                    .Where(sc => sc.firstDay <= dateFirst.AddDays(i) && sc.lastDay >= dateFirst.AddDays(i))
+                    .FirstOrDefault();
+
+                    if (serviceScale != null)
+                    {
+                        ambiguidade = true;
+                        break;
+                    }
+                }
 
                 // Verificar se há atiradores suficientes
                 if (notCfcNecessary > shooters.Count(s => !s.isCfc))

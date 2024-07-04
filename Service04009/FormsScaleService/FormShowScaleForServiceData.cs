@@ -37,7 +37,7 @@ namespace Service04009.FormsScaleService
 
                 if (serviceScale != null)
                 {
-                    infoLabel.Text = $"Escala do dia {serviceScale.firstDay} para o dia {serviceScale.lastDay} que terá {serviceScale.CountDaysService()} serviços.";
+                    infoLabel.Text = $"Escala do dia {serviceScale.firstDay} até o dia {serviceScale.lastDay} que terá {serviceScale.CountDaysService()} serviços.";
                     infoLabel.Visible = true;
 
                     // Converter serviços para ServiceDT
