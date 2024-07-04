@@ -175,14 +175,8 @@
   <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 28</value>
   </data>
-  <data name="todasAsEscalasCriadasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 28</value>
-  </data>
   <data name="todasAsEscalasCriadasToolStripMenuItem.Text" xml:space="preserve">
     <value>Todas as escalas criadas</value>
-  </data>
-  <data name="exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 28</value>
   </data>
   <data name="exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Text" xml:space="preserve">
     <value>Exibir escala por data de um serviço</value>

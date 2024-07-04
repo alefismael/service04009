@@ -85,22 +85,24 @@
             dateTimePicker2.CalendarFont = new Font("Segoe UI", 9F);
             dateTimePicker2.CalendarMonthBackground = Color.FromArgb(192, 255, 192);
             dateTimePicker2.CalendarTitleBackColor = Color.SpringGreen;
+            dateTimePicker2.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
             dateTimePicker2.Format = DateTimePickerFormat.Short;
             dateTimePicker2.Location = new Point(525, 255);
             dateTimePicker2.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(98, 23);
+            dateTimePicker2.Size = new Size(98, 26);
             dateTimePicker2.TabIndex = 53;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.CalendarMonthBackground = Color.FromArgb(192, 255, 192);
             dateTimePicker1.CalendarTitleBackColor = Color.SpringGreen;
+            dateTimePicker1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Location = new Point(38, 255);
             dateTimePicker1.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(98, 23);
+            dateTimePicker1.Size = new Size(98, 26);
             dateTimePicker1.TabIndex = 54;
             // 
             // labelInfoNotCfc

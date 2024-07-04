@@ -269,7 +269,7 @@ internal class Shooter : IComparable<Shooter>
 
     public override string ToString()
     {
-        return $"Atirador {numAtr} {warName}, {(isCfc ? "faz CFC" : "não faz CFC")} e tirou {CountService()} serviços.";
+        return $" {numAtr} {warName}";
     }
 
     public override bool Equals(object? obj)

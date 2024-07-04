@@ -58,7 +58,7 @@ namespace Service04009
         // Método para chamar o form que pesquisa atiradores por nome para poder mudar dados
         private void buscandoPorNomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           changeForm(new FormUpdateByName());
+            changeForm(new FormUpdateByName());
         }
 
         // Método para chamar o form que pesquisa atiradores por número para poder remover atirador
@@ -95,7 +95,7 @@ namespace Service04009
         }
 
         // Método interno padrão para carregar um novo form sobre o label do formulário main
-        private void changeForm (Form form)
+        private void changeForm(Form form)
         {
             // Se já têm um formActive no main form então feche ele e passe formActive para null
             if (formActive != null)
@@ -111,6 +111,12 @@ namespace Service04009
             formActive.Dock = DockStyle.Fill;  //  Faz o formulário ocupar toda a tela do main form sem tirar a barra de navegação
             panel.Controls.Add(formActive);  // Passa o form para o panel para ele poder ser exibido corretamente
             formActive.Show();
+        }
+
+        private void exibirEscalaPorDataDeUmServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            changeForm(new FormShowScaleForServiceData());
         }
     }
 }

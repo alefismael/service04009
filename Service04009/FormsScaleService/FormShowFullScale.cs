@@ -18,10 +18,7 @@ namespace Service04009.FormsScaleService
 
             using (var db = new ServiceContext())
             {
-                /*
-                table.DataSource = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
-                */
-                table.DataSource = db.ServiceScales.ToList();
+                table.DataSource = db.ServiceScales.OrderBy(s => s.id).Select(scale => new ServiceScaleDT(scale)).ToList();
             }
         }
     }

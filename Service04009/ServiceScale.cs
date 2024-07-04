@@ -17,17 +17,7 @@ internal class ServiceScale
     public DateOnly lastDay { get; private set; }
     public List<Service> Services { get; private set; }
 
-    //A classe é criada passando o dia do primeiro serviço
-    public ServiceScale(DateOnly firstDay)
-    {
-        this.firstDay = firstDay;
-        Services = new List<Service>();
-        for (int i = 0; i < 15; i++)
-        {
-            Services.Add(new Service(firstDay.AddDays(i)));
-            lastDay = firstDay.AddDays(i);
-        }
-    }
+    public ServiceScale() { }
 
     //A classe é criada passando o dia do primeiro serviço e fim
     public ServiceScale(DateOnly firstDay, DateOnly lastDay)
@@ -35,10 +25,10 @@ internal class ServiceScale
         Services = new List<Service>();
         this.firstDay = firstDay;
         this.lastDay = lastDay;
-        int numServices = lastDay.DayNumber - firstDay.DayNumber;
+        int numServices = lastDay.DayNumber - firstDay.DayNumber +1;
 
         // Cria serviços com base no primeiro dia e último dia da escala
-        for (int i = 0; i <= numServices; i++)
+        for (int i = 0; i < numServices; i++)
         {
             Services.Add(new Service(firstDay.AddDays(i)));
         }
@@ -525,6 +515,12 @@ internal class ServiceScale
         {
             return "A escala não está completa.";
         }
+    }
+
+    // Retorna a quantidade de serviços da escala
+    public int CountDaysService()
+    {
+        return Services.Count();
     }
 
 }

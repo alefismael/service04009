@@ -55,7 +55,7 @@ namespace Service04009.FormsScaleService
         {
             DateOnly dateFirst = DateOnly.FromDateTime(dateTimePicker1.Value);
             DateOnly dateEnd = DateOnly.FromDateTime(dateTimePicker2.Value);
-            int numServices = (dateEnd.DayNumber - dateFirst.DayNumber) + 1; // Inclui ambos os dias
+            int numServices = (dateEnd.DayNumber - dateFirst.DayNumber); // Inclui ambos os dias
 
             if (numServices < 0)
             {
@@ -95,25 +95,11 @@ namespace Service04009.FormsScaleService
                 }
                 else
                 {
-                    // Criar a escala de serviço
-                    using (var transaction = db.Database.BeginTransaction())
-                    {
-                        try
-                        {
-                            var scale = new ServiceScale(dateFirst, dateEnd);
-                            scale.DefineScale(shooters);
-                            db.ServiceScales.Add(scale);
-                            db.SaveChanges();
-
-                            transaction.Commit();
-                            MessageBox.Show($"A Escala do dia {dateFirst} para o dia {dateEnd} que terá {numServices + 1} serviços foi criada com sucesso.");
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            MessageBox.Show($"Ocorreu um erro ao criar a escala de serviço: {ex.Message}");
-                        }
-                    }
+                    var scale = new ServiceScale(dateFirst, dateEnd);
+                    scale.DefineScale(shooters);
+                    db.ServiceScales.Add(scale);
+                    db.SaveChanges();
+                    MessageBox.Show($"A Escala do dia {dateFirst} para o dia {dateEnd} que terá {numServices + 1} serviços foi criada com sucesso.");
                 }
             }
         }
