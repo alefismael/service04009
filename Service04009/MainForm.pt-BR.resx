@@ -190,20 +190,20 @@
   <data name="exibirToolStripMenuItem1.Text" xml:space="preserve">
     <value>Exibir escala</value>
   </data>
-  <data name="porDataDoServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>308, 28</value>
-  </data>
   <data name="porDataDoServiçoToolStripMenuItem.Text" xml:space="preserve">
     <value>Por data do serviço</value>
-  </data>
-  <data name="exibirServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 28</value>
   </data>
   <data name="exibirServiçoToolStripMenuItem.Text" xml:space="preserve">
     <value>Exibir serviço</value>
   </data>
+  <data name="trocaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>476, 28</value>
+  </data>
   <data name="trocaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Troca de serviço</value>
+    <value>Troca de serviço entre atiradores</value>
+  </data>
+  <data name="atribuirServiçoAAtiradorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>476, 28</value>
   </data>
   <data name="atribuirServiçoAAtiradorToolStripMenuItem.Text" xml:space="preserve">
     <value>Atribuir serviço a um atirador</value>

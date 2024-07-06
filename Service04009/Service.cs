@@ -1,4 +1,5 @@
-﻿using Service04009;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Service04009;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,12 +13,12 @@ internal class Service
 {
     public int Id { get; set; }
     public DateOnly Date { get; set; }
-    public List<Shooter> Permanences { get;  set; }
-    public List<Shooter> Sentinels { get;  set; }
-    public int? CommanderOfTheGuardId { get;  set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
+    public List<Shooter> Permanences { get; set; }
+    public List<Shooter> Sentinels { get; set; }
+    public int? CommanderOfTheGuardId { get; set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
     public Shooter? CommanderOfTheGuard { get; set; }
-    public int? ServiceScaleId { get;  set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
-    public ServiceScale? ServiceScale { get;  set; }
+    public int? ServiceScaleId { get; set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
+    public ServiceScale? ServiceScale { get; set; }
 
     // Construtor padrão da classe recebendo apenas um DateOnly (data sem horas)
     public Service(DateOnly date)
@@ -82,8 +83,8 @@ internal class Service
         return false;
     }
 
-    // Método para adicionar atirador permanência na lista interna emergência (aceita cfc)
-    public bool AddPermanenceEmergency(Shooter shooter)
+    // Método para adicionar atirador permanência na lista interna por troca (aceita cfc)
+    public bool AddPermanenceSwap(Shooter shooter)
     {
         if ((Permanences.Count < 1) && Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
         {
@@ -120,8 +121,8 @@ internal class Service
         return false;
     }
 
-    // Método para adicionar atirador sentinela na lista interna emergência (aceita cfc)
-    public bool AddSentinelEmergency(Shooter shooter)
+    // Método para adicionar atirador sentinela na lista interna por troca (aceita cfc)
+    public bool AddSentinelSwap(Shooter shooter)
     {
         if (Sentinels.Count < 3)
         {
@@ -151,6 +152,13 @@ internal class Service
             return true;
         }
         return false;
+    }
+
+    // Método para adicionar o comandante da guarda troca (aceita não cfc)
+    public bool SetCommanderOfTheGuardSwap(Shooter shooter)
+    {
+        CommanderOfTheGuard = shooter;
+        return true;
     }
 
     // Método para passar o comandante da guarda
@@ -332,6 +340,27 @@ internal class Service
         else
         {
             return false;
+        }
+    }
+
+    // Método retorna 0 se o atirador não está no serviço, 1 se é permanência na lista, 2 se é sentinela e 3 se é comandante da guarda
+    public int ShowShooterFunctionInScale(Shooter shooter)
+    {
+        if (Permanences.Contains(shooter))
+        {
+            return 1;
+        }
+        else if (Sentinels.Contains(shooter))
+        {
+            return 2;
+        }
+        else if (shooter.Equals(CommanderOfTheGuard))
+        {
+            return 3;
+        }
+        else
+        {
+            return 0;
         }
     }
 

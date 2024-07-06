@@ -51,6 +51,8 @@ namespace Service04009
             exibirToolStripMenuItem1 = new ToolStripMenuItem();
             todasAsEscalasCriadasToolStripMenuItem = new ToolStripMenuItem();
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem = new ToolStripMenuItem();
+            exibirServiçoToolStripMenuItem = new ToolStripMenuItem();
+            porDataDoServiçoToolStripMenuItem = new ToolStripMenuItem();
             mudarEscalaToolStripMenuItem = new ToolStripMenuItem();
             trocaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             atribuirServiçoAAtiradorToolStripMenuItem = new ToolStripMenuItem();
@@ -58,8 +60,6 @@ namespace Service04009
             panel = new Panel();
             creatorLabel = new Label();
             serviceLabel = new Label();
-            exibirServiçoToolStripMenuItem = new ToolStripMenuItem();
-            porDataDoServiçoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel.SuspendLayout();
             SuspendLayout();
@@ -203,6 +203,20 @@ namespace Service04009
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Name = "exibirEscalaPorDataDeUmServiçoToolStripMenuItem";
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Click += exibirEscalaPorDataDeUmServiçoToolStripMenuItem_Click;
             // 
+            // exibirServiçoToolStripMenuItem
+            // 
+            resources.ApplyResources(exibirServiçoToolStripMenuItem, "exibirServiçoToolStripMenuItem");
+            exibirServiçoToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            exibirServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porDataDoServiçoToolStripMenuItem });
+            exibirServiçoToolStripMenuItem.Name = "exibirServiçoToolStripMenuItem";
+            // 
+            // porDataDoServiçoToolStripMenuItem
+            // 
+            resources.ApplyResources(porDataDoServiçoToolStripMenuItem, "porDataDoServiçoToolStripMenuItem");
+            porDataDoServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            porDataDoServiçoToolStripMenuItem.Name = "porDataDoServiçoToolStripMenuItem";
+            porDataDoServiçoToolStripMenuItem.Click += porDataDoServiçoToolStripMenuItem_Click;
+            // 
             // mudarEscalaToolStripMenuItem
             // 
             resources.ApplyResources(mudarEscalaToolStripMenuItem, "mudarEscalaToolStripMenuItem");
@@ -215,6 +229,7 @@ namespace Service04009
             resources.ApplyResources(trocaDeServiçoToolStripMenuItem, "trocaDeServiçoToolStripMenuItem");
             trocaDeServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             trocaDeServiçoToolStripMenuItem.Name = "trocaDeServiçoToolStripMenuItem";
+            trocaDeServiçoToolStripMenuItem.Click += trocaDeServiçoToolStripMenuItem_Click;
             // 
             // atribuirServiçoAAtiradorToolStripMenuItem
             // 
@@ -251,20 +266,6 @@ namespace Service04009
             serviceLabel.BackColor = Color.DarkGreen;
             serviceLabel.ForeColor = Color.Black;
             serviceLabel.Name = "serviceLabel";
-            // 
-            // exibirServiçoToolStripMenuItem
-            // 
-            resources.ApplyResources(exibirServiçoToolStripMenuItem, "exibirServiçoToolStripMenuItem");
-            exibirServiçoToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
-            exibirServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porDataDoServiçoToolStripMenuItem });
-            exibirServiçoToolStripMenuItem.Name = "exibirServiçoToolStripMenuItem";
-            // 
-            // porDataDoServiçoToolStripMenuItem
-            // 
-            resources.ApplyResources(porDataDoServiçoToolStripMenuItem, "porDataDoServiçoToolStripMenuItem");
-            porDataDoServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
-            porDataDoServiçoToolStripMenuItem.Name = "porDataDoServiçoToolStripMenuItem";
-            porDataDoServiçoToolStripMenuItem.Click += porDataDoServiçoToolStripMenuItem_Click;
             // 
             // MainForm
             // 

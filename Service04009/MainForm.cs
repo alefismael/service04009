@@ -128,5 +128,10 @@ namespace Service04009
         {
             changeForm(new FormShowServiceForData());
         }
+
+        private void trocaDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormSwapService());
+        }
     }
 }

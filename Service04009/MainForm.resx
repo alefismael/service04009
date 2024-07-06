@@ -117,112 +117,404 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;apenasQuemNãoÉCFCToolStripMenuItem.Type" xml:space="preserve">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="atribuirServiçoAAtiradorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 28</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dateTimePicker1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;apenasQuemNãoÉCFCToolStripMenuItem.Name" xml:space="preserve">
+    <value>apenasQuemNãoÉCFCToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buscandoPorNúmeroToolStripMenuItem.Name" xml:space="preserve">
+    <value>buscandoPorNúmeroToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;todosToolStripMenuItem.Name" xml:space="preserve">
+    <value>todosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;serviçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;creatorLabel.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;serviceLabel.Name" xml:space="preserve">
+    <value>serviceLabel</value>
+  </data>
+  <data name="&gt;&gt;cadastrarToolStripMenuItem.Name" xml:space="preserve">
+    <value>cadastrarToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;exibirServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>exibirServiçoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porDataDoServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>porDataDoServiçoToolStripMenuItem</value>
+  </data>
+  <data name="buscandoPorIDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 28</value>
+  </data>
+  <data name="gerardocWordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 34</value>
+  </data>
+  <data name="&gt;&gt;inícioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;serviceLabel.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;exibirToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="editarToolStripMenuItem1.Text" xml:space="preserve">
     <value>Editar</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt</value>
+  <data name="&gt;&gt;gerarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="buscandoPorNomeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 28</value>
   </data>
-  <data name="&gt;&gt;creatorLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="removerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Remover</value>
   </data>
-  <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="adicionarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
+  <data name="&gt;&gt;buscandoPorIDToolStripMenuItem.Name" xml:space="preserve">
+    <value>buscandoPorIDToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;serviceLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="exibirServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 28</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
-    <value>panel</value>
-  </data>
-  <data name="&gt;&gt;todasAsEscalasCriadasToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;removerToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;editarToolStripMenuItem.Name" xml:space="preserve">
-    <value>editarToolStripMenuItem</value>
+  <data name="&gt;&gt;creatorLabel.Name" xml:space="preserve">
+    <value>creatorLabel</value>
   </data>
-  <data name="atualizarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Atualizar</value>
+  <data name="&gt;&gt;adicionarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="serviceLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dateTimePicker1.Name" xml:space="preserve">
+    <value>dateTimePicker1</value>
   </data>
   <data name="gerardocWordToolStripMenuItem.Text" xml:space="preserve">
     <value>Gerar .doc Word</value>
   </data>
-  <data name="&gt;&gt;cadastrarToolStripMenuItem.Name" xml:space="preserve">
-    <value>cadastrarToolStripMenuItem</value>
+  <data name="&gt;&gt;pesquisaPersonalizadaToolStripMenuItem.Name" xml:space="preserve">
+    <value>pesquisaPersonalizadaToolStripMenuItem</value>
   </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="serviçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Serviço</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="adicionarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
   </data>
-  <data name="exibirToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 34</value>
+  <data name="&gt;&gt;removerToolStripMenuItem.Name" xml:space="preserve">
+    <value>removerToolStripMenuItem</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1253, 38</value>
-  </data>
-  <data name="&gt;&gt;atiradoresToolStripMenuItem.Name" xml:space="preserve">
-    <value>atiradoresToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;exibirToolStripMenuItem1.Name" xml:space="preserve">
-    <value>exibirToolStripMenuItem1</value>
-  </data>
-  <data name="adicionarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Adicionar</value>
+  <data name="exibirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
   </data>
   <data name="&gt;&gt;creatorLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;mudarEscalaToolStripMenuItem.Name" xml:space="preserve">
+    <value>mudarEscalaToolStripMenuItem</value>
   </data>
-  <data name="consultarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Consultar</value>
+  <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt</value>
   </data>
-  <data name="btApenasCfc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 34</value>
+  <data name="&gt;&gt;cadastrarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>exibirEscalaPorDataDeUmServiçoToolStripMenuItem</value>
+  <data name="&gt;&gt;buscandoPorNúmeroToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel.Name" xml:space="preserve">
+  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
     <value>panel</value>
   </data>
-  <data name="&gt;&gt;exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 51</value>
   </data>
-  <data name="&gt;&gt;consultarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="atiradoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 34</value>
   </data>
-  <data name="porDataDoServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;serviceLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel.Name" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="editarToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
+  </data>
+  <data name="adicionarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="&gt;&gt;editarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;atribuirServiçoAAtiradorToolStripMenuItem.Name" xml:space="preserve">
+    <value>atribuirServiçoAAtiradorToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;excluirEscalaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="editarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="creatorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cadastrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
+  </data>
+  <data name="&gt;&gt;serviçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>serviçoToolStripMenuItem</value>
+  </data>
+  <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 34</value>
+  </data>
+  <data name="consultarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="&gt;&gt;consultarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;excluirEscalaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>excluirEscalaDeServiçoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;serviceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btApenasCfc.Name" xml:space="preserve">
+    <value>btApenasCfc</value>
+  </data>
+  <data name="removerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
+  </data>
+  <data name="mudarEscalaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 28</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="btApenasCfc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 34</value>
+  </data>
+  <data name="creatorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>900, 612</value>
+  </data>
+  <data name="&gt;&gt;todasAsEscalasCriadasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exibirServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cadastrarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="serviceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;trocaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btApenasCfc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>exibirEscalaPorDataDeUmServiçoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;editarToolStripMenuItem.Name" xml:space="preserve">
+    <value>editarToolStripMenuItem</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.Parent" xml:space="preserve">
+    <value>panel</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="trocaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 28</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pesquisaPersonalizadaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 28</value>
+  </data>
+  <data name="&gt;&gt;panel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gerardocWordToolStripMenuItem.Name" xml:space="preserve">
+    <value>gerardocWordToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem.Name" xml:space="preserve">
+    <value>buscandoPorNomeToolStripMenuItem</value>
+  </data>
+  <data name="dateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 204</value>
+  </data>
+  <data name="&gt;&gt;adicionarToolStripMenuItem.Name" xml:space="preserve">
+    <value>adicionarToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;consultarToolStripMenuItem.Name" xml:space="preserve">
+    <value>consultarToolStripMenuItem</value>
+  </data>
+  <data name="apenasQuemNãoÉCFCToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 28</value>
+  </data>
+  <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 34</value>
+  </data>
+  <data name="&gt;&gt;exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;exibirToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="exibirToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Exibir</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="serviçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 34</value>
+  </data>
+  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exibirToolStripMenuItem1.Name" xml:space="preserve">
+    <value>exibirToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;panel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;editarToolStripMenuItem1.Name" xml:space="preserve">
+    <value>editarToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;buscandoPorIDToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="todosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="&gt;&gt;editarToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="exibirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exibir</value>
+  </data>
+  <data name="removerToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Service04009</value>
+  </data>
+  <data name="&gt;&gt;todosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="todosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 34</value>
+  </data>
+  <data name="dataGridView1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;atualizarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;atribuirServiçoAAtiradorToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="todasAsEscalasCriadasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 28</value>
+  </data>
+  <data name="escalaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Escala de Serviço</value>
+  </data>
+  <data name="escalaDeServiçoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 28</value>
+  </data>
+  <data name="inícioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 28</value>
+  </data>
+  <data name="&gt;&gt;removerToolStripMenuItem1.Name" xml:space="preserve">
+    <value>removerToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem1.Name" xml:space="preserve">
+    <value>escalaDeServiçoToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buscandoPorNomeToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>308, 28</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>WindowsDefaultBounds</value>
+  </data>
+  <data name="atualizarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
+  </data>
+  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 132</value>
+  </data>
+  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>escalaDeServiçoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porDataDoServiçoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
+    <value>dataGridView1</value>
+  </data>
+  <data name="&gt;&gt;mudarEscalaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;removerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="exibirServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 28</value>
+  </data>
+  <data name="removerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1308,401 +1600,109 @@
         kU9B8IFHudbArVyf5oAA6m7V/R6P/wfx68/uFCkxSwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;removerToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;serviçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="editarToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1253, 683</value>
-  </data>
-  <data name="&gt;&gt;inícioToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;serviceLabel.Parent" xml:space="preserve">
-    <value>panel</value>
-  </data>
-  <data name="apenasQuemNãoÉCFCToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 28</value>
-  </data>
-  <data name="&gt;&gt;serviceLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;creatorLabel.Parent" xml:space="preserve">
-    <value>panel</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem.Name" xml:space="preserve">
-    <value>buscandoPorNomeToolStripMenuItem</value>
-  </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 51</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="escalaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Escala de Serviço</value>
-  </data>
-  <data name="&gt;&gt;excluirEscalaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>excluirEscalaDeServiçoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cadastrarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="consultarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="buscandoPorNomeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 28</value>
-  </data>
-  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;excluirEscalaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorIDToolStripMenuItem.Name" xml:space="preserve">
-    <value>buscandoPorIDToolStripMenuItem</value>
-  </data>
-  <data name="trocaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 28</value>
-  </data>
-  <data name="&gt;&gt;btApenasCfc.Name" xml:space="preserve">
-    <value>btApenasCfc</value>
-  </data>
-  <data name="panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 132</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="serviceLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 256</value>
-  </data>
-  <data name="&gt;&gt;trocaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>trocaDeServiçoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;gerardocWordToolStripMenuItem.Name" xml:space="preserve">
-    <value>gerardocWordToolStripMenuItem</value>
-  </data>
-  <data name="todosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 34</value>
-  </data>
   <data name="&gt;&gt;exibirToolStripMenuItem.Name" xml:space="preserve">
     <value>exibirToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="gerarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Criar</value>
-  </data>
-  <data name="&gt;&gt;dateTimePicker1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="todasAsEscalasCriadasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 28</value>
-  </data>
-  <data name="&gt;&gt;pesquisaPersonalizadaToolStripMenuItem.Name" xml:space="preserve">
-    <value>pesquisaPersonalizadaToolStripMenuItem</value>
-  </data>
-  <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 34</value>
-  </data>
-  <data name="&gt;&gt;atualizarToolStripMenuItem.Name" xml:space="preserve">
-    <value>atualizarToolStripMenuItem</value>
-  </data>
-  <data name="dateTimePicker1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="mudarEscalaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 28</value>
-  </data>
-  <data name="&gt;&gt;removerToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 204</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>WindowsDefaultBounds</value>
-  </data>
-  <data name="&gt;&gt;dateTimePicker1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;porDataDoServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>porDataDoServiçoToolStripMenuItem</value>
-  </data>
-  <data name="serviçoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Serviço</value>
-  </data>
-  <data name="atualizarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="dateTimePicker1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 23</value>
-  </data>
-  <data name="serviçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 34</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorIDToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pesquisaPersonalizadaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="todosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Todos</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;consultarToolStripMenuItem.Name" xml:space="preserve">
-    <value>consultarToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;editarToolStripMenuItem1.Name" xml:space="preserve">
-    <value>editarToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;dateTimePicker1.Name" xml:space="preserve">
-    <value>dateTimePicker1</value>
-  </data>
-  <data name="&gt;&gt;dateTimePicker1.Parent" xml:space="preserve">
-    <value>panel</value>
-  </data>
-  <data name="&gt;&gt;removerToolStripMenuItem1.Name" xml:space="preserve">
-    <value>removerToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;editarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="inícioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 28</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>escalaDeServiçoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;atiradoresToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="escalaDeServiçoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 28</value>
-  </data>
-  <data name="cadastrarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="&gt;&gt;exibirServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exibirToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 34</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
-  </data>
-  <data name="&gt;&gt;btApenasCfc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Service04009</value>
-  </data>
-  <data name="&gt;&gt;panel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="creatorLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buscandoPorNomeToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>308, 28</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem1.Name" xml:space="preserve">
-    <value>buscandoPorNomeToolStripMenuItem1</value>
-  </data>
-  <data name="exibirToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exibir</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="dataGridView1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;todosToolStripMenuItem.Name" xml:space="preserve">
-    <value>todosToolStripMenuItem</value>
-  </data>
-  <data name="creatorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>900, 612</value>
-  </data>
-  <data name="gerardocWordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 34</value>
-  </data>
-  <data name="&gt;&gt;mudarEscalaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gerarToolStripMenuItem.Name" xml:space="preserve">
-    <value>gerarToolStripMenuItem</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1183, 608</value>
-  </data>
-  <data name="&gt;&gt;inícioToolStripMenuItem.Name" xml:space="preserve">
-    <value>inícioToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;adicionarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;editarToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;todasAsEscalasCriadasToolStripMenuItem.Name" xml:space="preserve">
-    <value>todasAsEscalasCriadasToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;atribuirServiçoAAtiradorToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNúmeroToolStripMenuItem.Name" xml:space="preserve">
-    <value>buscandoPorNúmeroToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;todosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="escalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 34</value>
-  </data>
-  <data name="&gt;&gt;mudarEscalaToolStripMenuItem.Name" xml:space="preserve">
-    <value>mudarEscalaToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;adicionarToolStripMenuItem.Name" xml:space="preserve">
-    <value>adicionarToolStripMenuItem</value>
-  </data>
-  <data name="removerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="&gt;&gt;porDataDoServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;atribuirServiçoAAtiradorToolStripMenuItem.Name" xml:space="preserve">
-    <value>atribuirServiçoAAtiradorToolStripMenuItem</value>
-  </data>
-  <data name="editarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Editar</value>
-  </data>
-  <data name="atribuirServiçoAAtiradorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 28</value>
-  </data>
-  <data name="&gt;&gt;exibirServiçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>exibirServiçoToolStripMenuItem</value>
-  </data>
   <data name="&gt;&gt;gerardocWordToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="exibirToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Exibir</value>
+  <data name="&gt;&gt;atualizarToolStripMenuItem.Name" xml:space="preserve">
+    <value>atualizarToolStripMenuItem</value>
   </data>
-  <data name="pesquisaPersonalizadaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 28</value>
+  <data name="serviceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 256</value>
   </data>
-  <data name="&gt;&gt;creatorLabel.Name" xml:space="preserve">
-    <value>creatorLabel</value>
+  <data name="&gt;&gt;creatorLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="buscandoPorNúmeroToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>308, 28</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="exibirToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 34</value>
   </data>
-  <data name="removerToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Remover</value>
+  <data name="&gt;&gt;inícioToolStripMenuItem.Name" xml:space="preserve">
+    <value>inícioToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;exibirToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;atiradoresToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gerarToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;removerToolStripMenuItem.Name" xml:space="preserve">
-    <value>removerToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="&gt;&gt;atualizarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="exibirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="&gt;&gt;apenasQuemNãoÉCFCToolStripMenuItem.Name" xml:space="preserve">
-    <value>apenasQuemNãoÉCFCToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;trocaDeServiçoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;serviceLabel.Name" xml:space="preserve">
-    <value>serviceLabel</value>
-  </data>
-  <data name="&gt;&gt;buscandoPorNúmeroToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cadastrarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cadastrar</value>
-  </data>
-  <data name="removerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 34</value>
-  </data>
-  <data name="buscandoPorIDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 28</value>
-  </data>
-  <data name="&gt;&gt;escalaDeServiçoToolStripMenuItem1.Name" xml:space="preserve">
-    <value>escalaDeServiçoToolStripMenuItem1</value>
-  </data>
-  <data name="removerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Remover</value>
-  </data>
-  <data name="&gt;&gt;serviçoToolStripMenuItem.Name" xml:space="preserve">
-    <value>serviçoToolStripMenuItem</value>
-  </data>
-  <data name="excluirEscalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 28</value>
   </data>
   <data name="atiradoresToolStripMenuItem.Text" xml:space="preserve">
     <value>Atiradores</value>
   </data>
+  <data name="&gt;&gt;trocaDeServiçoToolStripMenuItem.Name" xml:space="preserve">
+    <value>trocaDeServiçoToolStripMenuItem</value>
+  </data>
+  <data name="escalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 34</value>
+  </data>
+  <data name="gerarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="excluirEscalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 28</value>
+  </data>
+  <data name="consultarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 34</value>
+  </data>
+  <data name="&gt;&gt;gerarToolStripMenuItem.Name" xml:space="preserve">
+    <value>gerarToolStripMenuItem</value>
+  </data>
+  <data name="dateTimePicker1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="&gt;&gt;apenasQuemNãoÉCFCToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1183, 608</value>
+  </data>
+  <data name="atualizarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="&gt;&gt;atiradoresToolStripMenuItem.Name" xml:space="preserve">
+    <value>atiradoresToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;buscandoPorNomeToolStripMenuItem1.Name" xml:space="preserve">
+    <value>buscandoPorNomeToolStripMenuItem1</value>
+  </data>
   <data name="exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>512, 28</value>
   </data>
+  <data name="&gt;&gt;dateTimePicker1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;todasAsEscalasCriadasToolStripMenuItem.Name" xml:space="preserve">
+    <value>todasAsEscalasCriadasToolStripMenuItem</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1253, 683</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="porDataDoServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 28</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1253, 38</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
