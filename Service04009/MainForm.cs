@@ -123,5 +123,10 @@ namespace Service04009
         {
             changeForm(new FormDeleteServiceScale());
         }
+
+        private void porDataDoServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormShowServiceForData());
+        }
     }
 }

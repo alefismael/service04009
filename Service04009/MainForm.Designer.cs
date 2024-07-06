@@ -52,12 +52,14 @@ namespace Service04009
             todasAsEscalasCriadasToolStripMenuItem = new ToolStripMenuItem();
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem = new ToolStripMenuItem();
             mudarEscalaToolStripMenuItem = new ToolStripMenuItem();
+            trocaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
+            atribuirServiçoAAtiradorToolStripMenuItem = new ToolStripMenuItem();
             excluirEscalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             panel = new Panel();
             creatorLabel = new Label();
             serviceLabel = new Label();
-            trocaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
-            atribuirServiçoAAtiradorToolStripMenuItem = new ToolStripMenuItem();
+            exibirServiçoToolStripMenuItem = new ToolStripMenuItem();
+            porDataDoServiçoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel.SuspendLayout();
             SuspendLayout();
@@ -170,7 +172,7 @@ namespace Service04009
             // escalaDeServiçoToolStripMenuItem
             // 
             resources.ApplyResources(escalaDeServiçoToolStripMenuItem, "escalaDeServiçoToolStripMenuItem");
-            escalaDeServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerarToolStripMenuItem, exibirToolStripMenuItem1, mudarEscalaToolStripMenuItem, excluirEscalaDeServiçoToolStripMenuItem });
+            escalaDeServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerarToolStripMenuItem, exibirToolStripMenuItem1, exibirServiçoToolStripMenuItem, mudarEscalaToolStripMenuItem, excluirEscalaDeServiçoToolStripMenuItem });
             escalaDeServiçoToolStripMenuItem.Name = "escalaDeServiçoToolStripMenuItem";
             // 
             // gerarToolStripMenuItem
@@ -208,6 +210,18 @@ namespace Service04009
             mudarEscalaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { trocaDeServiçoToolStripMenuItem, atribuirServiçoAAtiradorToolStripMenuItem });
             mudarEscalaToolStripMenuItem.Name = "mudarEscalaToolStripMenuItem";
             // 
+            // trocaDeServiçoToolStripMenuItem
+            // 
+            resources.ApplyResources(trocaDeServiçoToolStripMenuItem, "trocaDeServiçoToolStripMenuItem");
+            trocaDeServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            trocaDeServiçoToolStripMenuItem.Name = "trocaDeServiçoToolStripMenuItem";
+            // 
+            // atribuirServiçoAAtiradorToolStripMenuItem
+            // 
+            resources.ApplyResources(atribuirServiçoAAtiradorToolStripMenuItem, "atribuirServiçoAAtiradorToolStripMenuItem");
+            atribuirServiçoAAtiradorToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            atribuirServiçoAAtiradorToolStripMenuItem.Name = "atribuirServiçoAAtiradorToolStripMenuItem";
+            // 
             // excluirEscalaDeServiçoToolStripMenuItem
             // 
             resources.ApplyResources(excluirEscalaDeServiçoToolStripMenuItem, "excluirEscalaDeServiçoToolStripMenuItem");
@@ -238,17 +252,19 @@ namespace Service04009
             serviceLabel.ForeColor = Color.Black;
             serviceLabel.Name = "serviceLabel";
             // 
-            // trocaDeServiçoToolStripMenuItem
+            // exibirServiçoToolStripMenuItem
             // 
-            resources.ApplyResources(trocaDeServiçoToolStripMenuItem, "trocaDeServiçoToolStripMenuItem");
-            trocaDeServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
-            trocaDeServiçoToolStripMenuItem.Name = "trocaDeServiçoToolStripMenuItem";
+            resources.ApplyResources(exibirServiçoToolStripMenuItem, "exibirServiçoToolStripMenuItem");
+            exibirServiçoToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            exibirServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porDataDoServiçoToolStripMenuItem });
+            exibirServiçoToolStripMenuItem.Name = "exibirServiçoToolStripMenuItem";
             // 
-            // atribuirServiçoAAtiradorToolStripMenuItem
+            // porDataDoServiçoToolStripMenuItem
             // 
-            resources.ApplyResources(atribuirServiçoAAtiradorToolStripMenuItem, "atribuirServiçoAAtiradorToolStripMenuItem");
-            atribuirServiçoAAtiradorToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
-            atribuirServiçoAAtiradorToolStripMenuItem.Name = "atribuirServiçoAAtiradorToolStripMenuItem";
+            resources.ApplyResources(porDataDoServiçoToolStripMenuItem, "porDataDoServiçoToolStripMenuItem");
+            porDataDoServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            porDataDoServiçoToolStripMenuItem.Name = "porDataDoServiçoToolStripMenuItem";
+            porDataDoServiçoToolStripMenuItem.Click += porDataDoServiçoToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -302,5 +318,7 @@ namespace Service04009
         private ToolStripMenuItem exibirEscalaPorDataDeUmServiçoToolStripMenuItem;
         private ToolStripMenuItem trocaDeServiçoToolStripMenuItem;
         private ToolStripMenuItem atribuirServiçoAAtiradorToolStripMenuItem;
+        private ToolStripMenuItem exibirServiçoToolStripMenuItem;
+        private ToolStripMenuItem porDataDoServiçoToolStripMenuItem;
     }
 }

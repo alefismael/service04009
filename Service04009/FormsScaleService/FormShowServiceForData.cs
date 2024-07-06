@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsScaleService
 {
-    public partial class FormShowScaleForServiceData : Form
+    public partial class FormShowServiceForData : Form
     {
-        public FormShowScaleForServiceData()
+        public FormShowServiceForData()
         {
             InitializeComponent();
         }
@@ -25,32 +25,27 @@ namespace Service04009.FormsScaleService
                 DateOnly date = DateOnly.FromDateTime(dateTime.Value);
 
                 // Carregar ServiceScale com todos os serviços associados e suas propriedades relacionadas
-                var serviceScale = db.ServiceScales
-                    .Include(sc => sc.Services)
-                        .ThenInclude(s => s.CommanderOfTheGuard)
-                    .Include(sc => sc.Services)
-                        .ThenInclude(s => s.Permanences)
-                    .Include(sc => sc.Services)
-                        .ThenInclude(s => s.Sentinels)
-                    .Where(sc => sc.firstDay <= date && sc.lastDay >= date)
+                var service = db.Services
+                    .Include(s => s.CommanderOfTheGuard)
+                    .Include(s => s.Permanences)
+                    .Include(s => s.Sentinels)
+                    .Where(s => s.Date == date)
                     .FirstOrDefault();
 
-                if (serviceScale != null)
+                if (service != null)
                 {
-                    infoLabel.Text = $"Escala do dia {serviceScale.firstDay} até o dia {serviceScale.lastDay} que terá {serviceScale.CountDaysService()} serviços.";
+                    infoLabel.Text = $"Serviço do dia {service.Date}.";
                     infoLabel.Visible = true;
 
                     // Converter serviços para ServiceDT
-                    List<ServiceDT> servicesDt = serviceScale.Services
-                        .Select(service => new ServiceDT(service))
-                        .ToList();
+                    List<ServiceDT> servicesDt = new List<ServiceDT>() {new ServiceDT(service) };
 
                     table.DataSource = servicesDt;
                     table.Visible = true;
                 }
                 else
                 {
-                    MessageBox.Show($"Não foi encontrado uma escala de serviço que tenha um serviço na data {date}");
+                    MessageBox.Show($"Não foi encontrar um serviço que tenha a data {date}");
                     infoLabel.Visible = false;
                     table.Visible = false;
                 }
