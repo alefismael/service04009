@@ -51,16 +51,13 @@ namespace Service04009
             exibirToolStripMenuItem1 = new ToolStripMenuItem();
             todasAsEscalasCriadasToolStripMenuItem = new ToolStripMenuItem();
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem = new ToolStripMenuItem();
-            gerardocWordToolStripMenuItem = new ToolStripMenuItem();
-            serviçoToolStripMenuItem = new ToolStripMenuItem();
-            adicionarToolStripMenuItem = new ToolStripMenuItem();
-            consultarToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem1 = new ToolStripMenuItem();
-            removerToolStripMenuItem1 = new ToolStripMenuItem();
+            mudarEscalaToolStripMenuItem = new ToolStripMenuItem();
+            excluirEscalaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             panel = new Panel();
             creatorLabel = new Label();
             serviceLabel = new Label();
+            trocaDeServiçoToolStripMenuItem = new ToolStripMenuItem();
+            atribuirServiçoAAtiradorToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel.SuspendLayout();
             SuspendLayout();
@@ -69,7 +66,7 @@ namespace Service04009
             // 
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.BackColor = Color.DarkGreen;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { inícioToolStripMenuItem, atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem, serviçoToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inícioToolStripMenuItem, atiradoresToolStripMenuItem, escalaDeServiçoToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             // 
@@ -173,7 +170,7 @@ namespace Service04009
             // escalaDeServiçoToolStripMenuItem
             // 
             resources.ApplyResources(escalaDeServiçoToolStripMenuItem, "escalaDeServiçoToolStripMenuItem");
-            escalaDeServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerarToolStripMenuItem, exibirToolStripMenuItem1, editarToolStripMenuItem, gerardocWordToolStripMenuItem });
+            escalaDeServiçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerarToolStripMenuItem, exibirToolStripMenuItem1, mudarEscalaToolStripMenuItem, excluirEscalaDeServiçoToolStripMenuItem });
             escalaDeServiçoToolStripMenuItem.Name = "escalaDeServiçoToolStripMenuItem";
             // 
             // gerarToolStripMenuItem
@@ -204,43 +201,19 @@ namespace Service04009
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Name = "exibirEscalaPorDataDeUmServiçoToolStripMenuItem";
             exibirEscalaPorDataDeUmServiçoToolStripMenuItem.Click += exibirEscalaPorDataDeUmServiçoToolStripMenuItem_Click;
             // 
-            // editarToolStripMenuItem
+            // mudarEscalaToolStripMenuItem
             // 
-            resources.ApplyResources(editarToolStripMenuItem, "editarToolStripMenuItem");
-            editarToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
-            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            resources.ApplyResources(mudarEscalaToolStripMenuItem, "mudarEscalaToolStripMenuItem");
+            mudarEscalaToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            mudarEscalaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { trocaDeServiçoToolStripMenuItem, atribuirServiçoAAtiradorToolStripMenuItem });
+            mudarEscalaToolStripMenuItem.Name = "mudarEscalaToolStripMenuItem";
             // 
-            // gerardocWordToolStripMenuItem
+            // excluirEscalaDeServiçoToolStripMenuItem
             // 
-            resources.ApplyResources(gerardocWordToolStripMenuItem, "gerardocWordToolStripMenuItem");
-            gerardocWordToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
-            gerardocWordToolStripMenuItem.Name = "gerardocWordToolStripMenuItem";
-            // 
-            // serviçoToolStripMenuItem
-            // 
-            resources.ApplyResources(serviçoToolStripMenuItem, "serviçoToolStripMenuItem");
-            serviçoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, consultarToolStripMenuItem, editarToolStripMenuItem1, removerToolStripMenuItem1 });
-            serviçoToolStripMenuItem.Name = "serviçoToolStripMenuItem";
-            // 
-            // adicionarToolStripMenuItem
-            // 
-            resources.ApplyResources(adicionarToolStripMenuItem, "adicionarToolStripMenuItem");
-            adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            // 
-            // consultarToolStripMenuItem
-            // 
-            resources.ApplyResources(consultarToolStripMenuItem, "consultarToolStripMenuItem");
-            consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            // 
-            // editarToolStripMenuItem1
-            // 
-            resources.ApplyResources(editarToolStripMenuItem1, "editarToolStripMenuItem1");
-            editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            // 
-            // removerToolStripMenuItem1
-            // 
-            resources.ApplyResources(removerToolStripMenuItem1, "removerToolStripMenuItem1");
-            removerToolStripMenuItem1.Name = "removerToolStripMenuItem1";
+            resources.ApplyResources(excluirEscalaDeServiçoToolStripMenuItem, "excluirEscalaDeServiçoToolStripMenuItem");
+            excluirEscalaDeServiçoToolStripMenuItem.BackColor = Color.FromArgb(128, 255, 128);
+            excluirEscalaDeServiçoToolStripMenuItem.Name = "excluirEscalaDeServiçoToolStripMenuItem";
+            excluirEscalaDeServiçoToolStripMenuItem.Click += excluirEscalaDeServiçoToolStripMenuItem_Click;
             // 
             // panel
             // 
@@ -264,6 +237,18 @@ namespace Service04009
             serviceLabel.BackColor = Color.DarkGreen;
             serviceLabel.ForeColor = Color.Black;
             serviceLabel.Name = "serviceLabel";
+            // 
+            // trocaDeServiçoToolStripMenuItem
+            // 
+            resources.ApplyResources(trocaDeServiçoToolStripMenuItem, "trocaDeServiçoToolStripMenuItem");
+            trocaDeServiçoToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            trocaDeServiçoToolStripMenuItem.Name = "trocaDeServiçoToolStripMenuItem";
+            // 
+            // atribuirServiçoAAtiradorToolStripMenuItem
+            // 
+            resources.ApplyResources(atribuirServiçoAAtiradorToolStripMenuItem, "atribuirServiçoAAtiradorToolStripMenuItem");
+            atribuirServiçoAAtiradorToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            atribuirServiçoAAtiradorToolStripMenuItem.Name = "atribuirServiçoAAtiradorToolStripMenuItem";
             // 
             // MainForm
             // 
@@ -295,8 +280,8 @@ namespace Service04009
         private ToolStripMenuItem removerToolStripMenuItem;
         private ToolStripMenuItem gerarToolStripMenuItem;
         private ToolStripMenuItem exibirToolStripMenuItem1;
-        private ToolStripMenuItem editarToolStripMenuItem;
-        private ToolStripMenuItem gerardocWordToolStripMenuItem;
+        private ToolStripMenuItem mudarEscalaToolStripMenuItem;
+        private ToolStripMenuItem excluirEscalaDeServiçoToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem;
         private ToolStripMenuItem consultarToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem1;
@@ -315,5 +300,7 @@ namespace Service04009
         private Label serviceLabel;
         private ToolStripMenuItem todasAsEscalasCriadasToolStripMenuItem;
         private ToolStripMenuItem exibirEscalaPorDataDeUmServiçoToolStripMenuItem;
+        private ToolStripMenuItem trocaDeServiçoToolStripMenuItem;
+        private ToolStripMenuItem atribuirServiçoAAtiradorToolStripMenuItem;
     }
 }

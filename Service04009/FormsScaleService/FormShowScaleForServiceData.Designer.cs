@@ -46,10 +46,10 @@
             label2.AutoSize = true;
             label2.BackColor = Color.DarkGreen;
             label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Consolas", 26.25F, FontStyle.Bold);
             label2.Location = new Point(172, 44);
             label2.Name = "label2";
-            label2.Size = new Size(901, 39);
+            label2.Size = new Size(951, 43);
             label2.TabIndex = 15;
             label2.Text = "Pesquisar escala de serviço completa por uma data";
             label2.TextAlign = ContentAlignment.MiddleCenter;

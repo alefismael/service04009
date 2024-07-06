@@ -173,7 +173,10 @@
     <value>142, 28</value>
   </data>
   <data name="gerarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 28</value>
+    <value>380, 28</value>
+  </data>
+  <data name="gerarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Criar escala de serviço</value>
   </data>
   <data name="todasAsEscalasCriadasToolStripMenuItem.Text" xml:space="preserve">
     <value>Todas as escalas criadas</value>
@@ -182,34 +185,40 @@
     <value>Exibir escala por data de um serviço</value>
   </data>
   <data name="exibirToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 28</value>
+    <value>380, 28</value>
   </data>
   <data name="exibirToolStripMenuItem1.Text" xml:space="preserve">
     <value>Exibir escala</value>
   </data>
-  <data name="editarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 28</value>
+  <data name="trocaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 28</value>
   </data>
-  <data name="gerardocWordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 28</value>
+  <data name="trocaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Troca de serviço</value>
+  </data>
+  <data name="atribuirServiçoAAtiradorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 28</value>
+  </data>
+  <data name="atribuirServiçoAAtiradorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Atribuir serviço a um atirador</value>
+  </data>
+  <data name="mudarEscalaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 28</value>
+  </data>
+  <data name="mudarEscalaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mudar escala</value>
+  </data>
+  <data name="excluirEscalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 28</value>
+  </data>
+  <data name="excluirEscalaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Excluir escala de serviço</value>
   </data>
   <data name="escalaDeServiçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 28</value>
+    <value>238, 28</value>
   </data>
-  <data name="adicionarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 28</value>
-  </data>
-  <data name="consultarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 28</value>
-  </data>
-  <data name="editarToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 28</value>
-  </data>
-  <data name="removerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 28</value>
-  </data>
-  <data name="serviçoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
+  <data name="escalaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Escalas e serviços</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1264, 32</value>

@@ -26,6 +26,6 @@ internal class ServiceContext : DbContext
 
         modelBuilder.Entity<Service>().HasMany(s => s.Permanences).WithMany(s => s.PermanenceServices).UsingEntity("ServicePermanenceRelational"); // Um atirador pode estar em vários serviços como permanência e um serviço pode ter mais de um permanência
 
-        modelBuilder.Entity<ServiceScale>().HasMany(s => s.Services).WithOne(s => s.ServiceScale).HasForeignKey(s => s.ServiceScaleId);  // Um serviço pode estar em apenas 1 escala de serviço, e essa pode ter vários serviços
+        modelBuilder.Entity<ServiceScale>().HasMany(s => s.Services).WithOne(s => s.ServiceScale).HasForeignKey(s => s.ServiceScaleId).OnDelete(DeleteBehavior.Cascade);  // Um serviço pode estar em apenas 1 escala de serviço, e essa pode ter vários serviços
     }
 }

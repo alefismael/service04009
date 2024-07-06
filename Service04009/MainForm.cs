@@ -118,5 +118,10 @@ namespace Service04009
 
             changeForm(new FormShowScaleForServiceData());
         }
+
+        private void excluirEscalaDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormDeleteServiceScale());
+        }
     }
 }
