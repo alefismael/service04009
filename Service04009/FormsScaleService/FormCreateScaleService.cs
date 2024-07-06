@@ -28,6 +28,13 @@ namespace Service04009.FormsScaleService
             if (numServices < 0)
             {
                 MessageBox.Show("Por favor informe uma data de início do serviço menor do que a data de fim da escala de serviço");
+                btLimpar.Visible = false;
+                scaleInfo.Visible = false;
+                labelInfoCfc.Visible = false;
+                labelInfoNotCfc.Visible = false;
+                cfcNecessary.Visible = false;
+                notCfcNecessary.Visible = false;
+                btCadastrar.Visible = false;
             }
             else
             {
@@ -40,6 +47,7 @@ namespace Service04009.FormsScaleService
                 labelInfoNotCfc.Visible = true;
                 cfcNecessary.Visible = true;
                 notCfcNecessary.Visible = true;
+                btCadastrar.Visible = true;
             }
         }
 
@@ -51,6 +59,7 @@ namespace Service04009.FormsScaleService
             labelInfoNotCfc.Visible = false;
             cfcNecessary.Visible = false;
             notCfcNecessary.Visible = false;
+            btCadastrar.Visible = false;
         }
 
         private void btCadastrar_Click(object sender, EventArgs e)

@@ -127,6 +127,13 @@ internal class Shooter : IComparable<Shooter>
         return true;
     }
 
+    // Método para subtrair a quantidade de escala de serviço que o atirador pegou em +1
+    public bool SubtractNumService()
+    {
+        numOfService--;
+        return true;
+    }
+
     // Método para mudar a quantidade de escala de serviço que o atirador pegou (apenas positivo)
     public bool ChanceNumService(int numOfService)
     {

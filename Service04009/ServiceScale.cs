@@ -1,4 +1,8 @@
-﻿using Service04009;
+﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using Service04009;
+using SixLabors.ImageSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -521,6 +525,16 @@ internal class ServiceScale
     public int CountDaysService()
     {
         return Services.Count();
+    }
+
+    public bool subtractNumberOfServicesFromAllShootersOnTheScale()
+    {
+        foreach (var service in Services)
+        {
+            service.SubtractShooterNumberService();
+        }
+
+        return true;
     }
 
 }

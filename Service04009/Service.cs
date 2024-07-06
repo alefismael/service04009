@@ -175,6 +175,40 @@ internal class Service
         return Sentinels;
     }
 
+    // Método para passar adicionar quantidade de serviços dos atiradores nesse serviço
+    public void AddShooterNumberService()
+    {
+        foreach (var shooter in Permanences)
+        {
+            shooter.AddNumService();
+        }
+        foreach (var shooter in Sentinels)
+        {
+            shooter.AddNumService();
+        }
+        if (CommanderOfTheGuard != null)
+        {
+            CommanderOfTheGuard.AddNumService();
+        }
+    }
+
+    // Método para passar subtrair quantidade de serviços dos atiradores nesse serviço
+    public void SubtractShooterNumberService()
+    {
+        foreach (var shooter in Permanences)
+        {
+            shooter.SubtractNumService();
+        }
+        foreach (var shooter in Sentinels)
+        {
+            shooter.SubtractNumService();
+        }
+        if (CommanderOfTheGuard != null)
+        {
+            CommanderOfTheGuard.SubtractNumService();
+        }
+    }
+
     // Método para retornar o comandante da guarda se não está ok com o serviço no dia
     public Shooter? ReturnCommanderNotOk()
     {

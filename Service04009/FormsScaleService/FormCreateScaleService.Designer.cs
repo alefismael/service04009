@@ -201,6 +201,7 @@
             btCadastrar.TabIndex = 63;
             btCadastrar.Text = "Clique aqui para criar a escala de serviço";
             btCadastrar.UseVisualStyleBackColor = false;
+            btCadastrar.Visible = false;
             btCadastrar.Click += btCadastrar_Click;
             // 
             // FormCreateScaleService

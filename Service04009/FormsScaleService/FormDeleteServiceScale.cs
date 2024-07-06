@@ -88,7 +88,7 @@ namespace Service04009.FormsScaleService
                 {
                     using (var db = new ServiceContext())
                     {
-                        var serviceScalesToDelete = db.ServiceScales
+                        var serviceScaleToDelete = db.ServiceScales
         .Include(sc => sc.Services)
             .ThenInclude(s => s.CommanderOfTheGuard)
         .Include(sc => sc.Services)
@@ -96,27 +96,36 @@ namespace Service04009.FormsScaleService
         .Include(sc => sc.Services)
             .ThenInclude(s => s.Sentinels)
         .Where(sc => sc.firstDay <= dateForm && sc.lastDay >= dateForm)
-        .ToList();
+        .FirstOrDefault();
 
-                        // Remover todos os Services associados a cada ServiceScale
-                        foreach (var serviceScale in serviceScalesToDelete)
+                        if (serviceScaleToDelete != null)
                         {
-                            db.Services.RemoveRange(serviceScale.Services);
+                            serviceScaleToDelete.subtractNumberOfServicesFromAllShootersOnTheScale();
+                            db.Services.RemoveRange(serviceScaleToDelete.Services);
+                            db.ServiceScales.Remove(serviceScaleToDelete);
+                            // Salvar as alterações no banco de dados
+                            db.SaveChanges();
+                            MessageBox.Show($"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.");
+                            infoLabel.Text = $"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.";
+                            btRemover.Visible = false;
+                            infoLabel.Text = $"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.";
+                            table.Visible = false;
+                            btRemover.Visible = false;
+                            serviceScaleForm = null;
+                            infoLabel.BackColor = Color.Lime;
                         }
-
-                        // Remover os ServiceScales
-                        db.ServiceScales.RemoveRange(serviceScalesToDelete);
-
-                        // Salvar as alterações no banco de dados
-                        db.SaveChanges();
-                        MessageBox.Show($"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.");
-                        infoLabel.Text = $"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.";
-                        btRemover.Visible = false;
-                        infoLabel.Text = $"O serviço do dia {serviceScaleForm.firstDay} até o dia {serviceScaleForm.lastDay} que terá {serviceScaleForm.CountDaysService()} foi removido do sistema.";
-                        table.Visible = false;
-                        btRemover.Visible = false;
-                        serviceScaleForm = null;
-                        infoLabel.BackColor = Color.Lime;
+                        else
+                        {
+                            MessageBox.Show("Operação cancelada por erro ao excluir dados, a escala de serviço não foi encontrada.");
+                            infoLabel.Text = "Sem atirador informado para remover os dados";
+                            table.DataSource = null;
+                            infoLabel.Visible = false;
+                            table.Visible = false;
+                            btRemover.Visible = false;
+                            serviceScaleForm = null;
+                            dateForm = null;
+                        }
+                        
                     }
                 }
                 else if (result == DialogResult.Cancel)
