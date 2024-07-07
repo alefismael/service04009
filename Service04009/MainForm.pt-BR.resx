@@ -209,7 +209,7 @@
     <value>Atribuir serviço a um atirador</value>
   </data>
   <data name="mudarEscalaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mudar escala</value>
+    <value>Alteração na escala</value>
   </data>
   <data name="excluirEscalaDeServiçoToolStripMenuItem.Text" xml:space="preserve">
     <value>Excluir escala de serviço</value>

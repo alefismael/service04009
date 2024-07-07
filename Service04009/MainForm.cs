@@ -133,5 +133,10 @@ namespace Service04009
         {
             changeForm(new FormSwapService());
         }
+
+        private void atribuirServiçoAAtiradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormServiceAddShooter());
+        }
     }
 }

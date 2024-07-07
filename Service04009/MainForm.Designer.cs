@@ -236,6 +236,7 @@ namespace Service04009
             resources.ApplyResources(atribuirServiçoAAtiradorToolStripMenuItem, "atribuirServiçoAAtiradorToolStripMenuItem");
             atribuirServiçoAAtiradorToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
             atribuirServiçoAAtiradorToolStripMenuItem.Name = "atribuirServiçoAAtiradorToolStripMenuItem";
+            atribuirServiçoAAtiradorToolStripMenuItem.Click += atribuirServiçoAAtiradorToolStripMenuItem_Click;
             // 
             // excluirEscalaDeServiçoToolStripMenuItem
             // 

@@ -120,14 +120,14 @@ internal class Shooter : IComparable<Shooter>
         return true;
     }
 
-    // Método para somar a quantidade de escala de serviço que o atirador pegou em +1
+    // Método para somar a quantidade de escala de serviço do atirador
     public bool AddNumService()
     {
         numOfService++;
         return true;
     }
 
-    // Método para subtrair a quantidade de escala de serviço que o atirador pegou em +1
+    // Método para subtrair a quantidade de escala de serviço do atirador
     public bool SubtractNumService()
     {
         numOfService--;
@@ -265,8 +265,8 @@ internal class Shooter : IComparable<Shooter>
         if (other == null) return 1;
 
         // Calcula o total de serviços, incluindo o bônus
-        int myTotalService = numOfService - numServiceExtra;
-        int otherTotalService = other.numOfService - other.numServiceExtra;
+        int myTotalService = numOfService;
+        int otherTotalService = other.numOfService;
 
         // Compara os totais de serviço
         if (myTotalService < otherTotalService) return -1;
