@@ -84,7 +84,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.DarkGreen;
             label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(350, 38);
             label2.Name = "label2";
             label2.Size = new Size(523, 39);

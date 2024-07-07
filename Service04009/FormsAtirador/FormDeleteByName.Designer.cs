@@ -153,7 +153,7 @@
             label1.BackColor = Color.DarkGreen;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Consolas", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(178, 86);
+            label1.Location = new Point(229, 79);
             label1.Name = "label1";
             label1.Size = new Size(685, 43);
             label1.TabIndex = 91;
