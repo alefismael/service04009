@@ -90,6 +90,7 @@ namespace Service04009.FormsScaleService
                 numAtr2Label.Visible = false;
                 numAtrBox2.Visible = false;
                 service1Form = null;
+                shooter2Form = null;
             }
             else
             {
@@ -117,6 +118,7 @@ namespace Service04009.FormsScaleService
                             dateTimeService1.Visible = false;
                             btQueryServices.Visible = false;
                             service1Form = null;
+                            shooter2Form = null;
                             btSwap.Visible = false;
                             service1InfoLabel.Visible = false;
                             numAtr2Label.Visible = false;
@@ -168,6 +170,7 @@ namespace Service04009.FormsScaleService
                         btQueryServices.Visible = false;
                         numAtr2Label.Visible = false;
                         numAtrBox2.Visible = false;
+                        shooter2Form = null;
                     }
                 }
             }
@@ -219,6 +222,18 @@ namespace Service04009.FormsScaleService
                             db.SaveChanges();
 
                             MessageBox.Show($"A atribuição de serviço foi realizada com sucesso!!\nNo serviço do dia {service1.Date} ficou o atirador {shooter2.numAtr} {shooter2.warName}.");
+                            btSwap.Visible = false;
+                            service1InfoLabel.Visible = false;
+                            service1Form = null;
+                            shooter1InfoLabel.Visible = false;
+                            date1Label.Visible = false;
+                            dateTimeService1.Visible = false;
+                            btQueryServices.Visible = false;
+                            numAtr2Label.Visible = false;
+                            numAtrBox2.Visible = false;
+                            service1Form = null;
+                            shooter1Form = null;
+                            shooter2Form = null;
                         }
                     }
                 }
