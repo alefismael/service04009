@@ -110,7 +110,7 @@
             labelInfoNotCfc.AutoSize = true;
             labelInfoNotCfc.BackColor = Color.DarkGreen;
             labelInfoNotCfc.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            labelInfoNotCfc.Location = new Point(24, 433);
+            labelInfoNotCfc.Location = new Point(24, 447);
             labelInfoNotCfc.Name = "labelInfoNotCfc";
             labelInfoNotCfc.Size = new Size(558, 19);
             labelInfoNotCfc.TabIndex = 55;
@@ -132,18 +132,20 @@
             // notCfcNecessary
             // 
             notCfcNecessary.AccessibleDescription = "";
-            notCfcNecessary.Location = new Point(725, 395);
+            notCfcNecessary.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            notCfcNecessary.Location = new Point(714, 414);
             notCfcNecessary.Name = "notCfcNecessary";
-            notCfcNecessary.Size = new Size(100, 23);
+            notCfcNecessary.Size = new Size(71, 19);
             notCfcNecessary.TabIndex = 57;
             notCfcNecessary.Text = "0";
             notCfcNecessary.Visible = false;
             // 
             // cfcNecessary
             // 
-            cfcNecessary.Location = new Point(725, 426);
+            cfcNecessary.Font = new Font("Consolas", 11.25F);
+            cfcNecessary.Location = new Point(714, 447);
             cfcNecessary.Name = "cfcNecessary";
-            cfcNecessary.Size = new Size(100, 23);
+            cfcNecessary.Size = new Size(71, 19);
             cfcNecessary.TabIndex = 58;
             cfcNecessary.Text = "0";
             cfcNecessary.Visible = false;
