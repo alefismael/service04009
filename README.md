@@ -6,7 +6,7 @@ as necessidades dos atiradores. Também é possível consultar os históricos da
 serviço de maneira organizada.
 ### Requisitos do software
 - OS Windows 7, 8 e 10.
-- Runtime .NET 8
+- Runtime .NET 8 Desktop
 ### Licenças do software
 - O software utiliza apenas bibliotecas de código aberto, não tendo problemas com
 licenças de terceiros.
