@@ -26,4 +26,3 @@ mesmos para salvar um backup em outros locais.
 ### Dependências para desenvolvimento do software
 - .NET 8 JDK
 - Microsoft.EntityFrameworkCore.Sqlite
-- OfficeIMO.Word
