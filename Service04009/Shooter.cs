@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Service04009;
+﻿using Service04009;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

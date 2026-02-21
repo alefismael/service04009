@@ -11,13 +11,100 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsAtirador
 {
-    public partial class FormUpdateByName : Form
+    public partial class FormUpdateByName : BaseChildForm
     {
         private Shooter? shooter;
 
         public FormUpdateByName()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            // ── Limpar estilos antigos do Designer ──
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is Label lbl && lbl != label1 && lbl != infoLabel)
+                {
+                    lbl.BackColor = Color.Transparent;
+                    lbl.Padding = Padding.Empty;
+                }
+            }
+
+            // ── Título ──
+            label1.Location = new Point(20, 10);
+
+            // ── Busca (linha compacta) ──
+            int searchY = 58;
+            label3.Location = new Point(30, searchY);
+            nameQueryBox.Location = new Point(30, searchY + 22);
+            nameQueryBox.Size = new Size(280, 25);
+            btQuery.Location = new Point(320, searchY + 20);
+            btQuery.Size = new Size(420, 28);
+            infoLabel.Location = new Point(760, searchY + 18);
+            infoLabel.Padding = new Padding(10, 4, 10, 4);
+
+            // ── Tabela ──
+            table.Location = new Point(30, searchY + 58);
+            table.Size = new Size(1185, 70);
+            table.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // ── Campos de edição — linha uniforme ──
+            int editY = searchY + 145;
+            int col1 = 30, col2 = 270, col3 = 470, col4 = 700;
+
+            warNameLabel.Location = new Point(col1, editY);
+            warNameBox.Location = new Point(col1, editY + 22);
+            warNameBox.Size = new Size(220, 25);
+
+            numAtrLabel.Location = new Point(col2, editY);
+            numAtrUpBox.Location = new Point(col2, editY + 22);
+            numAtrUpBox.Size = new Size(170, 25);
+
+            numServiceLabel.Location = new Point(col3, editY);
+            numServiceBox.Location = new Point(col3, editY + 22);
+            numServiceBox.Size = new Size(200, 25);
+
+            isCfcLabel.Location = new Point(col4, editY);
+            isCfcLabel.Padding = Padding.Empty;
+            checkIsNotCfc.Location = new Point(col4, editY + 22);
+            checkIsCfc.Location = new Point(col4 + 55, editY + 22);
+
+            // ── Disponibilidade ──
+            int dispY = editY + 65;
+            disponibleLabel.Location = new Point(30, dispY);
+
+            string[] dayNames = { "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb" };
+            Label[] dayLabels = { sunLabel, monLabel, tueLabel, wedLabel, thuLabel, friLabel, satLabel };
+            CheckBox[] morningCbs = { sunMorning, monMorning, tueMorning, wedMorning, thuMorning, friMorning, satMorning };
+            CheckBox[] nightCbs = { sunNight, monNight, tueNight, wedNight, thuNight, friNight, satNight };
+
+            int gridStartX = 160;
+            int colSpacing = 130;
+            int headerY = dispY;
+            int morningY = dispY + 25;
+            int nightY = dispY + 55;
+
+            permaLabel.Location = new Point(30, morningY);
+            sentiLabel.Location = new Point(30, nightY);
+
+            for (int i = 0; i < 7; i++)
+            {
+                int cx = gridStartX + colSpacing * i;
+                dayLabels[i].Text = dayNames[i];
+                dayLabels[i].Location = new Point(cx + 20, headerY);
+                morningCbs[i].Location = new Point(cx, morningY);
+                morningCbs[i].Size = new Size(115, 24);
+                nightCbs[i].Location = new Point(cx, nightY);
+                nightCbs[i].Size = new Size(115, 24);
+            }
+
+            // ── Botão salvar ──
+            btCadastrar.Location = new Point(200, nightY + 42);
+            btCadastrar.Size = new Size(850, 48);
         }
 
         private void checkIsNotCfc_CheckedChanged(object sender, EventArgs e)
@@ -375,35 +462,35 @@ namespace Service04009.FormsAtirador
                         }
 
                         sunMorning.Checked = shooter.sunMorning;
-                        sunMorning.Text = sunMorning.Checked ? "Disponivel" : "Indispónível";
+                        sunMorning.Text = sunMorning.Checked ? "Disponível" : "Indisponível";
                         sunNight.Checked = shooter.sunNight;
-                        sunNight.Text = sunNight.Checked ? "Disponivel" : "Indispónível";
+                        sunNight.Text = sunNight.Checked ? "Disponível" : "Indisponível";
                         monMorning.Checked = shooter.monMorning;
-                        monMorning.Text = monMorning.Checked ? "Disponivel" : "Indispónível";
+                        monMorning.Text = monMorning.Checked ? "Disponível" : "Indisponível";
                         monNight.Checked = shooter.monNight;
-                        monNight.Text = monNight.Checked ? "Disponivel" : "Indispónível";
+                        monNight.Text = monNight.Checked ? "Disponível" : "Indisponível";
                         tueMorning.Checked = shooter.tueMorning;
-                        tueMorning.Text = tueMorning.Checked ? "Disponivel" : "Indispónível";
+                        tueMorning.Text = tueMorning.Checked ? "Disponível" : "Indisponível";
                         tueNight.Checked = shooter.tueNight;
-                        tueNight.Text = tueNight.Checked ? "Disponivel" : "Indispónível";
+                        tueNight.Text = tueNight.Checked ? "Disponível" : "Indisponível";
 
                         wedMorning.Checked = shooter.wedMorning;
-                        wedMorning.Text = wedMorning.Checked ? "Disponivel" : "Indispónível";
+                        wedMorning.Text = wedMorning.Checked ? "Disponível" : "Indisponível";
                         wedNight.Checked = shooter.wedNight;
-                        wedNight.Text = wedNight.Checked ? "Disponivel" : "Indispónível";
+                        wedNight.Text = wedNight.Checked ? "Disponível" : "Indisponível";
                         thuMorning.Checked = shooter.thuMorning;
-                        thuMorning.Text = thuMorning.Checked ? "Disponivel" : "Indispónível";
+                        thuMorning.Text = thuMorning.Checked ? "Disponível" : "Indisponível";
                         thuNight.Checked = shooter.thuNight;
-                        thuNight.Text = thuNight.Checked ? "Disponivel" : "Indispónível";
+                        thuNight.Text = thuNight.Checked ? "Disponível" : "Indisponível";
 
                         friMorning.Checked = shooter.friMorning;
-                        friMorning.Text = friMorning.Checked ? "Disponivel" : "Indispónível";
+                        friMorning.Text = friMorning.Checked ? "Disponível" : "Indisponível";
                         friNight.Checked = shooter.friNight;
-                        friNight.Text = friNight.Checked ? "Disponivel" : "Indispónível";
+                        friNight.Text = friNight.Checked ? "Disponível" : "Indisponível";
                         satMorning.Checked = shooter.satMorning;
-                        satMorning.Text = satMorning.Checked ? "Disponivel" : "Indispónível";
+                        satMorning.Text = satMorning.Checked ? "Disponível" : "Indisponível";
                         satNight.Checked = shooter.satNight;
-                        satNight.Text = satNight.Checked ? "Disponivel" : "Indispónível";
+                        satNight.Text = satNight.Checked ? "Disponível" : "Indisponível";
                     }
                 }
             }
@@ -509,7 +596,7 @@ namespace Service04009.FormsAtirador
                         {
                             table.DataSource = new List<ShooterDT> { new ShooterDT(shooter) };
                         }
-                        MessageBox.Show("Os dados do atirador foram atualidados");
+                        MessageBox.Show("Os dados do atirador foram atualizados");
                         infoLabel.Text = "Este é o atirador com os dados atualizados";
                         shooter = null;
                         btCadastrar.Visible = false;
@@ -599,7 +686,7 @@ namespace Service04009.FormsAtirador
                         {
                             table.DataSource = new List<ShooterDT> { new ShooterDT(shooter) };
                         }
-                        MessageBox.Show("Os dados do atirador foram atualidados");
+                        MessageBox.Show("Os dados do atirador foram atualizados");
                         infoLabel.Text = "Este é o atirador com os dados atualizados";
 
                         shooter = null;

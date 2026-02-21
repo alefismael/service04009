@@ -5,14 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Service04009.FormsAtirador
 {
-    public partial class FormDeleteByNumber : Form
+    public partial class FormDeleteByNumber : BaseChildForm
     {
 
         private Shooter? shooter;
@@ -20,6 +19,25 @@ namespace Service04009.FormsAtirador
         public FormDeleteByNumber()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            label1.Location = new Point(20, 10);
+            label3.Location = new Point(30, 60);
+            label3.Padding = Padding.Empty;
+            numAtrBox.Location = new Point(30, 85);
+            numAtrBox.Size = new Size(280, 25);
+            btQuery.Location = new Point(320, 83);
+            btQuery.Size = new Size(340, 28);
+            infoLabel.Location = new Point(680, 80);
+            infoLabel.Padding = new Padding(10, 4, 10, 4);
+            table.Location = new Point(30, 125);
+            table.Size = new Size(1185, 280);
+            table.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            btRemover.Location = new Point(300, 425);
+            btRemover.Size = new Size(600, 48);
         }
 
         private void btQuery_Click(object sender, EventArgs e)

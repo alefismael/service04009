@@ -1,20 +1,17 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Service04009.FormsScaleService
 {
-    public partial class FormDeleteServiceScale : Form
+    public partial class FormDeleteServiceScale : BaseChildForm
     {
         ServiceScale? serviceScaleForm;
         DateOnly? dateForm;
@@ -22,6 +19,25 @@ namespace Service04009.FormsScaleService
         public FormDeleteServiceScale()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            label1.Location = new Point(20, 10);
+            label16.Location = new Point(30, 60);
+            label16.Padding = Padding.Empty;
+            dateTime.Location = new Point(30, 88);
+            dateTime.Size = new Size(300, 26);
+            btQuery.Location = new Point(350, 85);
+            btQuery.Size = new Size(380, 30);
+            infoLabel.Location = new Point(30, 130);
+            infoLabel.Padding = new Padding(10, 4, 10, 4);
+            table.Location = new Point(30, 175);
+            table.Size = new Size(1185, 280);
+            table.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            btRemover.Location = new Point(300, 475);
+            btRemover.Size = new Size(600, 48);
         }
 
         private void btQuery_Click(object sender, EventArgs e)
@@ -34,7 +50,7 @@ namespace Service04009.FormsScaleService
                 // Carregar ServiceScale com todos os serviços associados e suas propriedades relacionadas
                 var serviceScale = db.ServiceScales
                     .Include(sc => sc.Services)
-                        .ThenInclude(s => s.CommanderOfTheGuard)
+                        .ThenInclude(s => s.Commanders)
                     .Include(sc => sc.Services)
                         .ThenInclude(s => s.Permanences)
                     .Include(sc => sc.Services)
@@ -48,11 +64,8 @@ namespace Service04009.FormsScaleService
                     infoLabel.Text = $"Escala do dia {serviceScale.firstDay} até o dia {serviceScale.lastDay} que terá {serviceScale.CountDaysService()} serviços foi encontrada.";
                     infoLabel.Visible = true;
 
-                    // Converter serviços para ServiceDT
-                    List<ServiceDT> servicesDt = serviceScale.Services
-                        .Select(service => new ServiceDT(service))
-                        .ToList();
-                    table.DataSource = servicesDt;
+                    // Converter serviços para DataTable dinâmico
+                    table.DataSource = ServiceDT.ToDataTable(serviceScale.Services);
                     table.Visible = true;
                     btRemover.Visible = true;
                     infoLabel.BackColor = Color.Lime;
@@ -90,7 +103,7 @@ namespace Service04009.FormsScaleService
                     {
                         var serviceScaleToDelete = db.ServiceScales
         .Include(sc => sc.Services)
-            .ThenInclude(s => s.CommanderOfTheGuard)
+            .ThenInclude(s => s.Commanders)
         .Include(sc => sc.Services)
             .ThenInclude(s => s.Permanences)
         .Include(sc => sc.Services)

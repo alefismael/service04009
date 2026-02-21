@@ -49,9 +49,6 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.DarkGreen;
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("Consolas", 26.25F, FontStyle.Bold);
             label1.Location = new Point(403, 23);
             label1.Name = "label1";
             label1.Size = new Size(438, 43);
@@ -215,8 +212,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Lime;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(button1);
             Controls.Add(checkIsCfc);

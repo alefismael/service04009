@@ -32,7 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            label2 = new Label();
+            label1 = new Label();
             infoLabel = new Label();
             btQuery = new Button();
             label16 = new Label();
@@ -42,18 +42,18 @@
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DarkGreen;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Consolas", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(84, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(946, 34);
-            label2.TabIndex = 16;
-            label2.Text = "Pesquisar escala de serviço completa por uma data para remoção";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.BackColor = Color.DarkGreen;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Font = new Font("Consolas", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(84, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(946, 34);
+            label1.TabIndex = 16;
+            label1.Text = "Pesquisar escala de serviço completa por uma data para remoção";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // infoLabel
             // 
@@ -171,7 +171,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(table);
             Controls.Add(btRemover);
@@ -179,7 +178,7 @@
             Controls.Add(btQuery);
             Controls.Add(label16);
             Controls.Add(dateTime);
-            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "FormDeleteServiceScale";
             Text = "FormDeleServiceScale";
             ((System.ComponentModel.ISupportInitialize)table).EndInit();
@@ -189,7 +188,7 @@
 
         #endregion
 
-        private Label label2;
+        private Label label1;
         private Label infoLabel;
         private Button btQuery;
         private Label label16;

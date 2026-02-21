@@ -1,4 +1,4 @@
-﻿namespace Service04009.FormsAtirador
+namespace Service04009.FormsAtirador
 {
     partial class FormAddAtirador
     {
@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             btCadastrar = new Button();
             checkIsCfc = new CheckBox();
@@ -72,601 +68,471 @@
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // label1 — Título
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.DarkGreen;
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("Consolas", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(415, 9);
+            label1.Location = new Point(460, 15);
             label1.Name = "label1";
-            label1.Size = new Size(362, 43);
-            label1.TabIndex = 1;
             label1.Text = "Cadastrar Atirador";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.TabIndex = 0;
             // 
-            // btCadastrar
+            // label2 — Nome de Guerra
             // 
-            btCadastrar.AutoSize = true;
-            btCadastrar.BackColor = Color.MediumSeaGreen;
-            btCadastrar.FlatStyle = FlatStyle.Flat;
-            btCadastrar.Font = new Font("Consolas", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCadastrar.Location = new Point(22, 541);
-            btCadastrar.Name = "btCadastrar";
-            btCadastrar.Size = new Size(416, 57);
-            btCadastrar.TabIndex = 23;
-            btCadastrar.Text = "Clique aqui para cadastrar";
-            btCadastrar.UseVisualStyleBackColor = false;
-            btCadastrar.Click += btCadastrar_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(25, 65);
+            label2.Name = "label2";
+            label2.Text = "Nome de Guerra";
+            label2.TabIndex = 1;
             // 
-            // checkIsCfc
+            // warNameBox
             // 
-            checkIsCfc.Appearance = Appearance.Button;
-            checkIsCfc.AutoSize = true;
-            checkIsCfc.BackColor = Color.White;
-            checkIsCfc.FlatAppearance.BorderColor = Color.Black;
-            checkIsCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
-            checkIsCfc.FlatStyle = FlatStyle.Flat;
-            checkIsCfc.Location = new Point(110, 298);
-            checkIsCfc.Name = "checkIsCfc";
-            checkIsCfc.Size = new Size(37, 25);
-            checkIsCfc.TabIndex = 22;
-            checkIsCfc.Text = "SIM";
-            checkIsCfc.UseVisualStyleBackColor = false;
-            checkIsCfc.CheckedChanged += checkIsCfc_CheckedChanged;
+            warNameBox.Location = new Point(25, 90);
+            warNameBox.MaxLength = 20;
+            warNameBox.Name = "warNameBox";
+            warNameBox.PlaceholderText = "Digite aqui";
+            warNameBox.Size = new Size(240, 25);
+            warNameBox.TabIndex = 2;
+            warNameBox.WordWrap = false;
+            warNameBox.KeyPress += warNameBox_KeyPress;
+            // 
+            // label3 — Número do atirador
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(25, 127);
+            label3.Name = "label3";
+            label3.Text = "Número do atirador";
+            label3.TabIndex = 3;
+            // 
+            // numAtrBox
+            // 
+            numAtrBox.Location = new Point(25, 152);
+            numAtrBox.MaxLength = 4;
+            numAtrBox.Name = "numAtrBox";
+            numAtrBox.PlaceholderText = "Digite aqui";
+            numAtrBox.Size = new Size(160, 25);
+            numAtrBox.TabIndex = 4;
+            numAtrBox.KeyPress += numAtrBox_KeyPress;
+            // 
+            // label4 — Número de serviços tirados
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(25, 189);
+            label4.Name = "label4";
+            label4.Text = "Número de serviços tirados";
+            label4.TabIndex = 5;
+            // 
+            // numServiceBox
+            // 
+            numServiceBox.Location = new Point(25, 214);
+            numServiceBox.MaxLength = 4;
+            numServiceBox.Name = "numServiceBox";
+            numServiceBox.PlaceholderText = "Digite aqui (opcional)";
+            numServiceBox.Size = new Size(200, 25);
+            numServiceBox.TabIndex = 6;
+            numServiceBox.KeyPress += numServiceBox_KeyPress;
+            // 
+            // label5 — Faz CFC
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(25, 253);
+            label5.Name = "label5";
+            label5.Text = "Faz CFC";
+            label5.TabIndex = 7;
             // 
             // checkIsNotCfc
             // 
             checkIsNotCfc.Appearance = Appearance.Button;
-            checkIsNotCfc.AutoSize = true;
-            checkIsNotCfc.BackColor = Color.White;
-            checkIsNotCfc.FlatAppearance.BorderColor = Color.Black;
-            checkIsNotCfc.FlatAppearance.CheckedBackColor = Color.DarkGreen;
             checkIsNotCfc.FlatStyle = FlatStyle.Flat;
-            checkIsNotCfc.Location = new Point(25, 298);
+            checkIsNotCfc.Location = new Point(25, 278);
             checkIsNotCfc.Name = "checkIsNotCfc";
-            checkIsNotCfc.Size = new Size(43, 25);
-            checkIsNotCfc.TabIndex = 21;
+            checkIsNotCfc.Size = new Size(55, 28);
             checkIsNotCfc.Text = "NÃO";
+            checkIsNotCfc.TextAlign = ContentAlignment.MiddleCenter;
+            checkIsNotCfc.TabIndex = 8;
             checkIsNotCfc.UseVisualStyleBackColor = false;
             checkIsNotCfc.CheckedChanged += checkIsNotCfc_CheckedChanged;
             // 
-            // label5
+            // checkIsCfc
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.DarkGreen;
-            label5.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label5.Location = new Point(25, 276);
-            label5.Name = "label5";
-            label5.Padding = new Padding(25, 0, 25, 0);
-            label5.Size = new Size(122, 19);
-            label5.TabIndex = 20;
-            label5.Text = "Faz CFC";
+            checkIsCfc.Appearance = Appearance.Button;
+            checkIsCfc.FlatStyle = FlatStyle.Flat;
+            checkIsCfc.Location = new Point(90, 278);
+            checkIsCfc.Name = "checkIsCfc";
+            checkIsCfc.Size = new Size(55, 28);
+            checkIsCfc.Text = "SIM";
+            checkIsCfc.TextAlign = ContentAlignment.MiddleCenter;
+            checkIsCfc.TabIndex = 9;
+            checkIsCfc.UseVisualStyleBackColor = false;
+            checkIsCfc.CheckedChanged += checkIsCfc_CheckedChanged;
             // 
-            // numServiceBox
+            // label16 — Todos atiradores cadastrados
             // 
-            numServiceBox.Location = new Point(25, 238);
-            numServiceBox.MaxLength = 4;
-            numServiceBox.Name = "numServiceBox";
-            numServiceBox.PlaceholderText = "Digite aqui (opcional)";
-            numServiceBox.Size = new Size(152, 23);
-            numServiceBox.TabIndex = 19;
-            numServiceBox.KeyPress += numServiceBox_KeyPress;
+            label16.AutoSize = true;
+            label16.Location = new Point(310, 65);
+            label16.Name = "label16";
+            label16.Text = "Todos atiradores cadastrados";
+            label16.TabIndex = 10;
             // 
-            // label4
+            // table
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.DarkGreen;
-            label4.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label4.Location = new Point(25, 216);
-            label4.Name = "label4";
-            label4.Size = new Size(243, 19);
-            label4.TabIndex = 18;
-            label4.Text = "Número de serviços tirados";
+            table.AllowUserToAddRows = false;
+            table.AllowUserToDeleteRows = false;
+            table.AllowUserToResizeRows = false;
+            table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            table.EnableHeadersVisualStyles = false;
+            table.Location = new Point(310, 90);
+            table.MultiSelect = false;
+            table.Name = "table";
+            table.ReadOnly = true;
+            table.RowHeadersVisible = false;
+            table.ScrollBars = ScrollBars.Both;
+            table.Size = new Size(910, 260);
+            table.TabIndex = 11;
             // 
-            // label3
+            // label6 — Disponibilidade
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.DarkGreen;
-            label3.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label3.Location = new Point(25, 159);
-            label3.Name = "label3";
-            label3.Size = new Size(171, 19);
-            label3.TabIndex = 17;
-            label3.Text = "Número do atirador";
+            label6.AutoSize = true;
+            label6.Location = new Point(25, 325);
+            label6.Name = "label6";
+            label6.Text = "Disponibilidade";
+            label6.TabIndex = 12;
             // 
-            // numAtrBox
-            // 
-            numAtrBox.Location = new Point(25, 181);
-            numAtrBox.MaxLength = 4;
-            numAtrBox.Name = "numAtrBox";
-            numAtrBox.PlaceholderText = "Digite aqui";
-            numAtrBox.Size = new Size(112, 23);
-            numAtrBox.TabIndex = 16;
-            numAtrBox.KeyPress += numAtrBox_KeyPress;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DarkGreen;
-            label2.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label2.Location = new Point(25, 97);
-            label2.Name = "label2";
-            label2.Padding = new Padding(28, 0, 28, 0);
-            label2.Size = new Size(191, 19);
-            label2.TabIndex = 15;
-            label2.Text = "Nome de Guerra";
-            // 
-            // warNameBox
-            // 
-            warNameBox.Location = new Point(25, 119);
-            warNameBox.MaxLength = 20;
-            warNameBox.Name = "warNameBox";
-            warNameBox.PlaceholderText = "Digite aqui";
-            warNameBox.Size = new Size(191, 23);
-            warNameBox.TabIndex = 14;
-            warNameBox.WordWrap = false;
-            warNameBox.KeyPress += warNameBox_KeyPress;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.FromArgb(192, 255, 192);
-            label8.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label8.Location = new Point(21, 505);
-            label8.Name = "label8";
-            label8.Padding = new Padding(25, 0, 25, 0);
-            label8.Size = new Size(140, 19);
-            label8.TabIndex = 26;
-            label8.Text = "Sentinela";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.FromArgb(192, 255, 192);
-            label7.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label7.Location = new Point(23, 469);
-            label7.Name = "label7";
-            label7.Padding = new Padding(25, 0, 5, 0);
-            label7.Size = new Size(138, 19);
-            label7.TabIndex = 25;
-            label7.Text = "Permanência";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.FromArgb(192, 255, 192);
-            label9.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label9.Location = new Point(577, 435);
-            label9.Name = "label9";
-            label9.Padding = new Padding(25, 0, 25, 0);
-            label9.Size = new Size(113, 19);
-            label9.TabIndex = 27;
-            label9.Text = "Quarta";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.FromArgb(192, 255, 192);
-            label10.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label10.Location = new Point(713, 435);
-            label10.Name = "label10";
-            label10.Padding = new Padding(25, 0, 25, 0);
-            label10.Size = new Size(113, 19);
-            label10.TabIndex = 28;
-            label10.Text = "Quinta";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.FromArgb(192, 255, 192);
-            label11.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label11.Location = new Point(444, 435);
-            label11.Name = "label11";
-            label11.Padding = new Padding(25, 0, 25, 0);
-            label11.Size = new Size(104, 19);
-            label11.TabIndex = 29;
-            label11.Text = "Terça";
-            // 
-            // label12
+            // label12 — Domingo
             // 
             label12.AutoSize = true;
-            label12.BackColor = Color.FromArgb(192, 255, 192);
-            label12.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label12.Location = new Point(182, 435);
+            label12.Location = new Point(148, 350);
             label12.Name = "label12";
-            label12.Padding = new Padding(25, 0, 25, 0);
-            label12.Size = new Size(122, 19);
-            label12.TabIndex = 30;
             label12.Text = "Domingo";
+            label12.TabIndex = 13;
             // 
-            // label13
+            // label13 — Segunda
             // 
             label13.AutoSize = true;
-            label13.BackColor = Color.FromArgb(192, 255, 192);
-            label13.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label13.Location = new Point(310, 435);
+            label13.Location = new Point(263, 350);
             label13.Name = "label13";
-            label13.Padding = new Padding(25, 0, 25, 0);
-            label13.Size = new Size(122, 19);
-            label13.TabIndex = 31;
             label13.Text = "Segunda";
+            label13.TabIndex = 14;
             // 
-            // label14
+            // label11 — Terça
             // 
-            label14.AutoSize = true;
-            label14.BackColor = Color.FromArgb(192, 255, 192);
-            label14.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label14.Location = new Point(988, 435);
-            label14.Name = "label14";
-            label14.Padding = new Padding(25, 0, 25, 0);
-            label14.Size = new Size(113, 19);
-            label14.TabIndex = 32;
-            label14.Text = "Sábado";
+            label11.AutoSize = true;
+            label11.Location = new Point(393, 350);
+            label11.Name = "label11";
+            label11.Text = "Terça";
+            label11.TabIndex = 15;
             // 
-            // label15
+            // label9 — Quarta
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(503, 350);
+            label9.Name = "label9";
+            label9.Text = "Quarta";
+            label9.TabIndex = 16;
+            // 
+            // label10 — Quinta
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(618, 350);
+            label10.Name = "label10";
+            label10.Text = "Quinta";
+            label10.TabIndex = 17;
+            // 
+            // label15 — Sexta
             // 
             label15.AutoSize = true;
-            label15.BackColor = Color.FromArgb(192, 255, 192);
-            label15.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label15.Location = new Point(848, 435);
+            label15.Location = new Point(738, 350);
             label15.Name = "label15";
-            label15.Padding = new Padding(25, 0, 25, 0);
-            label15.Size = new Size(104, 19);
-            label15.TabIndex = 33;
             label15.Text = "Sexta";
+            label15.TabIndex = 18;
+            // 
+            // label14 — Sábado
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(848, 350);
+            label14.Name = "label14";
+            label14.Text = "Sábado";
+            label14.TabIndex = 19;
+            // 
+            // label7 — Permanência
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(25, 378);
+            label7.Name = "label7";
+            label7.Text = "Permanência";
+            label7.TabIndex = 20;
             // 
             // sunMorning
             // 
             sunMorning.Appearance = Appearance.Button;
             sunMorning.Checked = true;
             sunMorning.CheckState = CheckState.Checked;
-            sunMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
             sunMorning.FlatStyle = FlatStyle.Flat;
-            sunMorning.Font = new Font("Segoe UI", 9F);
-            sunMorning.Location = new Point(182, 468);
+            sunMorning.Location = new Point(140, 374);
             sunMorning.Name = "sunMorning";
-            sunMorning.Size = new Size(104, 23);
-            sunMorning.TabIndex = 34;
+            sunMorning.Size = new Size(105, 26);
             sunMorning.Text = "Disponível";
             sunMorning.TextAlign = ContentAlignment.MiddleCenter;
+            sunMorning.TabIndex = 21;
             sunMorning.UseVisualStyleBackColor = true;
             sunMorning.CheckedChanged += sunMorning_CheckedChanged;
-            // 
-            // friMorning
-            // 
-            friMorning.Appearance = Appearance.Button;
-            friMorning.Checked = true;
-            friMorning.CheckState = CheckState.Checked;
-            friMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            friMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            friMorning.FlatStyle = FlatStyle.Flat;
-            friMorning.Location = new Point(848, 468);
-            friMorning.Name = "friMorning";
-            friMorning.Size = new Size(104, 23);
-            friMorning.TabIndex = 35;
-            friMorning.Text = "Disponível";
-            friMorning.TextAlign = ContentAlignment.MiddleCenter;
-            friMorning.UseVisualStyleBackColor = true;
-            friMorning.CheckedChanged += friMorning_CheckedChanged;
-            // 
-            // thuMorning
-            // 
-            thuMorning.Appearance = Appearance.Button;
-            thuMorning.Checked = true;
-            thuMorning.CheckState = CheckState.Checked;
-            thuMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            thuMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            thuMorning.FlatStyle = FlatStyle.Flat;
-            thuMorning.Location = new Point(713, 468);
-            thuMorning.Name = "thuMorning";
-            thuMorning.Size = new Size(104, 23);
-            thuMorning.TabIndex = 36;
-            thuMorning.Text = "Disponível";
-            thuMorning.TextAlign = ContentAlignment.MiddleCenter;
-            thuMorning.UseVisualStyleBackColor = true;
-            thuMorning.CheckedChanged += thuMorning_CheckedChanged;
-            // 
-            // thuNight
-            // 
-            thuNight.Appearance = Appearance.Button;
-            thuNight.CheckAlign = ContentAlignment.MiddleCenter;
-            thuNight.Checked = true;
-            thuNight.CheckState = CheckState.Checked;
-            thuNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            thuNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            thuNight.FlatStyle = FlatStyle.Flat;
-            thuNight.Location = new Point(713, 498);
-            thuNight.Name = "thuNight";
-            thuNight.Size = new Size(104, 23);
-            thuNight.TabIndex = 37;
-            thuNight.Text = "Disponível";
-            thuNight.TextAlign = ContentAlignment.MiddleCenter;
-            thuNight.UseVisualStyleBackColor = true;
-            thuNight.CheckedChanged += thuNight_CheckedChanged;
-            // 
-            // wedNight
-            // 
-            wedNight.Appearance = Appearance.Button;
-            wedNight.CheckAlign = ContentAlignment.MiddleCenter;
-            wedNight.Checked = true;
-            wedNight.CheckState = CheckState.Checked;
-            wedNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            wedNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            wedNight.FlatStyle = FlatStyle.Flat;
-            wedNight.Location = new Point(577, 498);
-            wedNight.Name = "wedNight";
-            wedNight.Size = new Size(104, 23);
-            wedNight.TabIndex = 38;
-            wedNight.Text = "Disponível";
-            wedNight.TextAlign = ContentAlignment.MiddleCenter;
-            wedNight.UseVisualStyleBackColor = true;
-            wedNight.CheckedChanged += wedNight_CheckedChanged;
-            // 
-            // wedMorning
-            // 
-            wedMorning.Appearance = Appearance.Button;
-            wedMorning.CheckAlign = ContentAlignment.MiddleCenter;
-            wedMorning.Checked = true;
-            wedMorning.CheckState = CheckState.Checked;
-            wedMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            wedMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            wedMorning.FlatStyle = FlatStyle.Flat;
-            wedMorning.Location = new Point(577, 469);
-            wedMorning.Name = "wedMorning";
-            wedMorning.Size = new Size(104, 23);
-            wedMorning.TabIndex = 39;
-            wedMorning.Text = "Disponível";
-            wedMorning.TextAlign = ContentAlignment.MiddleCenter;
-            wedMorning.UseVisualStyleBackColor = true;
-            wedMorning.CheckedChanged += wedMorning_CheckedChanged;
-            // 
-            // tueMorning
-            // 
-            tueMorning.Appearance = Appearance.Button;
-            tueMorning.CheckAlign = ContentAlignment.MiddleCenter;
-            tueMorning.Checked = true;
-            tueMorning.CheckState = CheckState.Checked;
-            tueMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            tueMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            tueMorning.FlatStyle = FlatStyle.Flat;
-            tueMorning.Location = new Point(444, 468);
-            tueMorning.Name = "tueMorning";
-            tueMorning.Size = new Size(104, 23);
-            tueMorning.TabIndex = 40;
-            tueMorning.Text = "Disponível";
-            tueMorning.TextAlign = ContentAlignment.MiddleCenter;
-            tueMorning.UseVisualStyleBackColor = true;
-            tueMorning.CheckedChanged += tueMorning_CheckedChanged;
-            // 
-            // tueNight
-            // 
-            tueNight.Appearance = Appearance.Button;
-            tueNight.CheckAlign = ContentAlignment.MiddleCenter;
-            tueNight.Checked = true;
-            tueNight.CheckState = CheckState.Checked;
-            tueNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            tueNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            tueNight.FlatStyle = FlatStyle.Flat;
-            tueNight.Location = new Point(444, 501);
-            tueNight.Name = "tueNight";
-            tueNight.Size = new Size(104, 23);
-            tueNight.TabIndex = 41;
-            tueNight.Text = "Disponível";
-            tueNight.TextAlign = ContentAlignment.MiddleCenter;
-            tueNight.UseVisualStyleBackColor = true;
-            tueNight.CheckedChanged += tueNight_CheckedChanged;
-            // 
-            // monNight
-            // 
-            monNight.Appearance = Appearance.Button;
-            monNight.Checked = true;
-            monNight.CheckState = CheckState.Checked;
-            monNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            monNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            monNight.FlatStyle = FlatStyle.Flat;
-            monNight.Location = new Point(310, 501);
-            monNight.Name = "monNight";
-            monNight.Size = new Size(104, 23);
-            monNight.TabIndex = 42;
-            monNight.Text = "Disponível";
-            monNight.TextAlign = ContentAlignment.MiddleCenter;
-            monNight.UseVisualStyleBackColor = true;
-            monNight.CheckedChanged += monNight_CheckedChanged;
             // 
             // monMorning
             // 
             monMorning.Appearance = Appearance.Button;
             monMorning.Checked = true;
             monMorning.CheckState = CheckState.Checked;
-            monMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            monMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
             monMorning.FlatStyle = FlatStyle.Flat;
-            monMorning.Location = new Point(310, 468);
+            monMorning.Location = new Point(255, 374);
             monMorning.Name = "monMorning";
-            monMorning.Size = new Size(104, 23);
-            monMorning.TabIndex = 43;
+            monMorning.Size = new Size(105, 26);
             monMorning.Text = "Disponível";
             monMorning.TextAlign = ContentAlignment.MiddleCenter;
+            monMorning.TabIndex = 22;
             monMorning.UseVisualStyleBackColor = true;
             monMorning.CheckedChanged += monMorning_CheckedChanged;
             // 
-            // sunNight
+            // tueMorning
             // 
-            sunNight.Appearance = Appearance.Button;
-            sunNight.Checked = true;
-            sunNight.CheckState = CheckState.Checked;
-            sunNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            sunNight.FlatStyle = FlatStyle.Flat;
-            sunNight.Location = new Point(182, 501);
-            sunNight.Name = "sunNight";
-            sunNight.Size = new Size(104, 23);
-            sunNight.TabIndex = 44;
-            sunNight.Text = "Disponível";
-            sunNight.TextAlign = ContentAlignment.MiddleCenter;
-            sunNight.UseVisualStyleBackColor = true;
-            sunNight.CheckedChanged += sunNight_CheckedChanged;
+            tueMorning.Appearance = Appearance.Button;
+            tueMorning.Checked = true;
+            tueMorning.CheckState = CheckState.Checked;
+            tueMorning.FlatStyle = FlatStyle.Flat;
+            tueMorning.Location = new Point(370, 374);
+            tueMorning.Name = "tueMorning";
+            tueMorning.Size = new Size(105, 26);
+            tueMorning.Text = "Disponível";
+            tueMorning.TextAlign = ContentAlignment.MiddleCenter;
+            tueMorning.TabIndex = 23;
+            tueMorning.UseVisualStyleBackColor = true;
+            tueMorning.CheckedChanged += tueMorning_CheckedChanged;
+            // 
+            // wedMorning
+            // 
+            wedMorning.Appearance = Appearance.Button;
+            wedMorning.Checked = true;
+            wedMorning.CheckState = CheckState.Checked;
+            wedMorning.FlatStyle = FlatStyle.Flat;
+            wedMorning.Location = new Point(485, 374);
+            wedMorning.Name = "wedMorning";
+            wedMorning.Size = new Size(105, 26);
+            wedMorning.Text = "Disponível";
+            wedMorning.TextAlign = ContentAlignment.MiddleCenter;
+            wedMorning.TabIndex = 24;
+            wedMorning.UseVisualStyleBackColor = true;
+            wedMorning.CheckedChanged += wedMorning_CheckedChanged;
+            // 
+            // thuMorning
+            // 
+            thuMorning.Appearance = Appearance.Button;
+            thuMorning.Checked = true;
+            thuMorning.CheckState = CheckState.Checked;
+            thuMorning.FlatStyle = FlatStyle.Flat;
+            thuMorning.Location = new Point(600, 374);
+            thuMorning.Name = "thuMorning";
+            thuMorning.Size = new Size(105, 26);
+            thuMorning.Text = "Disponível";
+            thuMorning.TextAlign = ContentAlignment.MiddleCenter;
+            thuMorning.TabIndex = 25;
+            thuMorning.UseVisualStyleBackColor = true;
+            thuMorning.CheckedChanged += thuMorning_CheckedChanged;
+            // 
+            // friMorning
+            // 
+            friMorning.Appearance = Appearance.Button;
+            friMorning.Checked = true;
+            friMorning.CheckState = CheckState.Checked;
+            friMorning.FlatStyle = FlatStyle.Flat;
+            friMorning.Location = new Point(715, 374);
+            friMorning.Name = "friMorning";
+            friMorning.Size = new Size(105, 26);
+            friMorning.Text = "Disponível";
+            friMorning.TextAlign = ContentAlignment.MiddleCenter;
+            friMorning.TabIndex = 26;
+            friMorning.UseVisualStyleBackColor = true;
+            friMorning.CheckedChanged += friMorning_CheckedChanged;
             // 
             // satMorning
             // 
             satMorning.Appearance = Appearance.Button;
             satMorning.Checked = true;
             satMorning.CheckState = CheckState.Checked;
-            satMorning.FlatAppearance.BorderColor = Color.DarkGreen;
-            satMorning.FlatAppearance.CheckedBackColor = Color.LawnGreen;
             satMorning.FlatStyle = FlatStyle.Flat;
-            satMorning.Location = new Point(988, 469);
+            satMorning.Location = new Point(830, 374);
             satMorning.Name = "satMorning";
-            satMorning.Size = new Size(104, 23);
-            satMorning.TabIndex = 45;
+            satMorning.Size = new Size(105, 26);
             satMorning.Text = "Disponível";
             satMorning.TextAlign = ContentAlignment.MiddleCenter;
+            satMorning.TabIndex = 27;
             satMorning.UseVisualStyleBackColor = true;
             satMorning.CheckedChanged += satMorning_CheckedChanged;
             // 
-            // satNight
+            // label8 — Sentinela
             // 
-            satNight.Appearance = Appearance.Button;
-            satNight.Checked = true;
-            satNight.CheckState = CheckState.Checked;
-            satNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            satNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
-            satNight.FlatStyle = FlatStyle.Flat;
-            satNight.Location = new Point(988, 498);
-            satNight.Name = "satNight";
-            satNight.Size = new Size(104, 23);
-            satNight.TabIndex = 46;
-            satNight.Text = "Disponível";
-            satNight.TextAlign = ContentAlignment.MiddleCenter;
-            satNight.UseVisualStyleBackColor = true;
-            satNight.CheckedChanged += satNight_CheckedChanged;
+            label8.AutoSize = true;
+            label8.Location = new Point(25, 412);
+            label8.Name = "label8";
+            label8.Text = "Sentinela";
+            label8.TabIndex = 28;
+            // 
+            // sunNight
+            // 
+            sunNight.Appearance = Appearance.Button;
+            sunNight.Checked = true;
+            sunNight.CheckState = CheckState.Checked;
+            sunNight.FlatStyle = FlatStyle.Flat;
+            sunNight.Location = new Point(140, 408);
+            sunNight.Name = "sunNight";
+            sunNight.Size = new Size(105, 26);
+            sunNight.Text = "Disponível";
+            sunNight.TextAlign = ContentAlignment.MiddleCenter;
+            sunNight.TabIndex = 29;
+            sunNight.UseVisualStyleBackColor = true;
+            sunNight.CheckedChanged += sunNight_CheckedChanged;
+            // 
+            // monNight
+            // 
+            monNight.Appearance = Appearance.Button;
+            monNight.Checked = true;
+            monNight.CheckState = CheckState.Checked;
+            monNight.FlatStyle = FlatStyle.Flat;
+            monNight.Location = new Point(255, 408);
+            monNight.Name = "monNight";
+            monNight.Size = new Size(105, 26);
+            monNight.Text = "Disponível";
+            monNight.TextAlign = ContentAlignment.MiddleCenter;
+            monNight.TabIndex = 30;
+            monNight.UseVisualStyleBackColor = true;
+            monNight.CheckedChanged += monNight_CheckedChanged;
+            // 
+            // tueNight
+            // 
+            tueNight.Appearance = Appearance.Button;
+            tueNight.Checked = true;
+            tueNight.CheckState = CheckState.Checked;
+            tueNight.FlatStyle = FlatStyle.Flat;
+            tueNight.Location = new Point(370, 408);
+            tueNight.Name = "tueNight";
+            tueNight.Size = new Size(105, 26);
+            tueNight.Text = "Disponível";
+            tueNight.TextAlign = ContentAlignment.MiddleCenter;
+            tueNight.TabIndex = 31;
+            tueNight.UseVisualStyleBackColor = true;
+            tueNight.CheckedChanged += tueNight_CheckedChanged;
+            // 
+            // wedNight
+            // 
+            wedNight.Appearance = Appearance.Button;
+            wedNight.Checked = true;
+            wedNight.CheckState = CheckState.Checked;
+            wedNight.FlatStyle = FlatStyle.Flat;
+            wedNight.Location = new Point(485, 408);
+            wedNight.Name = "wedNight";
+            wedNight.Size = new Size(105, 26);
+            wedNight.Text = "Disponível";
+            wedNight.TextAlign = ContentAlignment.MiddleCenter;
+            wedNight.TabIndex = 32;
+            wedNight.UseVisualStyleBackColor = true;
+            wedNight.CheckedChanged += wedNight_CheckedChanged;
+            // 
+            // thuNight
+            // 
+            thuNight.Appearance = Appearance.Button;
+            thuNight.Checked = true;
+            thuNight.CheckState = CheckState.Checked;
+            thuNight.FlatStyle = FlatStyle.Flat;
+            thuNight.Location = new Point(600, 408);
+            thuNight.Name = "thuNight";
+            thuNight.Size = new Size(105, 26);
+            thuNight.Text = "Disponível";
+            thuNight.TextAlign = ContentAlignment.MiddleCenter;
+            thuNight.TabIndex = 33;
+            thuNight.UseVisualStyleBackColor = true;
+            thuNight.CheckedChanged += thuNight_CheckedChanged;
             // 
             // friNight
             // 
             friNight.Appearance = Appearance.Button;
             friNight.Checked = true;
             friNight.CheckState = CheckState.Checked;
-            friNight.FlatAppearance.BorderColor = Color.DarkGreen;
-            friNight.FlatAppearance.CheckedBackColor = Color.LawnGreen;
             friNight.FlatStyle = FlatStyle.Flat;
-            friNight.Location = new Point(848, 498);
+            friNight.Location = new Point(715, 408);
             friNight.Name = "friNight";
-            friNight.Size = new Size(104, 23);
-            friNight.TabIndex = 47;
+            friNight.Size = new Size(105, 26);
             friNight.Text = "Disponível";
             friNight.TextAlign = ContentAlignment.MiddleCenter;
+            friNight.TabIndex = 34;
             friNight.UseVisualStyleBackColor = true;
             friNight.CheckedChanged += friNight_CheckedChanged;
             // 
-            // table
+            // satNight
             // 
-            table.AllowUserToAddRows = false;
-            table.AllowUserToDeleteRows = false;
-            table.AllowUserToResizeColumns = false;
-            table.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            table.Anchor = AnchorStyles.None;
-            table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            table.BackgroundColor = Color.DarkSlateGray;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.Lime;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            table.DefaultCellStyle = dataGridViewCellStyle3;
-            table.EnableHeadersVisualStyles = false;
-            table.GridColor = Color.DarkGreen;
-            table.Location = new Point(320, 135);
-            table.MultiSelect = false;
-            table.Name = "table";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            table.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            table.RowHeadersVisible = false;
-            table.Size = new Size(781, 263);
-            table.TabIndex = 48;
+            satNight.Appearance = Appearance.Button;
+            satNight.Checked = true;
+            satNight.CheckState = CheckState.Checked;
+            satNight.FlatStyle = FlatStyle.Flat;
+            satNight.Location = new Point(830, 408);
+            satNight.Name = "satNight";
+            satNight.Size = new Size(105, 26);
+            satNight.Text = "Disponível";
+            satNight.TextAlign = ContentAlignment.MiddleCenter;
+            satNight.TabIndex = 35;
+            satNight.UseVisualStyleBackColor = true;
+            satNight.CheckedChanged += satNight_CheckedChanged;
             // 
-            // label6
+            // btCadastrar
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.DarkGreen;
-            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label6.Location = new Point(21, 397);
-            label6.Name = "label6";
-            label6.Padding = new Padding(25, 0, 25, 0);
-            label6.Size = new Size(194, 19);
-            label6.TabIndex = 24;
-            label6.Text = "Disponibilidade";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = Color.DarkGreen;
-            label16.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(705, 97);
-            label16.Name = "label16";
-            label16.Padding = new Padding(25, 0, 25, 0);
-            label16.Size = new Size(396, 24);
-            label16.TabIndex = 49;
-            label16.Text = "Todos atiradores cadastrados";
+            btCadastrar.FlatStyle = FlatStyle.Flat;
+            btCadastrar.Location = new Point(25, 455);
+            btCadastrar.Name = "btCadastrar";
+            btCadastrar.Size = new Size(420, 50);
+            btCadastrar.Text = "Clique aqui para cadastrar";
+            btCadastrar.TabIndex = 36;
+            btCadastrar.UseVisualStyleBackColor = false;
+            btCadastrar.Click += btCadastrar_Click;
             // 
             // FormAddAtirador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
-            ClientSize = new Size(1248, 610);
-            Controls.Add(label16);
-            Controls.Add(table);
-            Controls.Add(friNight);
-            Controls.Add(satNight);
-            Controls.Add(satMorning);
-            Controls.Add(sunNight);
-            Controls.Add(monMorning);
-            Controls.Add(monNight);
-            Controls.Add(tueNight);
-            Controls.Add(tueMorning);
-            Controls.Add(wedMorning);
-            Controls.Add(wedNight);
-            Controls.Add(thuNight);
-            Controls.Add(thuMorning);
-            Controls.Add(friMorning);
-            Controls.Add(sunMorning);
-            Controls.Add(label15);
-            Controls.Add(label14);
-            Controls.Add(label9);
-            Controls.Add(label10);
-            Controls.Add(label11);
-            Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label6);
-            Controls.Add(btCadastrar);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(checkIsCfc);
-            Controls.Add(checkIsNotCfc);
-            Controls.Add(label5);
-            Controls.Add(numServiceBox);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(numAtrBox);
+            ClientSize = new Size(1248, 530);
+            Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(warNameBox);
-            Controls.Add(label1);
+            Controls.Add(label3);
+            Controls.Add(numAtrBox);
+            Controls.Add(label4);
+            Controls.Add(numServiceBox);
+            Controls.Add(label5);
+            Controls.Add(checkIsNotCfc);
+            Controls.Add(checkIsCfc);
+            Controls.Add(label16);
+            Controls.Add(table);
+            Controls.Add(label6);
+            Controls.Add(label12);
+            Controls.Add(label13);
+            Controls.Add(label11);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label7);
+            Controls.Add(sunMorning);
+            Controls.Add(monMorning);
+            Controls.Add(tueMorning);
+            Controls.Add(wedMorning);
+            Controls.Add(thuMorning);
+            Controls.Add(friMorning);
+            Controls.Add(satMorning);
+            Controls.Add(label8);
+            Controls.Add(sunNight);
+            Controls.Add(monNight);
+            Controls.Add(tueNight);
+            Controls.Add(wedNight);
+            Controls.Add(thuNight);
+            Controls.Add(friNight);
+            Controls.Add(satNight);
+            Controls.Add(btCadastrar);
             Name = "FormAddAtirador";
             Text = "FormAddAtirador";
             ((System.ComponentModel.ISupportInitialize)table).EndInit();

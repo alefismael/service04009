@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +11,49 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsAtirador
 {
-    public partial class FormAtiradorConsult : Form
+    public partial class FormAtiradorConsult : BaseChildForm
     {
         public FormAtiradorConsult()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            // Title
+            label1.Location = new Point(20, 10);
+
+            // Row 1 — three filter groups side by side
+            int row1Y = 60;
+            label2.Location = new Point(30, row1Y);
+            label2.Padding = Padding.Empty;
+            warNameBox.Location = new Point(30, row1Y + 24);
+            warNameBox.Size = new Size(200, 26);
+
+            label3.Location = new Point(260, row1Y);
+            label3.Padding = Padding.Empty;
+            numAtrBox.Location = new Point(260, row1Y + 24);
+            numAtrBox.Size = new Size(150, 26);
+
+            label4.Location = new Point(440, row1Y);
+            label4.Padding = Padding.Empty;
+            numServiceBox.Location = new Point(440, row1Y + 24);
+            numServiceBox.Size = new Size(150, 26);
+
+            // Row 2 — CFC filter + query button
+            int row2Y = 120;
+            label5.Location = new Point(30, row2Y);
+            label5.Padding = Padding.Empty;
+            checkIsNotCfc.Location = new Point(130, row2Y - 3);
+            checkIsCfc.Location = new Point(185, row2Y - 3);
+            button1.Location = new Point(300, row2Y - 6);
+            button1.Size = new Size(400, 32);
+
+            // Table — full width below filters
+            table.Location = new Point(30, 165);
+            table.Size = new Size(1185, 420);
+            table.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
         }
 
         private void button1_Click(object sender, EventArgs e)

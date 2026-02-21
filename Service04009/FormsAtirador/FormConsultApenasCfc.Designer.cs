@@ -33,7 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             table = new DataGridView();
-            label2 = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
@@ -79,27 +79,21 @@
             table.Size = new Size(1155, 437);
             table.TabIndex = 9;
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DarkGreen;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(371, 47);
-            label2.Name = "label2";
-            label2.Size = new Size(451, 39);
-            label2.TabIndex = 11;
-            label2.Text = "Atiradores que fazem CFC";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.Location = new Point(371, 47);
+            label1.Name = "label1";
+            label1.TabIndex = 11;
+            label1.Text = "Atiradores que fazem CFC";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormConsultApenasCfc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Lime;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
-            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(table);
             Name = "FormConsultApenasCfc";
             Text = "FormConsultApenasCfc";
@@ -111,6 +105,6 @@
         #endregion
 
         private DataGridView table;
-        private Label label2;
+        private Label label1;
     }
 }

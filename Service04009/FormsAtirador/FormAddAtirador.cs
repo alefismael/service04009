@@ -10,16 +10,86 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsAtirador
 {
-    public partial class FormAddAtirador : Form
+    public partial class FormAddAtirador : BaseChildForm
     {
         public FormAddAtirador()
         {
             InitializeComponent();
+            ArrangeLayout();
             using (var db = new ServiceContext())
             {
                 List<ShooterDT> shooterDt = db.Shooters.OrderBy(s => s.numAtr).Select(shoot => new ShooterDT(shoot)).ToList();
                 table.DataSource = shooterDt;
             }
+        }
+
+        private void ArrangeLayout()
+        {
+            // Título
+            label1.Location = new Point(20, 10);
+
+            // Campos de cadastro — coluna esquerda
+            int leftX = 25;
+            int fieldY = 55;
+
+            label2.Location = new Point(leftX, fieldY);
+            label2.Padding = Padding.Empty;
+            warNameBox.Location = new Point(leftX, fieldY + 22);
+            warNameBox.Size = new Size(240, 25);
+
+            label3.Location = new Point(leftX, fieldY + 58);
+            label3.Padding = Padding.Empty;
+            numAtrBox.Location = new Point(leftX, fieldY + 80);
+            numAtrBox.Size = new Size(160, 25);
+
+            label4.Location = new Point(leftX, fieldY + 116);
+            label4.Padding = Padding.Empty;
+            numServiceBox.Location = new Point(leftX, fieldY + 138);
+            numServiceBox.Size = new Size(200, 25);
+
+            label5.Location = new Point(leftX, fieldY + 174);
+            label5.Padding = Padding.Empty;
+            checkIsNotCfc.Location = new Point(leftX, fieldY + 196);
+            checkIsCfc.Location = new Point(leftX + 65, fieldY + 196);
+
+            // Tabela — direita dos campos
+            label16.Location = new Point(300, fieldY);
+            label16.Padding = Padding.Empty;
+            table.Location = new Point(300, fieldY + 22);
+            table.Size = new Size(930, 210);
+
+            // Disponibilidade — linha abaixo
+            int availY = 300;
+            label6.Location = new Point(leftX, availY);
+            label6.Padding = Padding.Empty;
+
+            string[] dayLabels = { "Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb" };
+            Label[] dayLabelControls = { label12, label13, label11, label9, label10, label15, label14 };
+            CheckBox[] morningChecks = { sunMorning, monMorning, tueMorning, wedMorning, thuMorning, friMorning, satMorning };
+            CheckBox[] nightChecks = { sunNight, monNight, tueNight, wedNight, thuNight, friNight, satNight };
+
+            int colStart = 140;
+            int colWidth = 115;
+            for (int i = 0; i < 7; i++)
+            {
+                int cx = colStart + i * colWidth;
+                dayLabelControls[i].Text = dayLabels[i];
+                dayLabelControls[i].Location = new Point(cx + 25, availY);
+                dayLabelControls[i].Padding = Padding.Empty;
+                morningChecks[i].Location = new Point(cx, availY + 22);
+                morningChecks[i].Size = new Size(105, 26);
+                nightChecks[i].Location = new Point(cx, availY + 56);
+                nightChecks[i].Size = new Size(105, 26);
+            }
+
+            label7.Location = new Point(leftX, availY + 25);
+            label7.Padding = Padding.Empty;
+            label8.Location = new Point(leftX, availY + 59);
+            label8.Padding = Padding.Empty;
+
+            // Botão cadastrar
+            btCadastrar.Location = new Point(200, availY + 100);
+            btCadastrar.Size = new Size(750, 48);
         }
 
         private void checkIsCfc_CheckedChanged(object sender, EventArgs e)

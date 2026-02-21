@@ -164,7 +164,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(btRemover);
             Controls.Add(btQuery);

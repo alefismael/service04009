@@ -1,11 +1,8 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using Service04009;
+﻿using Service04009;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Service04009;
 
@@ -15,18 +12,41 @@ internal class Service
     public DateOnly Date { get; set; }
     public List<Shooter> Permanences { get; set; }
     public List<Shooter> Sentinels { get; set; }
-    public int? CommanderOfTheGuardId { get; set; }  // Referência para o comandante da guarda que ele apontára, um comandante pode estar em vários serviços
-    public Shooter? CommanderOfTheGuard { get; set; }
-    public int? ServiceScaleId { get; set; }  // Referência para o Service Scale como o EF Core aqui é muitos para muitos
+    public List<Shooter> Commanders { get; set; }
+    public int? ServiceScaleId { get; set; }
     public ServiceScale? ServiceScale { get; set; }
 
-    // Construtor padrão da classe recebendo apenas um DateOnly (data sem horas)
-    public Service(DateOnly date)
+    // Referência à configuração vigente (injetada na criação da escala)
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    private ServiceConfig? _config;
+
+    public Service() { }
+
+    // Construtor padrão recebendo data e configuração
+    public Service(DateOnly date, ServiceConfig? config = null)
     {
         Date = date;
         Permanences = new List<Shooter>();
         Sentinels = new List<Shooter>();
-        CommanderOfTheGuard = null;
+        Commanders = new List<Shooter>();
+        _config = config;
+    }
+
+    /// <summary>Define a configuração deste serviço (usado ao carregar do banco).</summary>
+    public void SetConfig(ServiceConfig config) => _config = config;
+
+    // ── Helpers de configuração ──
+
+    private int MaxPermanences => _config?.GetPermanences(Date.DayOfWeek) ?? DefaultMaxPermanences();
+    private int MaxSentinels => _config?.GetSentinels(Date.DayOfWeek) ?? 3;
+    private int MaxCommanders => _config?.GetCommanders(Date.DayOfWeek) ?? 1;
+    private bool CommanderMustBeCfc => _config?.MustCommanderBeCfc(Date.DayOfWeek) ?? true;
+
+    private int DefaultMaxPermanences()
+    {
+        if (Date.DayOfWeek == DayOfWeek.Sunday || (int)Date.DayOfWeek > 4)
+            return 2;
+        return 1;
     }
 
     // Método retorna a quantidade de atiradores necessários para o serviço
@@ -35,47 +55,25 @@ internal class Service
         return GetPermancencesNecessaryAmount() + GetSentinelsNecessaryAmount() + GetCommanderNecessaryAmount();
     }
 
-    // Método retorna a quantidade de atiradores necessários para o serviço permanência
     public int GetPermancencesNecessaryAmount()
     {
-        if ((int)Date.DayOfWeek == 0 || (int)Date.DayOfWeek > 4)
-        {
-            return 2 - Permanences.Count();
-        }
-        else
-        {
-            return 1 - Permanences.Count();
-        }
+        return MaxPermanences - Permanences.Count;
     }
 
-    // Método retorna a quantidade de atiradores necessários para o serviço de sentinela
     public int GetSentinelsNecessaryAmount()
     {
-        return 3 - Sentinels.Count();
+        return MaxSentinels - Sentinels.Count;
     }
-    // Método retorna a quantidade de atiradores necessários para o serviço de comandante da guarda
+
     public int GetCommanderNecessaryAmount()
     {
-        if (CommanderOfTheGuard == null)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        return Math.Max(0, MaxCommanders - Commanders.Count);
     }
 
-
-    // Método para adicionar atirador permanência na lista interna
+    // Método para adicionar atirador permanência (respeita config)
     public bool AddPermanence(Shooter shooter)
     {
-        if ((Permanences.Count < 1) && (!shooter.isCfc) && Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
-        {
-            Permanences.Add(shooter);
-            return true;
-        }
-        else if (Date.DayOfWeek == DayOfWeek.Friday || Date.DayOfWeek == DayOfWeek.Saturday || Date.DayOfWeek == DayOfWeek.Sunday && (Permanences.Count < 2) && (!shooter.isCfc))
+        if (Permanences.Count < MaxPermanences && !shooter.isCfc)
         {
             Permanences.Add(shooter);
             return true;
@@ -83,15 +81,10 @@ internal class Service
         return false;
     }
 
-    // Método para adicionar atirador permanência na lista interna por troca (aceita cfc)
+    // Método para adicionar atirador permanência por troca (aceita cfc)
     public bool AddPermanenceSwap(Shooter shooter)
     {
-        if ((Permanences.Count < 1) && Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
-        {
-            Permanences.Add(shooter);
-            return true;
-        }
-        else if (Date.DayOfWeek == DayOfWeek.Friday || Date.DayOfWeek == DayOfWeek.Saturday || Date.DayOfWeek == DayOfWeek.Sunday && (Permanences.Count < 2))
+        if (Permanences.Count < MaxPermanences)
         {
             Permanences.Add(shooter);
             return true;
@@ -113,7 +106,7 @@ internal class Service
     // Método para adicionar atirador sentinela na lista interna
     public bool AddSentinel(Shooter shooter)
     {
-        if ((Sentinels.Count < 3) && (!shooter.isCfc))
+        if (Sentinels.Count < MaxSentinels && !shooter.isCfc)
         {
             Sentinels.Add(shooter);
             return true;
@@ -124,7 +117,7 @@ internal class Service
     // Método para adicionar atirador sentinela na lista interna por troca (aceita cfc)
     public bool AddSentinelSwap(Shooter shooter)
     {
-        if (Sentinels.Count < 3)
+        if (Sentinels.Count < MaxSentinels)
         {
             Sentinels.Add(shooter);
             return true;
@@ -143,32 +136,43 @@ internal class Service
         return false;
     }
 
-    // Método para adicionar o comandante da guarda
-    public bool SetCommanderOfTheGuard(Shooter shooter)
+    // Método para adicionar um comandante da guarda (respeita config de CFC obrigatório e MaxCommanders)
+    public bool AddCommander(Shooter shooter)
     {
-        if (shooter.isCfc)
-        {
-            CommanderOfTheGuard = shooter;
-            return true;
-        }
-        return false;
-    }
+        if (Commanders.Count >= MaxCommanders)
+            return false;
+        if (CommanderMustBeCfc && !shooter.isCfc)
+            return false;
 
-    // Método para adicionar o comandante da guarda troca (aceita não cfc)
-    public bool SetCommanderOfTheGuardSwap(Shooter shooter)
-    {
-        CommanderOfTheGuard = shooter;
+        Commanders.Add(shooter);
         return true;
     }
 
-    // Método para passar o comandante da guarda
+    // Método para adicionar comandante por troca (aceita não cfc)
+    public bool AddCommanderSwap(Shooter shooter)
+    {
+        if (Commanders.Count >= MaxCommanders)
+            return false;
+        Commanders.Add(shooter);
+        return true;
+    }
+
+    // Método para remover um comandante da lista
+    public bool RemoveCommander(Shooter shooter)
+    {
+        return Commanders.Remove(shooter);
+    }
+
+    // Método para passar o primeiro comandante da guarda (compatibilidade)
     public Shooter? GetCommander()
     {
-        if (CommanderOfTheGuard == null)
-        {
-            return null;
-        }
-        return CommanderOfTheGuard;
+        return Commanders.Count > 0 ? Commanders[0] : null;
+    }
+
+    // Método para passar todos os comandantes
+    public List<Shooter> GetCommanders()
+    {
+        return Commanders;
     }
 
     // Método para passar os permanências da guarda
@@ -194,9 +198,9 @@ internal class Service
         {
             shooter.AddNumService();
         }
-        if (CommanderOfTheGuard != null)
+        foreach (var shooter in Commanders)
         {
-            CommanderOfTheGuard.AddNumService();
+            shooter.AddNumService();
         }
     }
 
@@ -211,25 +215,22 @@ internal class Service
         {
             shooter.SubtractNumService();
         }
-        if (CommanderOfTheGuard != null)
+        foreach (var shooter in Commanders)
         {
-            CommanderOfTheGuard.SubtractNumService();
+            shooter.SubtractNumService();
         }
     }
 
-    // Método para retornar o comandante da guarda se não está ok com o serviço no dia
-    public Shooter? ReturnCommanderNotOk()
+    // Método para retornar os comandantes da guarda que não estão ok com o serviço no dia
+    public List<Shooter> ReturnCommandersNotOk()
     {
-        if (CommanderOfTheGuard != null)
+        var notOk = new List<Shooter>();
+        foreach (var cmd in Commanders)
         {
-            if (!CommanderOfTheGuard.IsOk(Date, 1))
-            {
-                return CommanderOfTheGuard;
-            }
-
+            if (!cmd.IsOk(Date, 1))
+                notOk.Add(cmd);
         }
-
-        return null;
+        return notOk;
     }
 
     // Método para retornar os permanências que não estão ok com o serviço no dia
@@ -263,105 +264,41 @@ internal class Service
     // Método para informar com um bool se o atirador passado está nesse serviço
     public bool HasShooter(Shooter shooter)
     {
-        if (Permanences.Contains(shooter))
-        {
-            return true;
-        }
-        else if (Sentinels.Contains(shooter))
-        {
-            return true;
-        }
-        else if (shooter.Equals(CommanderOfTheGuard))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    // Método para informar se já têm um comandante da guarda
-    public bool HasCommanderOfTheGuard()
-    {
-        if (CommanderOfTheGuard != null)
-        {
-            return true;
-        }
-        return false;
+        return Permanences.Contains(shooter)
+            || Sentinels.Contains(shooter)
+            || Commanders.Contains(shooter);
     }
 
     // Método para ver se a escala do serviço já está completa
     public bool IsComplete()
     {
-        if (Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
-        {
-            // Segunda a quinta-feira: 1 permanência, 3 sentinelas, 1 comandante da guarda
-            return Permanences.Count == 1 && Sentinels.Count == 3 && CommanderOfTheGuard != null;
-        }
-        else if (Date.DayOfWeek == DayOfWeek.Friday || Date.DayOfWeek == DayOfWeek.Saturday || Date.DayOfWeek == DayOfWeek.Sunday)
-        {
-            // Sexta a domingo: 2 permanências, 3 sentinelas, 1 comandante da guarda
-            return Permanences.Count == 2 && Sentinels.Count == 3 && CommanderOfTheGuard != null;
-        }
-        else
-        {
-            // Outros dias: serviço não está completo
-            return false;
-        }
+        return Permanences.Count >= MaxPermanences
+            && Sentinels.Count >= MaxSentinels
+            && Commanders.Count >= MaxCommanders;
     }
 
-    // Método para verificar se já está têm o ou os permanências que o serviço precisa
+    // Método para verificar se já tem os permanências que o serviço precisa
     public bool IsCompletePermanences()
     {
-        if (Date.DayOfWeek >= DayOfWeek.Monday && Date.DayOfWeek <= DayOfWeek.Thursday)
-        {
-            // Segunda a quinta-feira: 1 permanência
-            return Permanences.Count == 1;
-        }
-        else if (Date.DayOfWeek == DayOfWeek.Friday || Date.DayOfWeek == DayOfWeek.Saturday || Date.DayOfWeek == DayOfWeek.Sunday)
-        {
-            // Sexta a domingo: 2 permanências
-            return Permanences.Count == 2;
-        }
-        else
-        {
-            return false;
-        }
+        return Permanences.Count >= MaxPermanences;
     }
 
-    // Método para verificar se já está têm os sentinelas que o dia precisa
+    // Método para verificar se já tem os sentinelas que o dia precisa
     public bool IsCompleteSentinels()
     {
-        if (Sentinels.Count == 3)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Sentinels.Count >= MaxSentinels;
     }
 
     // Método retorna 0 se o atirador não está no serviço, 1 se é permanência na lista, 2 se é sentinela e 3 se é comandante da guarda
     public int ShowShooterFunctionInScale(Shooter shooter)
     {
         if (Permanences.Contains(shooter))
-        {
             return 1;
-        }
-        else if (Sentinels.Contains(shooter))
-        {
+        if (Sentinels.Contains(shooter))
             return 2;
-        }
-        else if (shooter.Equals(CommanderOfTheGuard))
-        {
+        if (Commanders.Contains(shooter))
             return 3;
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
 
     // Método ToString modificado para passar informações do serviço
@@ -370,9 +307,11 @@ internal class Service
         string serviceDay = Date.ToString();
         string permanencesString = string.Join(", ", Permanences.Select(s => $"{s.warName} ({s.numAtr}): {(s.IsOk(Date, 0) ? "Disponível" : "Indisponível")}, Serviços Tirados: {s.numOfService}"));
         string sentinelsString = string.Join(", ", Sentinels.Select(s => $"{s.warName} ({s.numAtr}): {(s.IsOk(Date, 1) ? "Disponível" : "Indisponível")}, Serviços Tirados: {s.numOfService}"));
-        string commanderString = CommanderOfTheGuard != null ? $"{CommanderOfTheGuard.warName} ({CommanderOfTheGuard.numAtr}): {(CommanderOfTheGuard.IsOk(Date, 1) ? "Disponível" : "Indisponível")}, Serviços Tirados: {CommanderOfTheGuard.numOfService}" : "Nenhum";
+        string commanderString = Commanders.Count > 0
+            ? string.Join(", ", Commanders.Select(c => $"{c.warName} ({c.numAtr}): {(c.IsOk(Date, 1) ? "Disponível" : "Indisponível")}, Serviços Tirados: {c.numOfService}"))
+            : "Nenhum";
 
-        return $"Dia do Serviço: {serviceDay}\nPermanências: {permanencesString}\nSentinelas: {sentinelsString}\nComandante da Guarda: {commanderString}";
+        return $"Dia do Serviço: {serviceDay}\nPermanências: {permanencesString}\nSentinelas: {sentinelsString}\nComandante(s) da Guarda: {commanderString}";
     }
 
 }

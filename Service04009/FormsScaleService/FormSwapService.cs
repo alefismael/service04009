@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsScaleService
 {
-    public partial class FormSwapService : Form
+    public partial class FormSwapService : BaseChildForm
     {
         Shooter? shooter1Form;
         Shooter? shooter2Form;
@@ -23,6 +22,57 @@ namespace Service04009.FormsScaleService
         public FormSwapService()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            // ── Título ──
+            label1.Location = new Point(20, 10);
+
+            // ── Seção 1: Atiradores (lado a lado) ──
+            int secY = 65;
+            label3.Location = new Point(30, secY);
+            label3.Padding = Padding.Empty;
+            numAtrBox1.Location = new Point(30, secY + 22);
+            numAtrBox1.Size = new Size(280, 25);
+
+            label4.Location = new Point(640, secY);
+            label4.Padding = Padding.Empty;
+            numAtrBox2.Location = new Point(640, secY + 22);
+            numAtrBox2.Size = new Size(280, 25);
+
+            btQueryShooters.Location = new Point(400, secY + 50);
+            btQueryShooters.Size = new Size(420, 30);
+
+            shooter1InfoLabel.Location = new Point(30, secY + 90);
+            shooter1InfoLabel.Padding = new Padding(8, 4, 8, 4);
+            shooter2InfoLabel.Location = new Point(640, secY + 90);
+            shooter2InfoLabel.Padding = new Padding(8, 4, 8, 4);
+
+            // ── Seção 2: Datas dos serviços ──
+            int dateY = secY + 125;
+            date1Label.Location = new Point(30, dateY);
+            date1Label.Padding = Padding.Empty;
+            dateTimeService1.Location = new Point(30, dateY + 22);
+            dateTimeService1.Size = new Size(280, 26);
+
+            date2Label.Location = new Point(640, dateY);
+            date2Label.Padding = Padding.Empty;
+            dateTimeService2.Location = new Point(640, dateY + 22);
+            dateTimeService2.Size = new Size(280, 26);
+
+            btQueryServices.Location = new Point(400, dateY + 58);
+            btQueryServices.Size = new Size(420, 30);
+
+            service1InfoLabel.Location = new Point(30, dateY + 98);
+            service1InfoLabel.Padding = new Padding(8, 4, 8, 4);
+            service2InfoLabel.Location = new Point(640, dateY + 98);
+            service2InfoLabel.Padding = new Padding(8, 4, 8, 4);
+
+            // ── Botão trocar ──
+            btSwap.Location = new Point(150, dateY + 150);
+            btSwap.Size = new Size(950, 50);
         }
 
         private void numAtrBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -165,13 +215,13 @@ namespace Service04009.FormsScaleService
 
                     // Carregar ServiceScale com todos os serviços associados e suas propriedades relacionadas
                     var service1 = db.Services
-                        .Include(s => s.CommanderOfTheGuard)
+                        .Include(s => s.Commanders)
                         .Include(s => s.Permanences)
                         .Include(s => s.Sentinels)
                         .Where(s => s.Date == date1)
                         .FirstOrDefault();
                     var service2 = db.Services
-                        .Include(s => s.CommanderOfTheGuard)
+                        .Include(s => s.Commanders)
                         .Include(s => s.Permanences)
                         .Include(s => s.Sentinels)
                         .Where(s => s.Date == date2)
@@ -232,13 +282,13 @@ namespace Service04009.FormsScaleService
                         Shooter? shooter1 = db.Shooters.Where(s => s.numAtr == shooter1Form.numAtr).FirstOrDefault();
                         Shooter? shooter2 = db.Shooters.Where(s => s.numAtr == shooter2Form.numAtr).FirstOrDefault();
                         var service1 = db.Services
-                        .Include(s => s.CommanderOfTheGuard)
+                        .Include(s => s.Commanders)
                         .Include(s => s.Permanences)
                         .Include(s => s.Sentinels)
                         .Where(s => s.Date == service1Form.Date)
                         .FirstOrDefault();
                         var service2 = db.Services
-                            .Include(s => s.CommanderOfTheGuard)
+                            .Include(s => s.Commanders)
                             .Include(s => s.Permanences)
                             .Include(s => s.Sentinels)
                             .Where(s => s.Date == service2Form.Date)
@@ -264,8 +314,9 @@ namespace Service04009.FormsScaleService
                             else if ((s1 == 1) && (s2 == 3))
                             {
                                 service1.RemovePermanence(shooter1);
+                                service2.RemoveCommander(shooter2);
                                 service1.AddPermanenceSwap(shooter2);
-                                service2.SetCommanderOfTheGuardSwap(shooter1);
+                                service2.AddCommanderSwap(shooter1);
                             }
                             else if ((s1 == 2) && (s2 == 1))
                             {
@@ -284,25 +335,30 @@ namespace Service04009.FormsScaleService
                             else if ((s1 == 2) && (s2 == 3))
                             {
                                 service1.RemoveSentinel(shooter1);
+                                service2.RemoveCommander(shooter2);
                                 service1.AddSentinelSwap(shooter2);
-                                service2.SetCommanderOfTheGuardSwap(shooter1);
+                                service2.AddCommanderSwap(shooter1);
                             }
                             else if ((s1 == 3) && (s2 == 1))
                             {
-                                service1.SetCommanderOfTheGuardSwap(shooter2);
+                                service1.RemoveCommander(shooter1);
                                 service2.RemovePermanence(shooter2);
+                                service1.AddCommanderSwap(shooter2);
                                 service2.AddPermanenceSwap(shooter1);
                             }
                             else if ((s1 == 3) && (s2 == 2))
                             {
-                                service1.SetCommanderOfTheGuardSwap(shooter2);
+                                service1.RemoveCommander(shooter1);
                                 service2.RemoveSentinel(shooter2);
+                                service1.AddCommanderSwap(shooter2);
                                 service2.AddSentinelSwap(shooter1);
                             }
                             else if ((s1 == 3) && (s2 == 3))
                             {
-                                service1.SetCommanderOfTheGuardSwap(shooter2);
-                                service2.SetCommanderOfTheGuardSwap(shooter1);
+                                service1.RemoveCommander(shooter1);
+                                service2.RemoveCommander(shooter2);
+                                service1.AddCommanderSwap(shooter2);
+                                service2.AddCommanderSwap(shooter1);
                             }
                             db.SaveChanges();
 

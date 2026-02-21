@@ -1,7 +1,4 @@
-using DocumentFormat.OpenXml.Math;
-using DocumentFormat.OpenXml.Office2016.Excel;
-using DocumentFormat.OpenXml.Wordprocessing;
-using Service04009.FormsAtirador;
+Ôªøusing Service04009.FormsAtirador;
 using Service04009.FormsScaleService;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,57 +14,65 @@ namespace Service04009
         public MainForm()
         {
             InitializeComponent();
+
+            // Aplica tema claro verde
+            BackColor = AppTheme.BackgroundColor;
+            panel.BackColor = AppTheme.BackgroundColor;
+            creatorLabel.ForeColor = AppTheme.TextSecondary;
+            serviceLabel.ForeColor = AppTheme.AccentColor;
+            serviceLabel.Font = AppTheme.FontSubtitle;
+            AppTheme.StyleMenuStrip(menuStrip1);
         }
 
-        // MÈtodo para chamar o form de pesquisa personalizada de um atirador
+        // M√©todo para chamar o form de pesquisa personalizada de um atirador
         private void pesquisaPersonalizadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormAtiradorConsult());
         }
 
-        // MÈtodo para chamar o form que mostra todos os atiradores
+        // M√©todo para chamar o form que mostra todos os atiradores
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormConsultTodos());
         }
 
-        // MÈtodo para chamar o form que mostra todos os atiradores que s„o cfc
+        // M√©todo para chamar o form que mostra todos os atiradores que s√£o cfc
         private void btApenasCfc_Click(object sender, EventArgs e)
         {
             changeForm(new FormConsultApenasCfc());
         }
 
-        // MÈtodo para chamar o form que mostra todos os atiradores que n„o s„o cfc
-        private void apenasQuemN„o…CFCToolStripMenuItem_Click(object sender, EventArgs e)
+        // M√©todo para chamar o form que mostra todos os atiradores que n√£o s√£o cfc
+        private void apenasQuemN√£o√âCFCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormConsultNotCfc());
         }
 
-        // MÈtodo para chamar o form que serve para cadastrar atiradores
+        // M√©todo para chamar o form que serve para cadastrar atiradores
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormAddAtirador());
         }
 
-        // MÈtodo para chamar o form que pesquisa atiradores por n˙mero para poder mudar dados
+        // M√©todo para chamar o form que pesquisa atiradores por n√∫mero para poder mudar dados
         private void buscandoPorIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormUpdateByNumber());
         }
 
-        // MÈtodo para chamar o form que pesquisa atiradores por nome para poder mudar dados
+        // M√©todo para chamar o form que pesquisa atiradores por nome para poder mudar dados
         private void buscandoPorNomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormUpdateByName());
         }
 
-        // MÈtodo para chamar o form que pesquisa atiradores por n˙mero para poder remover atirador
-        private void buscandoPorN˙meroToolStripMenuItem_Click(object sender, EventArgs e)
+        // M√©todo para chamar o form que pesquisa atiradores por n√∫mero para poder remover atirador
+        private void buscandoPorN√∫meroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormDeleteByNumber());
         }
 
-        // MÈtodo para chamar o form que pesquisa atiradores por noma para poder remover atirador
+        // M√©todo para chamar o form que pesquisa atiradores por nome para poder remover atirador
         private void buscandoPorNomeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             changeForm(new FormDeleteByName());
@@ -78,7 +83,7 @@ namespace Service04009
             changeForm(new FormCreateScaleService());
         }
 
-        private void inÌcioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void in√≠cioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (formActive != null)
             {
@@ -94,49 +99,83 @@ namespace Service04009
             changeForm(new FormShowFullScale());
         }
 
-        // MÈtodo interno padr„o para carregar um novo form sobre o label do formul·rio main
+        // M√©todo interno padr√£o para carregar um novo form sobre o label do formul√°rio main
         private void changeForm(Form form)
         {
-            // Se j· tÍm um formActive no main form ent„o feche ele e passe formActive para null
-            if (formActive != null)
+            // Suspende o layout do panel para evitar renderiza√ß√£o lenta (flicker)
+            panel.SuspendLayout();
+            try
             {
-                formActive.Close();
-                formActive = null;
+                // Se j√° t√™m um formActive no main form ent√£o feche ele e passe formActive para null
+                if (formActive != null)
+                {
+                    formActive.Close();
+                    formActive = null;
+                }
+                serviceLabel.Visible = false;
+                creatorLabel.Visible = false;
+                formActive = form;
+                formActive.TopLevel = false;
+                formActive.FormBorderStyle = FormBorderStyle.None;
+                formActive.Dock = DockStyle.Fill;
+                panel.Controls.Add(formActive);
+                formActive.Show();
             }
-            serviceLabel.Visible = false;
-            creatorLabel.Visible = false;
-            formActive = form;
-            formActive.TopLevel = false;  // Diz para o formActive n„o ser um formul·rio TopLevel (que n„o pode estar dentro de outro)
-            formActive.FormBorderStyle = FormBorderStyle.None;  //  Tira as bordas do formul·rio
-            formActive.Dock = DockStyle.Fill;  //  Faz o formul·rio ocupar toda a tela do main form sem tirar a barra de navegaÁ„o
-            panel.Controls.Add(formActive);  // Passa o form para o panel para ele poder ser exibido corretamente
-            formActive.Show();
+            finally
+            {
+                panel.ResumeLayout(true);
+            }
         }
 
-        private void exibirEscalaPorDataDeUmServiÁoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exibirEscalaPorDataDeUmServi√ßoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             changeForm(new FormShowScaleForServiceData());
         }
 
-        private void excluirEscalaDeServiÁoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void excluirEscalaDeServi√ßoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormDeleteServiceScale());
         }
 
-        private void porDataDoServiÁoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void porDataDoServi√ßoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormShowServiceForData());
         }
 
-        private void trocaDeServiÁoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void trocaDeServi√ßoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormSwapService());
         }
 
-        private void atribuirServiÁoAAtiradorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void atribuirServi√ßoAAtiradorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeForm(new FormServiceAddShooter());
+        }
+
+        private void opcoesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormOpcoes());
+        }
+
+        private void relatorioEscalaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormRelatorio());
+        }
+
+        private void relatorioAtiradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormsScaleService.FormRelatorioAtiradores());
+        }
+
+        private void importExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormsAtirador.FormImportExportAtiradores());
+        }
+
+        private void excluirServicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeForm(new FormsScaleService.FormDeleteService());
         }
     }
 }

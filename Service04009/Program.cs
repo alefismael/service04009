@@ -1,9 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Service04009
 {
     internal static class Program
     {
 
-        // Esse Mutex serve para não permitir que esse aplicativo seja aberto duas vezes
+        // Esse Mutex serve para nï¿½o permitir que esse aplicativo seja aberto duas vezes
         private static Mutex? mutex = null;
         private const string MutexName = "YourUniqueAppNameMutex";
 
@@ -18,12 +20,53 @@ namespace Service04009
             using (var db = new ServiceContext())
             {
                 db.Database.EnsureCreated();
+
+                // Garantir que a tabela ServiceConfigs existe (para bancos existentes)
+                try
+                {
+                    _ = db.ServiceConfigs.FirstOrDefault();
+                }
+                catch
+                {
+                    db.Database.ExecuteSqlRaw(@"
+                        CREATE TABLE IF NOT EXISTS ServiceConfigs (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            SundayPermanences INTEGER NOT NULL DEFAULT 2,
+                            SundaySentinels INTEGER NOT NULL DEFAULT 3,
+                            SundayCommanders INTEGER NOT NULL DEFAULT 1,
+                            SundayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            MondayPermanences INTEGER NOT NULL DEFAULT 1,
+                            MondaySentinels INTEGER NOT NULL DEFAULT 3,
+                            MondayCommanders INTEGER NOT NULL DEFAULT 1,
+                            MondayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            TuesdayPermanences INTEGER NOT NULL DEFAULT 1,
+                            TuesdaySentinels INTEGER NOT NULL DEFAULT 3,
+                            TuesdayCommanders INTEGER NOT NULL DEFAULT 1,
+                            TuesdayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            WednesdayPermanences INTEGER NOT NULL DEFAULT 1,
+                            WednesdaySentinels INTEGER NOT NULL DEFAULT 3,
+                            WednesdayCommanders INTEGER NOT NULL DEFAULT 1,
+                            WednesdayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            ThursdayPermanences INTEGER NOT NULL DEFAULT 1,
+                            ThursdaySentinels INTEGER NOT NULL DEFAULT 3,
+                            ThursdayCommanders INTEGER NOT NULL DEFAULT 1,
+                            ThursdayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            FridayPermanences INTEGER NOT NULL DEFAULT 2,
+                            FridaySentinels INTEGER NOT NULL DEFAULT 3,
+                            FridayCommanders INTEGER NOT NULL DEFAULT 1,
+                            FridayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1,
+                            SaturdayPermanences INTEGER NOT NULL DEFAULT 2,
+                            SaturdaySentinels INTEGER NOT NULL DEFAULT 3,
+                            SaturdayCommanders INTEGER NOT NULL DEFAULT 1,
+                            SaturdayCommanderMustBeCfc INTEGER NOT NULL DEFAULT 1
+                        )");
+                }
             }
 
             if (!createdNew)
             {
-                // Se o Mutex já existir, significa que outra instância está em execução
-                MessageBox.Show("O aplicativo já está em execução.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Se o Mutex jï¿½ existir, significa que outra instï¿½ncia estï¿½ em execuï¿½ï¿½o
+                MessageBox.Show("O aplicativo jï¿½ estï¿½ em execuï¿½ï¿½o.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

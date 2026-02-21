@@ -32,23 +32,19 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            label2 = new Label();
+            label1 = new Label();
             table = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)table).BeginInit();
             SuspendLayout();
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DarkGreen;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Consolas", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(375, 46);
-            label2.Name = "label2";
-            label2.Size = new Size(505, 39);
-            label2.TabIndex = 14;
-            label2.Text = "Todas as escalas de serviço";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.Location = new Point(375, 46);
+            label1.Name = "label1";
+            label1.TabIndex = 14;
+            label1.Text = "Todas as Escalas de Serviço";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // table
             // 
@@ -96,10 +92,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.img_fundo_service_04009;
             ClientSize = new Size(1248, 610);
             Controls.Add(table);
-            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "FormShowFullScale";
             Text = "FormShowFullScale";
             ((System.ComponentModel.ISupportInitialize)table).EndInit();
@@ -109,7 +104,7 @@
 
         #endregion
 
-        private Label label2;
+        private Label label1;
         private DataGridView table;
     }
 }

@@ -1,40 +1,48 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
-using Service04009;
-using SixLabors.ImageSharp;
+﻿using Service04009;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.Intrinsics.X86;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Service04009;
 
 internal class ServiceScale
 {
+    private static readonly Random _random = new Random();
+
     public int id { get; set; }
     public DateOnly firstDay { get; private set; }
     public DateOnly lastDay { get; private set; }
     public List<Service> Services { get; private set; }
 
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    private ServiceConfig? _config;
+
     public ServiceScale() { }
 
-    //A classe é criada passando o dia do primeiro serviço e fim
-    public ServiceScale(DateOnly firstDay, DateOnly lastDay)
+    //A classe é criada passando o dia do primeiro serviço e fim, com configuração opcional
+    public ServiceScale(DateOnly firstDay, DateOnly lastDay, ServiceConfig? config = null)
     {
         Services = new List<Service>();
         this.firstDay = firstDay;
         this.lastDay = lastDay;
-        int numServices = lastDay.DayNumber - firstDay.DayNumber +1;
+        _config = config;
+        int numServices = lastDay.DayNumber - firstDay.DayNumber + 1;
 
-        // Cria serviços com base no primeiro dia e último dia da escala
         for (int i = 0; i < numServices; i++)
         {
-            Services.Add(new Service(firstDay.AddDays(i)));
+            Services.Add(new Service(firstDay.AddDays(i), config));
+        }
+    }
+
+    /// <summary>Injeta config em todos os serviços (útil ao carregar do banco).</summary>
+    public void SetConfig(ServiceConfig config)
+    {
+        _config = config;
+        if (Services != null)
+        {
+            foreach (var svc in Services)
+                svc.SetConfig(config);
         }
     }
 
@@ -42,59 +50,114 @@ internal class ServiceScale
     public List<Shooter> DefineScale(List<Shooter> shooters)
     {
         shooters.Sort();
-        List<Shooter> cfcShooters = shooters.Where(s => s.isCfc).ToList(); // Lista dos Cfc
-        cfcShooters.Sort();  // Ordeno os cfc (menor quantidade de serviços para maior)
-        int minServicesCfc = cfcShooters[0].numOfService;  //Pego o menor número que um dos cfc tirou de serviço
-        List<Shooter> notCfcShooters = shooters.Where(s => !s.isCfc).ToList();  // Lista dos que não são Cfc
-        notCfcShooters.Sort();  // Ordeno os que não são do cfc
-        int minServices = notCfcShooters[0].numOfService;  //Pego o menor número que um dos que não são cfc tirou de serviço
 
-        // Aqui faço o algoritmo para selecionar os comandantes da guarda de cada dia (só pode cfc) enquanto não está completo
+        List<Shooter> cfcShooters = shooters.Where(s => s.isCfc).ToList();
+        cfcShooters.Sort();
+        List<Shooter> notCfcShooters = shooters.Where(s => !s.isCfc).ToList();
+        notCfcShooters.Sort();
 
-        while (!IsCompleteCommanders())
+        // ── Fase 1: Atribuir Comandantes da Guarda ──
+
+        // Fase 1a: Primeiro atribuir atiradores CFC como comandantes
+        // (necessário para dias que exigem CFC, mas aceito em qualquer dia)
+        if (cfcShooters.Count > 0)
         {
-            // Vai serviço a serviço tentando atribuir a eles os atiradores disponíveis
-            foreach (var service in Services)
-            {
-                List<Shooter> commandersOK = new List<Shooter>();  // Lista para pegar os cfcs disponíveis para a data
-                foreach (var cfcShooter in cfcShooters)
-                {
+            int minServicesCfc = cfcShooters[0].numOfService;
+            int safetyLimit = cfcShooters.Max(s => s.numOfService) + 2;
 
-                    if (cfcShooter.IsOk(service.Date, 1) && !HasInScale(cfcShooter) && cfcShooter.numOfService == minServicesCfc && !service.HasCommanderOfTheGuard()) // Se o cfc pode na data, ainda não foi escalado, não tem comandante da guarda no serviço ainda e o cfc está com o número de serviços tirados igual o menor número
-                    {
-                        commandersOK.Add(cfcShooter);
-                    }
-                }
-                if (commandersOK.Count() != 0)  // Se têm cfcs disponíveis para a data, entra no if e seleciona um deles para o serviço de maneira aleatória
-                {
-                    service.SetCommanderOfTheGuard(GetRandomShooter(commandersOK));
-                }
-            }
-
-            // Se mesmo tentando os cfcs que podem na data não está completa a escala de comandantes aí pega os que não estão na escala mas têm a menor quantidade de serviços tirados
-            if (!IsCompleteCommanders())
+            while (!IsCompleteCommanders() && minServicesCfc <= safetyLimit)
             {
                 foreach (var service in Services)
                 {
-                    List<Shooter> commanders = new List<Shooter>();
+                    if (service.GetCommanderNecessaryAmount() == 0)
+                        continue;
+
+                    List<Shooter> commandersOK = new List<Shooter>();
                     foreach (var cfcShooter in cfcShooters)
                     {
-                        if (!HasInScale(cfcShooter) && cfcShooter.numOfService == minServicesCfc && !service.HasCommanderOfTheGuard()) // Se não está na escala, tirou a menor quantidade de serviços até aqui e não têm comandante da guarda no serviço ainda então coloca ele na lista para sorteio do comandante da guarda desse dia
+                        if (cfcShooter.IsOk(service.Date, 1) && !HasInScale(cfcShooter)
+                            && cfcShooter.numOfService == minServicesCfc)
                         {
-                            commanders.Add(cfcShooter);
-                            break;
+                            commandersOK.Add(cfcShooter);
                         }
                     }
-                    if (commanders.Count() != 0)
+                    while (commandersOK.Count > 0 && service.GetCommanderNecessaryAmount() > 0)
                     {
-                        service.SetCommanderOfTheGuard(GetRandomShooter(commanders));
+                        var chosen = GetRandomShooter(commandersOK);
+                        service.AddCommander(chosen);
+                        commandersOK.Remove(chosen);
                     }
                 }
+
+                if (!IsCompleteCommanders())
+                {
+                    foreach (var service in Services)
+                    {
+                        if (service.GetCommanderNecessaryAmount() == 0)
+                            continue;
+
+                        foreach (var cfcShooter in cfcShooters)
+                        {
+                            if (!HasInScale(cfcShooter) && cfcShooter.numOfService == minServicesCfc)
+                            {
+                                if (service.AddCommander(cfcShooter))
+                                    break;
+                            }
+                        }
+                    }
+                }
+                minServicesCfc++;
             }
-            minServicesCfc++;
         }
 
-        // Método para definir os sentinelas e permanências de todos serviços da escala
+        // Fase 1b: Para dias que ainda precisam de comandante (CFC não obrigatório
+        // nesse dia, ou CFC insuficientes) — qualquer atirador disponível
+        if (!IsCompleteCommanders() && shooters.Count > 0)
+        {
+            int minSvc = shooters.Where(s => !HasInScale(s)).DefaultIfEmpty(shooters[0]).Min(s => s.numOfService);
+            int safetyLimit = shooters.Max(s => s.numOfService) + 2;
+
+            while (!IsCompleteCommanders() && minSvc <= safetyLimit)
+            {
+                foreach (var service in Services)
+                {
+                    if (service.GetCommanderNecessaryAmount() == 0)
+                        continue;
+
+                    var candidates = shooters.Where(s =>
+                        s.IsOk(service.Date, 1) && !HasInScale(s) && s.numOfService == minSvc).ToList();
+                    while (candidates.Count > 0 && service.GetCommanderNecessaryAmount() > 0)
+                    {
+                        var chosen = GetRandomShooter(candidates);
+                        service.AddCommander(chosen);
+                        candidates.Remove(chosen);
+                    }
+                }
+
+                if (!IsCompleteCommanders())
+                {
+                    foreach (var service in Services)
+                    {
+                        if (service.GetCommanderNecessaryAmount() == 0)
+                            continue;
+
+                        var candidates = shooters.Where(s =>
+                            !HasInScale(s) && s.numOfService == minSvc).ToList();
+                        while (candidates.Count > 0 && service.GetCommanderNecessaryAmount() > 0)
+                        {
+                            var chosen = GetRandomShooter(candidates);
+                            service.AddCommander(chosen);
+                            candidates.Remove(chosen);
+                        }
+                    }
+                }
+                minSvc++;
+            }
+        }
+
+        // ── Fase 2: Permanências e Sentinelas ──
+        int minServices = notCfcShooters.Count > 0 ? notCfcShooters[0].numOfService : 0;
+
         while (!IsCompleteSentinels() || !IsCompletePermanences())
         {
             int aux = 0;  // Esse aux serve para ajudar a determinar a quantidade do loop for
@@ -198,41 +261,46 @@ internal class ServiceScale
         // Se houver é tentado realizar a troca dele com outro atirador se possível for
         foreach (var service in Services)
         {
-            Shooter? commander = service.ReturnCommanderNotOk();  // Pega o comandante da guarda de serviço se ele estiver escalado mesmo não podendo para tentar a troca
-            List<Shooter> permanencesNotOK = service.ReturnPermancesNotOk();// Pega os permanências da guarda de serviço se eles estiverem escalados mesmo não podendo para tentar a troca
-            List<Shooter> sentinelsNotOK = service.ReturnSentinelsNotOk();// Pega os sentinelas da guarda de serviço se eles estiverem escalados mesmo não podendo para tentar a troca
+            List<Shooter> commandersNotOK = service.ReturnCommandersNotOk();  // Pega os comandantes que não podem no dia
+            List<Shooter> permanencesNotOK = service.ReturnPermancesNotOk();
+            List<Shooter> sentinelsNotOK = service.ReturnSentinelsNotOk();
 
-            if (commander != null)  //Se têm o comandante que não está ok com o dia que pegou serviço
+            // Troca para cada comandante que não está ok
+            foreach (var commander in commandersNotOK)
             {
-                bool ultimoRecurso = true;  // ultimoRecurso no if final se necessário caso não encontre alguém para troca de serviço
+                bool ultimoRecurso = true;
+                bool swapped = false;
                 foreach (var serviceSwap in Services)
                 {
-                    if (commander.IsOk(serviceSwap.Date, 1)) // Se o commander pode pegar serviço na data do outro serviço da escala
+                    if (swapped) break;
+                    if (commander.IsOk(serviceSwap.Date, 1))
                     {
-                        var codSwap = serviceSwap.GetCommander();  // Pega o comandante da guarda do outro serviço
-                        if (codSwap != null && codSwap.IsOk(service.Date, 1))  // Se o comandante da guarda do outro serviço pode tirar o serviço no lugar do comandante que não pode
+                        // Tenta trocar com um comandante do outro dia
+                        foreach (var codSwap in serviceSwap.GetCommanders().ToList())
                         {
-                            // Faz a troca de serviço
-                            if (service.SetCommanderOfTheGuard(codSwap))
+                            if (codSwap.IsOk(service.Date, 1))
                             {
-                                serviceSwap.SetCommanderOfTheGuard(commander);
+                                service.RemoveCommander(commander);
+                                serviceSwap.RemoveCommander(codSwap);
+                                service.AddCommander(codSwap);
+                                serviceSwap.AddCommander(commander);
                                 ultimoRecurso = false;
+                                swapped = true;
                                 break;
                             }
                         }
                     }
                 }
-                if (ultimoRecurso)  // Se a troca não foi feita esse é o último recurso
+                if (ultimoRecurso)
                 {
-                    // Pega todos os atirados cfc um a um
                     foreach (var codSwap in cfcShooters)
                     {
-                        // Se não está na escala e realmente é cfc
                         if (codSwap.isCfc && !HasInScale(codSwap))
                         {
-                            if (codSwap.IsOk(service.Date, 1) && (codSwap.numOfService <= commander.numOfService))  // Se este atirador tirou a mesma quantidade de serviços que o outro e pode na data faz a troca
+                            if (codSwap.IsOk(service.Date, 1) && (codSwap.numOfService <= commander.numOfService))
                             {
-                                service.SetCommanderOfTheGuard(codSwap);
+                                service.RemoveCommander(commander);
+                                service.AddCommander(codSwap);
                                 break;
                             }
                         }
@@ -405,7 +473,7 @@ internal class ServiceScale
     // Método auxiliar para sortear um atirador aleatório
     private Shooter GetRandomShooter(List<Shooter> shooters)
     {
-        return shooters[new Random().Next(shooters.Count)];
+        return shooters[_random.Next(shooters.Count)];
     }
 
     // Verifica se todos os serviços estão completos
@@ -421,12 +489,12 @@ internal class ServiceScale
         return true;
     }
 
-    // Método auxiliar para verificar se todos os serviços têm os comandantes
+    // Método auxiliar para verificar se todos os serviços têm os comandantes necessários
     public bool IsCompleteCommanders()
     {
         foreach (var service in Services)
         {
-            if (!service.HasCommanderOfTheGuard())
+            if (service.GetCommanderNecessaryAmount() > 0)
             {
                 return false;
             }
@@ -460,38 +528,38 @@ internal class ServiceScale
         return true;
     }
 
-    // Método static para saber quantos cfcs precisam para criar uma escala de serviço passando uma certa data de início e fim
-    public static int GetNecessaryCfcForScale(DateOnly startDate, DateOnly endDate)
+    // Método static para saber quantos cfcs precisam (usa config se disponível)
+    public static int GetNecessaryCfcForScale(DateOnly startDate, DateOnly endDate, ServiceConfig? config = null)
     {
         int necessary = 0;
         int diference = endDate.DayNumber - startDate.DayNumber;
+        var dt = startDate;
 
         for (int i = 0; i <= diference; i++)
         {
-            necessary += 1;
+            int commanders = config?.GetCommanders(dt.DayOfWeek) ?? 1;
+            bool mustBeCfc = config?.MustCommanderBeCfc(dt.DayOfWeek) ?? true;
+            if (mustBeCfc)
+                necessary += commanders;
+            dt = dt.AddDays(1);
         }
 
         return necessary;
     }
 
-    // Método static para saber quantos atiradores não cfc precisam para criar uma escala de serviço passando uma certa data de início e fim
-    public static int GetNecessaryShootersNotSfcForScale(DateOnly startDate, DateOnly endDate)
+    // Método static para saber quantos atiradores não cfc precisam (usa config se disponível)
+    public static int GetNecessaryShootersNotSfcForScale(DateOnly startDate, DateOnly endDate, ServiceConfig? config = null)
     {
         int necessary = 0;
         int diference = endDate.DayNumber - startDate.DayNumber;
+        var dt = startDate;
 
         for (int i = 0; i <= diference; i++)
         {
-            necessary += 3;
-            if ((int)startDate.DayOfWeek == 0 || (int)startDate.DayOfWeek > 4)
-            {
-                necessary += 2;
-            }
-            else
-            {
-                necessary += 1;
-            }
-            startDate = startDate.AddDays(1);
+            int sentinels = config?.GetSentinels(dt.DayOfWeek) ?? 3;
+            int permanences = config?.GetPermanences(dt.DayOfWeek) ?? (dt.DayOfWeek == DayOfWeek.Sunday || (int)dt.DayOfWeek > 4 ? 2 : 1);
+            necessary += sentinels + permanences;
+            dt = dt.AddDays(1);
         }
 
         return necessary;

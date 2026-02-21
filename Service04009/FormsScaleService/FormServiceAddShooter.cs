@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +11,54 @@ using System.Windows.Forms;
 
 namespace Service04009.FormsScaleService
 {
-    public partial class FormServiceAddShooter : Form
+    public partial class FormServiceAddShooter : BaseChildForm
     {
         public FormServiceAddShooter()
         {
             InitializeComponent();
+            ArrangeLayout();
+        }
+
+        private void ArrangeLayout()
+        {
+            // ── Título ──
+            label1.Location = new Point(20, 10);
+
+            // ── Busca do atirador ──
+            int secY = 65;
+            label3.Location = new Point(30, secY);
+            label3.Padding = Padding.Empty;
+            numAtrBox1.Location = new Point(30, secY + 22);
+            numAtrBox1.Size = new Size(280, 25);
+            btQueryShooters.Location = new Point(320, secY + 20);
+            btQueryShooters.Size = new Size(420, 28);
+            shooter1InfoLabel.Location = new Point(30, secY + 58);
+            shooter1InfoLabel.Padding = new Padding(8, 4, 8, 4);
+
+            // ── Data do serviço ──
+            int dateY = secY + 95;
+            date1Label.Location = new Point(30, dateY);
+            date1Label.Padding = Padding.Empty;
+            dateTimeService1.Location = new Point(30, dateY + 22);
+            dateTimeService1.Size = new Size(280, 26);
+
+            // ── Atirador que perderá serviço ──
+            int sec2Y = dateY + 65;
+            numAtr2Label.Location = new Point(30, sec2Y);
+            numAtr2Label.Padding = Padding.Empty;
+            numAtrBox2.Location = new Point(30, sec2Y + 22);
+            numAtrBox2.Size = new Size(280, 25);
+
+            btQueryServices.Location = new Point(320, sec2Y + 55);
+            btQueryServices.Size = new Size(500, 30);
+
+            service1InfoLabel.Location = new Point(30, sec2Y + 95);
+            service1InfoLabel.Size = new Size(1185, 64);
+            service1InfoLabel.Padding = new Padding(8, 4, 8, 4);
+
+            // ── Botão atribuir ──
+            btSwap.Location = new Point(150, sec2Y + 175);
+            btSwap.Size = new Size(950, 50);
         }
         Shooter? shooter1Form;
         Shooter? shooter2Form;
@@ -100,7 +142,7 @@ namespace Service04009.FormsScaleService
 
                     // Carregar ServiceScale com todos os serviços associados e suas propriedades relacionadas
                     var service1 = db.Services
-                        .Include(s => s.CommanderOfTheGuard)
+                        .Include(s => s.Commanders)
                         .Include(s => s.Permanences)
                         .Include(s => s.Sentinels)
                         .Where(s => s.Date == date1)
@@ -195,7 +237,7 @@ namespace Service04009.FormsScaleService
                         Shooter? shooter1 = db.Shooters.Where(s => s.numAtr == shooter1Form.numAtr).FirstOrDefault();
                         Shooter? shooter2 = db.Shooters.Where(s => s.numAtr == shooter2Form.numAtr).FirstOrDefault();
                         var service1 = db.Services
-                        .Include(s => s.CommanderOfTheGuard)
+                        .Include(s => s.Commanders)
                         .Include(s => s.Permanences)
                         .Include(s => s.Sentinels)
                         .Where(s => s.Date == service1Form.Date)
@@ -217,11 +259,12 @@ namespace Service04009.FormsScaleService
                             }
                             else if (s1 == 3)
                             {
-                                service1.SetCommanderOfTheGuardSwap(shooter1);
+                                service1.RemoveCommander(shooter2);
+                                service1.AddCommanderSwap(shooter1);
                             }
                             db.SaveChanges();
 
-                            MessageBox.Show($"A atribuição de serviço foi realizada com sucesso!!\nNo serviço do dia {service1.Date} ficou o atirador {shooter2.numAtr} {shooter2.warName}.");
+                            MessageBox.Show($"A atribuição de serviço foi realizada com sucesso!!\nNo serviço do dia {service1.Date} ficou o atirador {shooter1.numAtr} {shooter1.warName}.");
                             btSwap.Visible = false;
                             service1InfoLabel.Visible = false;
                             service1Form = null;
