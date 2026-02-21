@@ -18,9 +18,10 @@ Open Source License (NC-1.0) Copyright (c) 2024 Service04009”.
 - Cadastrar e consultar escalas de serviço.
 - Gerar escalas de serviço da melhor maneira possível para atender as disponibilidades de
 horários dos atiradores.
+- Parametrizar a escala de serviço que sera gerada, como número de sentinelas e permanências.
 - Gerar documentos Word da escala de serviço gerada se necessário. (ainda não disponível)
 - Poder gerenciar tanto escalas de serviço com comandantes da guarda como sem
-comandantes. (ainda não disponível)
+comandantes.
 - Ter um banco de dados SQL para armazenamento dos dados para possibilitar a cópia dos
 mesmos para salvar um backup em outros locais.
 ### Dependências para desenvolvimento do software
